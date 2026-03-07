@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTP — Crypto Casino Growth Terminal</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --panel: #111827;
+    --border: #1e293b;
+    --accent: #22d3ee;
+    --accent2: #a78bfa;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --orange: #fb923c;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --dim: #334155;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.5; }
+  
+  .header { background: linear-gradient(90deg, #0f172a, #1e1b4b); border-bottom: 2px solid var(--accent); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  .header h1 { font-size: 18px; color: var(--accent); letter-spacing: 4px; }
+  .header .subtitle { color: var(--muted); font-size: 11px; }
+  .header .clock { color: var(--accent); font-size: 14px; font-weight: bold; }
+  
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); padding: 1px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-full { grid-template-columns: 1fr; }
+  
+  .panel { background: var(--panel); padding: 16px; min-height: 200px; }
+  .panel-title { color: var(--accent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
+  .panel-title .count { color: var(--muted); font-size: 10px; }
+  
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; margin: 2px; font-weight: bold; }
+  .tag-green { background: #064e3b; color: var(--green); }
+  .tag-yellow { background: #422006; color: var(--yellow); }
+  .tag-red { background: #450a0a; color: var(--red); }
+  .tag-blue { background: #0c4a6e; color: var(--accent); }
+  .tag-purple { background: #2e1065; color: var(--accent2); }
+  .tag-orange { background: #431407; color: var(--orange); }
+  
+  .idea-card { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 10px; margin-bottom: 8px; transition: border-color 0.2s; }
+  .idea-card:hover { border-color: var(--accent); }
+  .idea-card h3 { color: var(--accent); font-size: 13px; margin-bottom: 4px; }
+  .idea-card p { color: var(--muted); font-size: 11px; }
+  .idea-card .meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+  
+  .influencer-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr; gap: 8px; padding: 8px 4px; border-bottom: 1px solid var(--border); font-size: 12px; align-items: center; }
+  .influencer-row:hover { background: rgba(34, 211, 238, 0.05); }
+  .influencer-row.header-row { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .influencer-row .name { color: var(--text); font-weight: bold; }
+  .influencer-row .platform { color: var(--accent2); }
+  .influencer-row .followers { color: var(--green); }
+  .influencer-row .category { color: var(--yellow); }
+  
+  .competitor-row { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1.5fr; gap: 8px; padding: 8px 4px; border-bottom: 1px solid var(--border); font-size: 12px; align-items: center; }
+  .competitor-row:hover { background: rgba(34, 211, 238, 0.05); }
+  .competitor-row.header-row { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  
+  .metric-box { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 12px; text-align: center; }
+  .metric-box .value { font-size: 24px; font-weight: bold; color: var(--accent); }
+  .metric-box .label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  
+  .metrics-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
+  
+  .section-divider { background: linear-gradient(90deg, var(--accent), transparent); height: 1px; margin: 0; }
+  
+  .playbook-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .playbook-item .step { color: var(--accent); font-weight: bold; }
+  .playbook-item .desc { color: var(--muted); font-size: 11px; margin-top: 2px; }
+  
+  .filter-bar { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+  .filter-btn { background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 3px; cursor: pointer; font-size: 11px; font-family: inherit; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(34, 211, 238, 0.1); }
+  
+  .notes-area { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 10px; color: var(--text); font-family: inherit; font-size: 12px; width: 100%; min-height: 120px; resize: vertical; }
+  .notes-area:focus { outline: none; border-color: var(--accent); }
+  
+  .status-bar { background: #0f172a; border-top: 1px solid var(--border); padding: 6px 20px; display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); position: fixed; bottom: 0; width: 100%; z-index: 100; }
+  .status-bar .live { color: var(--green); }
+  
+  .scroll-panel { max-height: 500px; overflow-y: auto; }
+  .scroll-panel::-webkit-scrollbar { width: 4px; }
+  .scroll-panel::-webkit-scrollbar-track { background: var(--bg); }
+  .scroll-panel::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
+  
+  .nav { display: flex; gap: 2px; background: #0f172a; padding: 4px 20px; border-bottom: 1px solid var(--border); position: sticky; top: 52px; z-index: 99; }
+  .nav-btn { background: none; border: none; color: var(--muted); padding: 8px 16px; cursor: pointer; font-family: inherit; font-size: 12px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav-btn:hover { color: var(--text); }
+  .nav-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  
+  .priority-high { border-left: 3px solid var(--green); }
+  .priority-med { border-left: 3px solid var(--yellow); }
+  .priority-low { border-left: 3px solid var(--dim); }
+  
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: repeat(3, 1fr); }
+    .influencer-row, .competitor-row { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>⚡ XTP</h1>
+    <div class="subtitle">CRYPTO CASINO GROWTH TERMINAL</div>
+  </div>
+  <div class="clock" id="clock"></div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="showTab('dashboard')">DASHBOARD</button>
+  <button class="nav-btn" onclick="showTab('ideas')">GROWTH IDEAS</button>
+  <button class="nav-btn" onclick="showTab('influencers')">INFLUENCERS</button>
+  <button class="nav-btn" onclick="showTab('competitors')">COMPETITORS</button>
+  <button class="nav-btn" onclick="showTab('playbooks')">PLAYBOOKS</button>
+  <button class="nav-btn" onclick="showTab('notes')">WAR ROOM</button>
+</div>
+
+<!-- ═══ DASHBOARD ═══ -->
+<div class="tab-content active" id="tab-dashboard">
+  <div class="grid grid-full">
+    <div class="panel">
+      <div class="metrics-row">
+        <div class="metric-box"><div class="value">10</div><div class="label">Growth Ideas</div></div>
+        <div class="metric-box"><div class="value">38</div><div class="label">Influencers Tracked</div></div>
+        <div class="metric-box"><div class="value">8</div><div class="label">Competitors</div></div>
+        <div class="metric-box"><div class="value">5</div><div class="label">AI Wrappers</div></div>
+        <div class="metric-box"><div class="value">4</div><div class="label">Playbooks</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-2">
+    <div class="panel">
+      <div class="panel-title">🎯 TOP PRIORITY IDEAS</div>
+      <div class="idea-card priority-high">
+        <h3>AI Onboarding Concierge</h3>
+        <p>3 questions → personalized dashboard. Fixes biggest funnel leak: registration → first deposit.</p>
+        <div class="meta"><span class="tag tag-green">HIGH IMPACT</span><span class="tag tag-blue">AI WRAPPER</span><span class="tag tag-yellow">2-3 WEEKS</span></div>
+      </div>
+      <div class="idea-card priority-high">
+        <h3>Telegram Mini App Casino</h3>
+        <p>Lightweight crash/dice game in Telegram. Free → micro stakes → main platform funnel. Cheapest acquisition in crypto right now.</p>
+        <div class="meta"><span class="tag tag-green">HIGH IMPACT</span><span class="tag tag-orange">ACQUISITION</span><span class="tag tag-yellow">4-6 WEEKS</span></div>
+      </div>
+      <div class="idea-card priority-high">
+        <h3>AI VIP Host Bot</h3>
+        <p>Automated but personal. Curated promos, birthday bonuses, play-pattern recommendations. Whale retention machine.</p>
+        <div class="meta"><span class="tag tag-green">HIGH IMPACT</span><span class="tag tag-blue">AI WRAPPER</span><span class="tag tag-purple">RETENTION</span></div>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <div class="panel-title">📡 MARKET SIGNALS</div>
+      <div class="scroll-panel">
+        <div class="idea-card">
+          <h3 style="color: var(--yellow)">🔥 Telegram Mini Apps Exploding</h3>
+          <p>Hamster Kombat hit 300M users. Casino mini apps are the next wave. First movers win.</p>
+        </div>
+        <div class="idea-card">
+          <h3 style="color: var(--yellow)">🔥 AI Agents in Gambling</h3>
+          <p>Multiple casinos exploring AI concierge. Window to be first is closing. Ship in Q2 or be second.</p>
+        </div>
+        <div class="idea-card">
+          <h3 style="color: var(--yellow)">🔥 No-KYC Demand Surging</h3>
+          <p>Reddit threads about KYC frustration up 3x. Privacy-first positioning = competitive moat.</p>
+        </div>
+        <div class="idea-card">
+          <h3 style="color: var(--yellow)">🔥 Kick > Twitch for Casino</h3>
+          <p>Twitch banned gambling. Kick is the new home. All streamer partnerships should target Kick first.</p>
+        </div>
+        <div class="idea-card">
+          <h3 style="color: var(--yellow)">🔥 Crypto Deposits: Wrong Network #1 Issue</h3>
+          <p>Users losing funds on wrong chain. A deposit guard = trust signal + support cost reduction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GROWTH IDEAS ═══ -->
+<div class="tab-content" id="tab-ideas">
+  <div class="grid grid-full">
+    <div class="panel">
+      <div class="panel-title">💡 GROWTH IDEAS DATABASE <span class="count" id="idea-count"></span></div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterIdeas('all', this)">ALL</button>
+        <button class="filter-btn" onclick="filterIdeas('ai', this)">AI WRAPPERS</button>
+        <button class="filter-btn" onclick="filterIdeas('acquisition', this)">ACQUISITION</button>
+        <button class="filter-btn" onclick="filterIdeas('retention', this)">RETENTION</button>
+        <button class="filter-btn" onclick="filterIdeas('content', this)">CONTENT</button>
+        <button class="filter-btn" onclick="filterIdeas('product', this)">PRODUCT</button>
+      </div>
+      <div class="scroll-panel" id="ideas-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INFLUENCERS ═══ -->
+<div class="tab-content" id="tab-influencers">
+  <div class="grid grid-full">
+    <div class="panel">
+      <div class="panel-title">👥 CRYPTO CASINO INFLUENCER DATABASE <span class="count" id="influencer-count"></span></div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterInfluencers('all', this)">ALL</button>
+        <button class="filter-btn" onclick="filterInfluencers('kick', this)">KICK</button>
+        <button class="filter-btn" onclick="filterInfluencers('youtube', this)">YOUTUBE</button>
+        <button class="filter-btn" onclick="filterInfluencers('twitter', this)">X/TWITTER</button>
+        <button class="filter-btn" onclick="filterInfluencers('telegram', this)">TELEGRAM</button>
+        <button class="filter-btn" onclick="filterInfluencers('tiktok', this)">TIKTOK</button>
+        <button class="filter-btn" onclick="filterInfluencers('whale', this)">🐋 WHALES</button>
+        <button class="filter-btn" onclick="filterInfluencers('streamer', this)">🎮 STREAMERS</button>
+        <button class="filter-btn" onclick="filterInfluencers('affiliate', this)">💰 AFFILIATES</button>
+      </div>
+      <div class="scroll-panel">
+        <div class="influencer-row header-row">
+          <div>Name</div><div>Platform</div><div>Followers</div><div>Category</div><div>Notes</div>
+        </div>
+        <div id="influencer-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMPETITORS ═══ -->
+<div class="tab-content" id="tab-competitors">
+  <div class="grid grid-full">
+    <div class="panel">
+      <div class="panel-title">🏢 COMPETITOR INTELLIGENCE</div>
+      <div class="scroll-panel">
+        <div class="competitor-row header-row">
+          <div>Casino</div><div>Est. Monthly Users</div><div>KYC</div><div>Top Feature</div><div>Weakness</div><div>Opportunity</div>
+        </div>
+        <div id="competitor-list"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-2">
+    <div class="panel">
+      <div class="panel-title">📊 MARKET POSITIONING</div>
+      <div class="scroll-panel" id="positioning-notes">
+        <div class="idea-card">
+          <h3>Differentiators to Build</h3>
+          <p>• AI-first experience (no competitor has this)<br>
+          • Telegram-native funnel<br>
+          • Transparent RTP/withdrawal tracking<br>
+          • Community-driven trust signals<br>
+          • Influencer co-ownership model</p>
+        </div>
+        <div class="idea-card">
+          <h3>Industry Trends to Exploit</h3>
+          <p>• Post-Twitch ban migration to Kick<br>
+          • Telegram Mini App gold rush<br>
+          • No-KYC demand explosion<br>
+          • AI agent integration wave<br>
+          • Social casino → real money pipeline</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">⚔️ COMPETITIVE MOATS</div>
+      <div class="scroll-panel">
+        <div class="idea-card">
+          <h3>What Makes Casinos Sticky</h3>
+          <p>1. VIP programs (Stake dominates here)<br>
+          2. Fast withdrawals (BC.Game, Roobet)<br>
+          3. Original games (Stake Originals)<br>
+          4. Community/social features (Rollbit)<br>
+          5. Streamer relationships (Stake, Kick deals)</p>
+        </div>
+        <div class="idea-card">
+          <h3>Underexploited Channels</h3>
+          <p>• Telegram groups (huge crypto overlap)<br>
+          • Discord servers (gaming audience)<br>
+          • Reddit r/gambling, r/cryptocurrency<br>
+          • TikTok (casino content is viral)<br>
+          • Podcast sponsorships (crypto pods)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PLAYBOOKS ═══ -->
+<div class="tab-content" id="tab-playbooks">
+  <div class="grid grid-2">
+    <div class="panel">
+      <div class="panel-title">📋 LAUNCH PLAYBOOK: FIRST 90 DAYS</div>
+      <div class="scroll-panel">
+        <div class="playbook-item"><span class="step">Week 1-2:</span> Audit current funnel. Map every drop-off point from landing → deposit → first bet → repeat visit.<div class="desc">Tools: GA4, Hotjar, support tickets analysis</div></div>
+        <div class="playbook-item"><span class="step">Week 2-3:</span> Ship deposit network guard. Quick win, high trust signal, reduces support load.<div class="desc">Simple UI overlay on deposit page. Check chain compatibility before confirming.</div></div>
+        <div class="playbook-item"><span class="step">Week 3-4:</span> Launch AI onboarding concierge MVP. 3-question flow → personalized game recommendations.<div class="desc">Can start with rule-based logic, upgrade to LLM later.</div></div>
+        <div class="playbook-item"><span class="step">Week 4-6:</span> Telegram Mini App prototype. Crash game or dice. Free play to build user base.<div class="desc">Telegram Bot API + Mini App SDK. Can outsource the game engine.</div></div>
+        <div class="playbook-item"><span class="step">Week 6-8:</span> Influencer outreach campaign. Target 10 mid-tier Kick streamers.<div class="desc">Offer: rev share + exclusive games/bonuses for their audience.</div></div>
+        <div class="playbook-item"><span class="step">Week 8-10:</span> AI VIP Host Bot. Automated whale management.<div class="desc">Start with top 50 depositors. Personalized offers based on play patterns.</div></div>
+        <div class="playbook-item"><span class="step">Week 10-12:</span> Content machine. AI-generated predictions, tips, community content.<div class="desc">Daily Telegram channel + X account. SEO blog for organic traffic.</div></div>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <div class="panel-title">📋 INFLUENCER PARTNERSHIP PLAYBOOK</div>
+      <div class="scroll-panel">
+        <div class="playbook-item"><span class="step">Tier 1 — Mega (500K+):</span> Revenue share deal. Co-branded games. Exclusive tournaments.<div class="desc">Examples: Roshtein, Trainwreckstv, xQc. Cost: $50K-500K/month or 30-40% rev share.</div></div>
+        <div class="playbook-item"><span class="step">Tier 2 — Mid (50K-500K):</span> Monthly retainer + rev share. Best ROI tier.<div class="desc">Examples: ClassyBeef, Ayezee, Xposed. Cost: $5K-20K/month + 25-30% rev share.</div></div>
+        <div class="playbook-item"><span class="step">Tier 3 — Micro (5K-50K):</span> Rev share only. Volume play. Sign 20-50 of these.<div class="desc">Self-serve affiliate program. Provide content assets, tracking links, bonus codes.</div></div>
+        <div class="playbook-item"><span class="step">Tier 4 — Nano (<5K):</span> Free play balance + rev share. Community ambassadors.<div class="desc">Telegram/Discord community leaders. Word of mouth in crypto circles.</div></div>
+        <hr style="border-color: var(--border); margin: 12px 0;">
+        <div class="playbook-item"><span class="step">Key Metrics:</span> Track CPA, LTV, and deposit-to-wager ratio per influencer.<div class="desc">Kill deals where CPA > 3-month LTV. Double down on high-wager audiences.</div></div>
+        <div class="playbook-item"><span class="step">Content Strategy:</span> Give influencers exclusive "first look" at new games/features.<div class="desc">Create shareable moments: big wins, new game reveals, tournament highlights.</div></div>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <div class="panel-title">📋 TELEGRAM GROWTH PLAYBOOK</div>
+      <div class="scroll-panel">
+        <div class="playbook-item"><span class="step">Phase 1:</span> Launch official Telegram channel + group. Daily content cadence.<div class="desc">Content: predictions, big win highlights, promo codes, new game announcements.</div></div>
+        <div class="playbook-item"><span class="step">Phase 2:</span> Telegram Mini App (crash/dice). Viral sharing mechanics.<div class="desc">Referral bonus: "Invite 3 friends, get 100 free spins on main platform."</div></div>
+        <div class="playbook-item"><span class="step">Phase 3:</span> Telegram bot for deposits/withdrawals. Never leave the app.<div class="desc">Check balance, claim bonuses, get personalized offers — all in chat.</div></div>
+        <div class="playbook-item"><span class="step">Phase 4:</span> Community tournaments. Weekly leaderboards with prizes.<div class="desc">Telegram-exclusive tournaments drive FOMO and group growth.</div></div>
+      </div>
+    </div>
+    
+    <div class="panel">
+      <div class="panel-title">📋 AI IMPLEMENTATION PLAYBOOK</div>
+      <div class="scroll-panel">
+        <div class="playbook-item"><span class="step">Layer 1 — Onboarding AI:</span> Reduce time-to-first-bet from 15 min to 3 min.<div class="desc">Chat UI: "What games do you like?" → personalized lobby. GPT-4o-mini backend.</div></div>
+        <div class="playbook-item"><span class="step">Layer 2 — Betting Copilot:</span> "Find me high RTP slots" / "Best blackjack table under $5".<div class="desc">Search your game catalog with natural language. Increases game discovery 5-10x.</div></div>
+        <div class="playbook-item"><span class="step">Layer 3 — Bankroll Manager:</span> Opt-in responsible gambling AI.<div class="desc">"You're up 40% — lock profits?" Paradoxically increases retention (users don't blow their roll).</div></div>
+        <div class="playbook-item"><span class="step">Layer 4 — VIP Host:</span> Automated whale management at scale.<div class="desc">Personalized bonuses, churn prediction, reactivation campaigns. Replaces 5-10 VIP managers.</div></div>
+        <div class="playbook-item"><span class="step">Layer 5 — Content Engine:</span> AI generates daily predictions, social content, email campaigns.<div class="desc">Sports predictions drive traffic. Casino highlights drive engagement. All automated.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WAR ROOM ═══ -->
+<div class="tab-content" id="tab-notes">
+  <div class="grid grid-2">
+    <div class="panel">
+      <div class="panel-title">📝 SCRATCH PAD <span class="count">(auto-saved)</span></div>
+      <textarea class="notes-area" id="warroom-notes" placeholder="Type your notes, ideas, meeting takeaways..." oninput="saveNotes()"></textarea>
+    </div>
+    <div class="panel">
+      <div class="panel-title">🎯 QUICK WINS LOG</div>
+      <textarea class="notes-area" id="quickwins-notes" placeholder="Track quick wins and small victories..." oninput="saveNotes()"></textarea>
+    </div>
+  </div>
+  <div class="grid grid-full">
+    <div class="panel">
+      <div class="panel-title">📊 WEEKLY PRIORITIES</div>
+      <textarea class="notes-area" id="priorities-notes" placeholder="This week's top 3 priorities..." oninput="saveNotes()"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <div><span class="live">● LIVE</span> — XTP v1.0 — Crypto Casino Growth Terminal</div>
+  <div>Built by Brandon @ XTP | Data refreshed manually | <span id="status-clock"></span></div>
+</div>
+
+<script>
+// ═══ DATA ═══
+
+const ideas = [
+  { name: "AI Onboarding Concierge", desc: "3 questions → personalized dashboard. Fixes biggest funnel leak: registration → first deposit. Can start rule-based, upgrade to LLM.", impact: "HIGH", category: ["ai", "product"], timeline: "2-3 weeks", priority: "high" },
+  { name: "Telegram Mini App Casino", desc: "Lightweight crash/dice in Telegram. Free play → micro stakes → main platform. Cheapest acquisition channel in crypto right now. Hamster Kombat proved the model.", impact: "HIGH", category: ["acquisition"], timeline: "4-6 weeks", priority: "high" },
+  { name: "AI VIP Host Bot", desc: "Automated but personal-feeling. Curated promos, birthday bonuses, play-pattern recommendations. Replaces 5-10 human VIP managers. Whale retention machine.", impact: "HIGH", category: ["ai", "retention"], timeline: "3-4 weeks", priority: "high" },
+  { name: "AI Betting Copilot", desc: "Natural language game search: 'high RTP slots under $1 min bet'. Increases game discovery 5-10x. No competitor has this.", impact: "HIGH", category: ["ai", "product"], timeline: "2-3 weeks", priority: "med" },
+  { name: "AI Bankroll Manager", desc: "Users set budget, bot tracks session. 'You're up 40%, lock profits?' Responsible gambling that paradoxically retains users — they don't blow their roll.", impact: "MED", category: ["ai", "retention"], timeline: "2 weeks", priority: "med" },
+  { name: "Deposit Network Guard", desc: "Catches wrong-network deposits before they happen. #1 most expensive user error in crypto gambling. Trust signal + support cost reduction.", impact: "MED", category: ["product"], timeline: "1 week", priority: "med" },
+  { name: "Referral Leaderboard + AI Content", desc: "Give affiliates an AI tool that generates custom promo content (tweets, reviews) with their ref link. Lower the barrier for affiliate marketing.", impact: "HIGH", category: ["acquisition", "content", "ai"], timeline: "3-4 weeks", priority: "med" },
+  { name: "Streaming Clip Detector", desc: "AI auto-captures big wins from Kick/Twitch streams, adds branding, posts to socials. Free marketing from every streamer session.", impact: "MED", category: ["content", "ai"], timeline: "4-6 weeks", priority: "low" },
+  { name: "AI Sports Predictor Feed", desc: "Free daily AI predictions on site/Telegram. Doesn't need accuracy — drives traffic. Users come for predictions, stay for betting.", impact: "MED", category: ["content", "acquisition"], timeline: "1-2 weeks", priority: "med" },
+  { name: "AI Cashback Optimizer", desc: "'Switch to live dealer for 2 hours and you'll hit the next tier.' Gamifies loyalty program. Makes users feel smart about their play.", impact: "MED", category: ["ai", "retention"], timeline: "2-3 weeks", priority: "low" },
+];
+
+const influencers = [
+  // MEGA STREAMERS
+  { name: "Roshtein", platform: "Kick", followers: "2.1M", category: "Streamer", tags: ["kick", "streamer", "whale"], notes: "King of slots streaming. Stake sponsored. Massive reach." },
+  { name: "Trainwreckstv", platform: "Kick", followers: "1.8M", category: "Streamer", tags: ["kick", "streamer", "whale"], notes: "Co-owner of Kick. Huge gambling streams. Stake deal reportedly $1B+." },
+  { name: "xQc", platform: "Kick", followers: "1.5M", category: "Streamer", tags: ["kick", "streamer", "whale"], notes: "Variety → gambling crossover. Massive audience. High controversy risk." },
+  { name: "AdinRoss", platform: "Kick", followers: "1.2M", category: "Streamer", tags: ["kick", "streamer", "whale"], notes: "Young audience. Gambling + lifestyle. Stake sponsored." },
+  { name: "Drake", platform: "Twitter/X", followers: "40M", category: "Celebrity", tags: ["twitter", "whale"], notes: "Stake brand ambassador. Celebrity endorsement benchmark." },
+  
+  // MID-TIER STREAMERS
+  { name: "ClassyBeef", platform: "Kick", followers: "450K", category: "Streamer", tags: ["kick", "streamer"], notes: "Slots group. Professional production. Multiple presenters." },
+  { name: "Ayezee", platform: "Kick", followers: "380K", category: "Streamer", tags: ["kick", "streamer"], notes: "Crypto-native audience. Good for crypto casino crossover." },
+  { name: "Xposed", platform: "Kick", followers: "320K", category: "Streamer", tags: ["kick", "streamer"], notes: "High-stakes slots. Transparent about wins/losses." },
+  { name: "SteveWillDoIt", platform: "Kick", followers: "280K", category: "Streamer", tags: ["kick", "streamer", "whale"], notes: "Viral moments. High risk, high reward partnerships." },
+  { name: "JuicyFields", platform: "Kick", followers: "150K", category: "Streamer", tags: ["kick", "streamer"], notes: "Growing fast. More affordable. Good ROI tier." },
+  { name: "Vitaly", platform: "Kick", followers: "200K", category: "Streamer", tags: ["kick", "streamer"], notes: "Prank + gambling crossover. Viral potential." },
+  
+  // YOUTUBE
+  { name: "BrianChristopher Slots", platform: "YouTube", followers: "750K", category: "Content Creator", tags: ["youtube", "affiliate"], notes: "Biggest slots YouTuber. Family-friendly angle. US-focused." },
+  { name: "The Big Jackpot", platform: "YouTube", followers: "420K", category: "Content Creator", tags: ["youtube", "affiliate"], notes: "High-stakes slots content. Older demographic." },
+  { name: "CasinoDaddy", platform: "YouTube", followers: "280K", category: "Content Creator", tags: ["youtube", "streamer"], notes: "Swedish brothers. Multi-platform. Established affiliate network." },
+  { name: "Slotspinner", platform: "YouTube", followers: "180K", category: "Content Creator", tags: ["youtube", "streamer"], notes: "European slots. High engagement rate." },
+  { name: "HideousSlots", platform: "YouTube", followers: "120K", category: "Content Creator", tags: ["youtube", "affiliate"], notes: "Honest reviews. Trusted by community." },
+  
+  // X/TWITTER CRYPTO GAMBLING
+  { name: "GambleFi", platform: "Twitter/X", followers: "95K", category: "Influencer", tags: ["twitter", "affiliate"], notes: "Crypto gambling alpha. DeFi x gambling crossover." },
+  { name: "CryptoGambler", platform: "Twitter/X", followers: "68K", category: "Influencer", tags: ["twitter", "affiliate"], notes: "Reviews, bonus codes, crypto casino comparisons." },
+  { name: "NoKYCasino", platform: "Twitter/X", followers: "45K", category: "Influencer", tags: ["twitter", "affiliate"], notes: "No-KYC focused. Privacy audience. High conversion." },
+  { name: "DegenerateNews", platform: "Twitter/X", followers: "52K", category: "Influencer", tags: ["twitter"], notes: "Gambling news aggregator. Good for PR/announcements." },
+  { name: "CasinoAlpha_", platform: "Twitter/X", followers: "38K", category: "Influencer", tags: ["twitter", "affiliate"], notes: "Bonus hunting content. Affiliate focused." },
+  { name: "CryptoBetsDaily", platform: "Twitter/X", followers: "28K", category: "Influencer", tags: ["twitter"], notes: "Daily picks + casino promos. Growing fast." },
+  
+  // TELEGRAM
+  { name: "CryptoGamblingChat", platform: "Telegram", followers: "85K", category: "Community", tags: ["telegram"], notes: "Largest crypto gambling Telegram group. High engagement." },
+  { name: "StakeCommunity", platform: "Telegram", followers: "120K", category: "Community", tags: ["telegram"], notes: "Unofficial Stake community. Bonus sharing, tips." },
+  { name: "NoKYC Casino Group", platform: "Telegram", followers: "42K", category: "Community", tags: ["telegram"], notes: "Privacy-focused gambling. Curated casino list." },
+  { name: "DeFi Degen Casino", platform: "Telegram", followers: "35K", category: "Community", tags: ["telegram"], notes: "DeFi + gambling crossover. On-chain casino focus." },
+  { name: "Crypto Slots Alerts", platform: "Telegram", followers: "28K", category: "Community", tags: ["telegram"], notes: "Slot bonuses, free spins alerts. High engagement." },
+  
+  // TIKTOK
+  { name: "SlotsGuy", platform: "TikTok", followers: "520K", category: "Content Creator", tags: ["tiktok"], notes: "Short-form slot wins. Viral format. Young demographic." },
+  { name: "CasinoClips", platform: "TikTok", followers: "380K", category: "Content Creator", tags: ["tiktok"], notes: "Big win compilations. High view counts." },
+  { name: "CryptoGambling_", platform: "TikTok", followers: "165K", category: "Content Creator", tags: ["tiktok"], notes: "Crypto casino tips + wins. Growing niche." },
+  { name: "BetBuddy", platform: "TikTok", followers: "210K", category: "Content Creator", tags: ["tiktok"], notes: "Sports betting + casino. Prediction content." },
+  
+  // AFFILIATES / REVIEW SITES
+  { name: "BitcoinCasino.us", platform: "Website", followers: "500K/mo", category: "Affiliate", tags: ["affiliate"], notes: "Top SEO affiliate. Massive organic traffic. Premium placement fees." },
+  { name: "CryptoGambling.tv", platform: "Website", followers: "200K/mo", category: "Affiliate", tags: ["affiliate"], notes: "Video + written reviews. Strong in crypto casino niche." },
+  { name: "BitEdge", platform: "Website", followers: "150K/mo", category: "Affiliate", tags: ["affiliate"], notes: "Data-driven reviews. API integrations. Tech-savvy audience." },
+  { name: "CryptoCasinoSorted", platform: "Website", followers: "Growing", category: "Affiliate", tags: ["affiliate"], notes: "👋 That's us. Leverage for insider knowledge + partnership." },
+  
+  // DISCORD
+  { name: "GambaVerse", platform: "Discord", followers: "45K", category: "Community", tags: ["telegram"], notes: "Gambling Discord. Competitions, giveaways, referrals." },
+  { name: "Degen Den", platform: "Discord", followers: "32K", category: "Community", tags: ["telegram"], notes: "Crypto degens. Gambling + trading crossover audience." },
+  { name: "Stake Discord", platform: "Discord", followers: "180K", category: "Community", tags: ["telegram"], notes: "Official Stake Discord. Study their community playbook." },
+];
+
+const competitors = [
+  { name: "Stake.com", users: "5M+", kyc: "Optional", feature: "Original games + VIP program", weakness: "Complexity for new users", opportunity: "Beat them on onboarding UX" },
+  { name: "BC.Game", users: "2M+", kyc: "No KYC", feature: "Multi-crypto + community", weakness: "UI feels cluttered", opportunity: "Cleaner experience + better AI" },
+  { name: "Roobet", users: "1.5M+", kyc: "Minimal", feature: "Simple UX + crash game", weakness: "Limited game variety", opportunity: "More games + better discovery" },
+  { name: "Rollbit", users: "800K+", kyc: "No KYC", feature: "NFT + trading integration", weakness: "Niche audience", opportunity: "Broader appeal + social features" },
+  { name: "Duelbits", users: "600K+", kyc: "Optional", feature: "Fast withdrawals", weakness: "Brand recognition", opportunity: "Outmarket them on content" },
+  { name: "Gamdom", users: "400K+", kyc: "Optional", feature: "Esports betting", weakness: "Small game library", opportunity: "Better esports + AI predictions" },
+  { name: "Bitcasino.io", users: "500K+", kyc: "Optional", feature: "Established brand", weakness: "Feels dated", opportunity: "Modern AI-first rebrand" },
+  { name: "Rainbet", users: "300K+", kyc: "No KYC", feature: "Clean design", weakness: "Small team, slow feature dev", opportunity: "Ship faster, more features" },
+];
+
+// ═══ RENDER FUNCTIONS ═══
+
+function renderIdeas(filter = 'all') {
+  const container = document.getElementById('ideas-list');
+  const filtered = filter === 'all' ? ideas : ideas.filter(i => i.category.includes(filter));
+  document.getElementById('idea-count').textContent = `(${filtered.length} ideas)`;
+  
+  container.innerHTML = filtered.map(idea => `
+    <div class="idea-card priority-${idea.priority}">
+      <h3>${idea.name}</h3>
+      <p>${idea.desc}</p>
+      <div class="meta">
+        <span class="tag ${idea.impact === 'HIGH' ? 'tag-green' : 'tag-yellow'}">${idea.impact} IMPACT</span>
+        ${idea.category.map(c => `<span class="tag tag-blue">${c.toUpperCase()}</span>`).join('')}
+        <span class="tag tag-purple">${idea.timeline}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderInfluencers(filter = 'all') {
+  const container = document.getElementById('influencer-list');
+  const filtered = filter === 'all' ? influencers : influencers.filter(i => i.tags.includes(filter));
+  document.getElementById('influencer-count').textContent = `(${filtered.length} tracked)`;
+  
+  container.innerHTML = filtered.map(inf => `
+    <div class="influencer-row">
+      <div class="name">${inf.name}</div>
+      <div class="platform">${inf.platform}</div>
+      <div class="followers">${inf.followers}</div>
+      <div class="category">${inf.category}</div>
+      <div style="color: var(--muted); font-size: 11px;">${inf.notes}</div>
+    </div>
+  `).join('');
+}
+
+function renderCompetitors() {
+  const container = document.getElementById('competitor-list');
+  container.innerHTML = competitors.map(c => `
+    <div class="competitor-row">
+      <div style="color: var(--text); font-weight: bold;">${c.name}</div>
+      <div style="color: var(--green);">${c.users}</div>
+      <div><span class="tag ${c.kyc === 'No KYC' ? 'tag-green' : 'tag-yellow'}">${c.kyc}</span></div>
+      <div style="color: var(--accent);">${c.feature}</div>
+      <div style="color: var(--red); font-size: 11px;">${c.weakness}</div>
+      <div style="color: var(--green); font-size: 11px;">${c.opportunity}</div>
+    </div>
+  `).join('');
+}
+
+// ═══ TAB NAVIGATION ═══
+
+function showTab(tabName) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${tabName}`).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function filterIdeas(filter, btn) {
+  document.querySelectorAll('#tab-ideas .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderIdeas(filter);
+}
+
+function filterInfluencers(filter, btn) {
+  document.querySelectorAll('#tab-influencers .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderInfluencers(filter);
+}
+
+// ═══ NOTES (localStorage) ═══
+
+function saveNotes() {
+  const data = {
+    warroom: document.getElementById('warroom-notes').value,
+    quickwins: document.getElementById('quickwins-notes').value,
+    priorities: document.getElementById('priorities-notes').value,
+  };
+  localStorage.setItem('xtp-notes', JSON.stringify(data));
+}
+
+function loadNotes() {
+  try {
+    const data = JSON.parse(localStorage.getItem('xtp-notes') || '{}');
+    if (data.warroom) document.getElementById('warroom-notes').value = data.warroom;
+    if (data.quickwins) document.getElementById('quickwins-notes').value = data.quickwins;
+    if (data.priorities) document.getElementById('priorities-notes').value = data.priorities;
+  } catch {}
+}
+
+// ═══ CLOCK ═══
+
+function updateClock() {
+  const now = new Date();
+  const str = now.toLocaleString('en-ZA', { timeZone: 'Africa/Johannesburg', hour12: false, year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  document.getElementById('clock').textContent = str;
+  document.getElementById('status-clock').textContent = str;
+}
+
+// ═══ INIT ═══
+renderIdeas();
+renderInfluencers();
+renderCompetitors();
+loadNotes();
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
