@@ -497,244 +497,82 @@
 
   <div class="status-bar">
     <div><span class="live">● LIVE</span> - XTP v2.0 - Crypto Casino Growth Terminal</div>
-    <div>Ops Mode | Data refreshed manually | <span id="status-clock"></span></div>
+    <div>Ops Mode | Data refreshed manually | Last updated: <span id="status-updated"></span> | <span id="status-clock"></span></div>
   </div>
 </div>
 
 <script>
 // DATA
-const startDate = '2026-03-15';
+const DATA_URL = 'data.json';
+let startDate = '2026-03-15';
+let lastUpdated = '';
+let kpis = [];
+let budgetAllocation = [];
+let activeCampaigns = [];
+let activityFeed = [];
+let streamers = [];
+let clipPipeline = [];
+let clippers = [];
+let viralClips = [];
+let clipCalendar = [];
+let affiliates = [];
+let influencers = [];
+let influencerHistory = [];
+let communityTelegram = [];
+let communityDiscord = [];
+let communityReddit = [];
+let communityMetrics = [];
+let referralProgram = [];
+let campaigns = [];
+let competitors = [];
+let weeklySprint = [];
+let actionItems = [];
+let decisionsLog = [];
+let quickLinks = [];
 
-const kpis = [
-  { label: 'Total Reach', value: '42.8M' },
-  { label: 'Active Partners', value: '68' },
-  { label: 'Live Campaigns', value: '12' },
-  { label: 'Monthly Budget', value: '$420K' },
-  { label: 'Est. Revenue Generated', value: '$1.85M' },
-];
+function updateLastUpdated() {
+  const el = document.getElementById('status-updated');
+  if (!el) return;
+  el.textContent = lastUpdated || 'Unknown';
+}
 
-const budgetAllocation = [
-  { label: 'Streamers', pct: 40 },
-  { label: 'Affiliates', pct: 25 },
-  { label: 'Influencers', pct: 20 },
-  { label: 'Community', pct: 10 },
-  { label: 'Other', pct: 5 },
-];
-
-const activeCampaigns = [
-  { name: 'Kick Streamer Ramp', status: 'LIVE', kpi: 'FTDs 1,200', budget: '$120K', roi: '2.4x' },
-  { name: 'Affiliate SEO Push', status: 'LIVE', kpi: 'FTDs 800', budget: '$80K', roi: '3.1x' },
-  { name: 'TikTok Clip Blitz', status: 'LIVE', kpi: 'Reach 8M', budget: '$25K', roi: '2.0x' },
-  { name: 'Telegram Mini App Tease', status: 'LIVE', kpi: 'Waitlist 20K', budget: '$15K', roi: '1.6x' },
-  { name: 'Welcome Bonus Refresh', status: 'LIVE', kpi: 'FTD +15%', budget: '$40K', roi: '2.8x' },
-];
-
-const activityFeed = [
-  '🛰️ [26 Mar] CCS Daily Intel: $110.4M total volume, 116K deposits. Roobet #1 ($3.2M). Biggest deposit: $2.2M at Stake.',
-  '📰 [26 Mar] NYC casinos projected up to $5.6B annual revenue - massive market opening.',
-  '📰 [26 Mar] Missouri casino smoking legislation clock ticking - regulatory shift incoming.',
-  '🎪 [26 Mar] SBC Summit - Lisbon, Sept 22-24, 2026. Biggest iGaming event. Plan attendance?',
-  '💰 [26 Mar] Stake running 200% deposit bonus up to $1,000. Competitive pressure on welcome offers.',
-  '✅ Signed @FlashSpinz on Kick (hybrid deal, 25% rev share).',
-  '⚡ Viral clip hit 1.2M views (Clipper: RoxyReels).',
-  '📈 Affiliate BitSlotsHub drove 210 FTDs last 7 days.',
-  '🟡 Negotiating with @DegenDaria (TikTok).',
-  '🧯 Reddit thread flagged payout delays - responded & clarified.',
-  '🎯 Campaign "Rakeback Rush" hit 114% of target.',
-];
-
-const streamers = [
-  { name: 'Trainwreckstv', platform: 'Kick', followers: 1000000, viewers: 15767, deal: 'Hybrid', cost: 0, depositors: 0, roi: 0.0, status: 'Paused', notes: 'Unreachable. $360M Stake deal, Kick co-founder. VERIFIED: 15.8K avg viewers, 48.8K peak, 60.5hrs streamed last 30d (StreamsCharts Mar 2026). Marathon 24hr sessions.' },
-  { name: 'Roshtein', platform: 'Kick', followers: 300000, viewers: 11267, deal: 'Hybrid', cost: 0, depositors: 0, roi: 0.0, status: 'Paused', notes: 'Unreachable. Swedish, based in Malta. VERIFIED: 11.3K avg viewers, 759K hours watched last 30d (StreamsCharts Mar 2026). Theatrical style. Allegations of fake money.' },
-  { name: 'xQc', platform: 'Kick', followers: 12000000, viewers: 50000, deal: 'Exclusive ($100M Kick deal)', cost: 0, depositors: 0, roi: 0.0, status: 'Paused', notes: 'Unreachable. Former Overwatch pro. $2.95B wagered on Stake. Massive mainstream crossover.' },
-  { name: 'Adin Ross', platform: 'Kick', followers: 1000000, viewers: 30000, deal: 'Exclusive ($100M Rainbet)', cost: 0, depositors: 0, roi: 0.0, status: 'Paused', notes: 'Unreachable. Gen Z audience. Celebrity collabs (Drake, Trump). Lost $40M+ gambling.' },
-  { name: 'Xposed (Cody Burnett)', platform: 'Kick', followers: 428000, viewers: 8000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Family man angle. Consistent 10:30 PM EST schedule. More approachable than mega-streamers. Worth outreach.' },
-  { name: 'ClassyBeef', platform: 'Kick', followers: 259000, viewers: 4000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Also streams on Twitch. 6-person team, near-continuous coverage. 13,500+ streaming hours. Team deal could be efficient.' },
-  { name: 'DeuceAce', platform: 'Twitch', followers: 240000, viewers: 5000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Rising talent. Methodical slots + roulette. Rapid growth 2025. Good mid-tier target.' },
-  { name: 'CasinoDaddy', platform: 'Twitch', followers: 204000, viewers: 3000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Veteran. 14.8M view minutes 2025. Daily streams. Partnerships with regulated casinos.' },
-  { name: 'MitchJones', platform: 'Twitch', followers: 686000, viewers: 6000, deal: 'Flat Fee', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Variety streamer pivoted to gambling. Fastest growing gambling streamer 2025. High engagement.' },
-  { name: 'VegasMatt', platform: 'Twitch', followers: 80000, viewers: 2000, deal: 'CPA', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Also on YouTube. Educational style. First casino influencer to 1M YouTube subs. Responsible gambling angle.' },
-  { name: 'Brian Christopher (BCSlots)', platform: 'YouTube', followers: 1000000, viewers: 10000, deal: 'Hybrid', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Biggest YouTube slots creator. Family-friendly. Land-based + online slots. Huge trust factor.' },
-  { name: 'LadyLuckHQ', platform: 'YouTube', followers: 500000, viewers: 5000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Also on TikTok. Francine & Miran Maric duo. High-limit slots. Great visuals. Strong brand partnership history.' },
-  { name: 'Mr. Hand Pay (Jason Boehlke)', platform: 'YouTube', followers: 300000, viewers: 3000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Educational + entertainment blend. Slot techniques content. Trusted voice.' },
-  { name: 'AyeZee', platform: 'Kick', followers: 200000, viewers: 4000, deal: 'Rev Share', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Crypto-native audience. High-stakes slots. Good for crypto casino specifically.' },
-  { name: 'JuicyFruityyy', platform: 'Kick', followers: 150000, viewers: 3000, deal: 'Flat Fee', cost: 0, depositors: 0, roi: 0.0, status: 'Prospect', notes: 'Rising Kick gambling streamer. Younger audience. Affordable deal potential.' },
-];
-
-const clipPipeline = [
-  { streamer: 'FlashSpinz', clips: 12, viral: 3, best: '1.2M views on TikTok' },
-  { streamer: 'CasinoKane', clips: 8, viral: 1, best: '740K views on Shorts' },
-  { streamer: 'SpinDoctor', clips: 6, viral: 0, best: '220K views on Reels' },
-  { streamer: 'CryptoCroupier', clips: 5, viral: 1, best: '410K views on TikTok' },
-];
-
-const clippers = [
-  { name: '@goddessofslots1', platforms: 'TikTok', followers: '108K', clipsPerWeek: 8, avgViews: '50K', conversion: '-', deal: 'DM for rates - OG gambling TikToker' },
-  { name: '@cowboyslots', platforms: 'TikTok', followers: '174K', clipsPerWeek: 10, avgViews: '80K', conversion: '-', deal: 'DM for rates - Slot tips + wins clips' },
-  { name: '@dluckyexperience (D Lucky)', platforms: 'TikTok', followers: '832K', clipsPerWeek: 12, avgViews: '200K', conversion: '-', deal: 'Negotiate - Huge reach, premium clipper' },
-  { name: '@labitandrew (Andrew Labit)', platforms: 'TikTok', followers: '933K', clipsPerWeek: 15, avgViews: '150K', conversion: '-', deal: 'Negotiate - Also does weather; nearly 1M followers' },
-  { name: '@slothqueen_170 (Meghan with an H)', platforms: 'TikTok', followers: '538K', clipsPerWeek: 10, avgViews: '120K', conversion: '-', deal: 'DM for rates - Large following, consistent posts' },
-  { name: '@impulsiveslots', platforms: 'TikTok', followers: '146K', clipsPerWeek: 8, avgViews: '60K', conversion: '-', deal: 'DM for rates - Spanish + English audience' },
-  { name: "@aronscasino (Aron's Casino)", platforms: 'TikTok', followers: '343K', clipsPerWeek: 10, avgViews: '100K', conversion: '-', deal: 'DM for rates - Roulette focused, cross-posts slots' },
-  { name: '@mario_emma_slots', platforms: 'TikTok', followers: '129K', clipsPerWeek: 6, avgViews: '40K', conversion: '-', deal: 'DM for rates - Couple format, Spanish-speaking' },
-  { name: '@jstros_', platforms: 'TikTok', followers: '62K', clipsPerWeek: 6, avgViews: '30K', conversion: '-', deal: 'Budget-friendly - Responsible gambling angle' },
-  { name: '@binkyloveslots', platforms: 'TikTok', followers: '62K', clipsPerWeek: 5, avgViews: '25K', conversion: '-', deal: 'Budget-friendly - "Slot Slayer"; YouTube presence too' },
-];
-
-const viralClips = [
-  { clip: 'FlashSpinz 500x hit', platform: 'TikTok', views: '1.2M', ctr: '4.6%', ftds: 96 },
-  { clip: 'ViralJackpot $50 → $6,200', platform: 'Reels', views: '890K', ctr: '3.2%', ftds: 58 },
-  { clip: 'CasinoKane insane streak', platform: 'Shorts', views: '740K', ctr: '3.8%', ftds: 61 },
-];
-
-const clipCalendar = [
-  { day: 'Mon', focus: 'Kick highlights + 2 reels', owner: 'RoxyReels' },
-  { day: 'Tue', focus: 'YouTube Shorts batch (5)', owner: 'ClipSyndicate' },
-  { day: 'Wed', focus: 'TikTok test hooks (8)', owner: 'ViralJackpot' },
-  { day: 'Thu', focus: 'Streamer collab montage', owner: 'CasinoCuts' },
-  { day: 'Fri', focus: 'Big win compilation', owner: 'SpinSnaps' },
-  { day: 'Sat', focus: 'Weekend tournaments', owner: 'LuckyLoops' },
-  { day: 'Sun', focus: 'Community highlights', owner: 'DegenClips' },
-];
-
-const affiliates = [
-  { site: 'CryptoNews.com', url: 'cryptonews.com', traffic: '5M', deal: 'Rev Share', signups: 0, cost: '$0', roi: 0.0, status: 'Active' },
-  { site: '99Bitcoins', url: '99bitcoins.com', traffic: '2M', deal: 'CPA', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'CryptoManiaks', url: 'cryptomaniaks.com', traffic: '800K', deal: 'Rev Share', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'CasinoBeats', url: 'casinobeats.com', traffic: '600K', deal: 'CPA', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'CryptoCasinos.online', url: 'cryptocasinos.online', traffic: '400K', deal: 'Rev Share', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'GamesHub', url: 'gameshub.com', traffic: '1.5M', deal: 'Hybrid', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'ORDB.co', url: 'ordb.co', traffic: '300K', deal: 'Rev Share', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'GameTyrant', url: 'gametyrant.com', traffic: '500K', deal: 'CPA', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'BitcoinTalk Forum', url: 'bitcointalk.org', traffic: '2M', deal: 'Community/CPA', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'AskGamblers', url: 'askgamblers.com', traffic: '3M', deal: 'Rev Share', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-  { site: 'CryptoCasinoSorted', url: 'cryptocasinosorted.com', traffic: '1K', deal: 'Own Site', signups: 0, cost: '$0', roi: 0.0, status: 'Active' },
-  { site: 'Casino.guide', url: 'casino.guide', traffic: '700K', deal: 'Hybrid', signups: 0, cost: '$0', roi: 0.0, status: 'Negotiating' },
-];
-
-const influencers = [
-  { name: 'GambleFi', platform: 'Twitter/X', followers: '95K', engagement: '4.2%', niche: 'Crypto', deal: 'Rev Share', cost: '-', status: 'Prospect' },
-  { name: 'CryptoGambler', platform: 'Twitter/X', followers: '68K', engagement: '3.8%', niche: 'Gambling', deal: 'CPA', cost: '-', status: 'Prospect' },
-  { name: 'NoKYCasino', platform: 'Twitter/X', followers: '45K', engagement: '5.1%', niche: 'Crypto', deal: 'Rev Share', cost: '-', status: 'Prospect' },
-  { name: 'DegenerateNews', platform: 'Twitter/X', followers: '52K', engagement: '3.5%', niche: 'Gambling', deal: 'Flat Fee', cost: '-', status: 'Prospect' },
-  { name: 'CasinoAlpha_', platform: 'Twitter/X', followers: '38K', engagement: '4.0%', niche: 'Gambling', deal: 'CPA', cost: '-', status: 'Prospect' },
-  { name: 'CryptoBetsDaily', platform: 'Twitter/X', followers: '28K', engagement: '4.5%', niche: 'Gambling', deal: 'Rev Share', cost: '-', status: 'Prospect' },
-  { name: '@cryptomasun (Mason Versluis)', platform: 'TikTok', followers: '1.5M', engagement: '6.4%', niche: 'Crypto', deal: 'Flat Fee ($5K+)', cost: '-', status: 'Prospect' },
-  { name: '@mrdoctormoney', platform: 'TikTok', followers: '500K', engagement: '5.2%', niche: 'Crypto', deal: 'Flat Fee', cost: '-', status: 'Prospect' },
-  { name: '@girlgone_crypto', platform: 'TikTok', followers: '300K', engagement: '4.8%', niche: 'Crypto', deal: 'Flat Fee', cost: '-', status: 'Prospect' },
-  { name: 'Phil Hellmuth (Dream target)', platform: 'Instagram', followers: '500K', engagement: '3.0%', niche: 'Gambling', deal: 'Premium/Flat', cost: '-', status: 'Prospect' },
-  { name: 'Daniel Negreanu (Dream target)', platform: 'YouTube', followers: '400K', engagement: '3.5%', niche: 'Gambling', deal: 'Premium', cost: '-', status: 'Prospect' },
-  { name: '@philthebeast', platform: 'TikTok', followers: '54K', engagement: '4.2%', niche: 'Gambling', deal: 'Budget CPA', cost: '-', status: 'Prospect' },
-  { name: 'Crypto Banter', platform: 'YouTube', followers: '600K', engagement: '3.2%', niche: 'Crypto', deal: 'Sponsorship', cost: '-', status: 'Prospect' },
-  { name: 'BitBoy Crypto', platform: 'YouTube', followers: '1M+', engagement: '2.8%', niche: 'Crypto', deal: 'Premium Flat', cost: '-', status: 'Prospect' },
-  { name: 'Cobie (Track only)', platform: 'Twitter/X', followers: '700K', engagement: '5.0%', niche: 'Crypto', deal: 'Not for hire', cost: '-', status: 'Prospect' },
-  { name: 'GCR (GiganticRebirth)', platform: 'Twitter/X', followers: '200K', engagement: '4.5%', niche: 'Crypto', deal: 'Rev Share', cost: '-', status: 'Prospect' },
-  { name: 'Hsaka', platform: 'Twitter/X', followers: '300K', engagement: '4.0%', niche: 'Crypto', deal: 'Flat Fee', cost: '-', status: 'Prospect' },
-  { name: '@blockchainbullhorn701', platform: 'TikTok', followers: '100K', engagement: '5.5%', niche: 'Crypto', deal: 'CPA', cost: '-', status: 'Prospect' },
-  { name: 'ZachXBT (Track only)', platform: 'Twitter/X', followers: '500K', engagement: '6.0%', niche: 'Crypto', deal: 'Not for hire', cost: '-', status: 'Prospect' },
-  { name: 'Coffeezilla (Track only)', platform: 'YouTube', followers: '3M', engagement: '4.0%', niche: 'Crypto', deal: 'Not for hire', cost: '-', status: 'Prospect' },
-];
-
-const influencerHistory = [
-  { name: 'CryptoSage', campaign: 'Week 10 bonus promo', result: 'FTD +120', roi: '2.6x' },
-  { name: 'VibeSlots', campaign: 'Slots streak challenge', result: '1.4M reach', roi: '2.2x' },
-  { name: 'GambleGuru', campaign: 'YouTube review drop', result: 'FTD +80', roi: '1.9x' },
-  { name: 'CryptoNomad', campaign: 'Telegram AMA + bonus', result: 'FTD +60', roi: '2.1x' },
-];
-
-const communityTelegram = [
-  { name: 'CryptoGamblingChat', members: '85K', activity: 'High', action: 'Weekly promo drop' },
-  { name: 'NoKYC Casino Group', members: '42K', activity: 'Medium', action: 'AMA + giveaway' },
-  { name: 'Slots Alerts', members: '28K', activity: 'High', action: 'Daily bonus codes' },
-  { name: 'XTP Official', members: '18K', activity: 'Medium', action: 'Host tournaments' },
-];
-
-const communityDiscord = [
-  { name: 'XTP Discord', members: '12K', activity: 'Medium', action: 'Boost LFG / tournaments' },
-  { name: 'GambaVerse', members: '45K', activity: 'High', action: 'Infiltration + mod contact' },
-  { name: 'Degen Den', members: '32K', activity: 'Medium', action: 'Sponsor weekly event' },
-];
-
-const communityReddit = [
-  { sub: 'r/gambling', size: '1.1M', strategy: 'Story-driven posts, avoid shilling' },
-  { sub: 'r/crypto', size: '6.4M', strategy: 'Product innovation, no-KYC positioning' },
-  { sub: 'r/sportsbetting', size: '1.3M', strategy: 'Boost odds promos' },
-  { sub: 'r/casino', size: '220K', strategy: 'Operator transparency threads' },
-];
-
-const communityMetrics = [
-  { label: 'DAU', value: '18.4K' },
-  { label: 'Messages/Day', value: '6.2K' },
-  { label: '7D Retention', value: '42%' },
-  { label: 'Referral Invites', value: '3.1K' },
-];
-
-const referralProgram = [
-  { tier: 'Bronze', reward: '5% rakeback', requirement: '<50 referrals' },
-  { tier: 'Silver', reward: '10% rakeback', requirement: '50-200 referrals' },
-  { tier: 'Gold', reward: '15% rakeback', requirement: '200-500 referrals' },
-  { tier: 'Platinum', reward: '20% rakeback + VIP', requirement: '500+ referrals' },
-];
-
-const campaigns = [
-  { name: 'Kick Streamer Blitz', stage: 'PLANNED', channels: 'Kick', budget: '$50K', duration: '4 weeks', target: 'FTD 500', actual: '-', roi: '-' },
-  { name: 'Affiliate SEO Push', stage: 'PLANNED', channels: 'SEO/Web', budget: '$30K', duration: '8 weeks', target: 'FTD 800', actual: '-', roi: '-' },
-  { name: 'TikTok Clip Farm', stage: 'PLANNED', channels: 'TikTok/Shorts/Reels', budget: '$15K', duration: 'Ongoing', target: 'FTD 200/mo', actual: '-', roi: '-' },
-  { name: 'Crypto Twitter KOL Campaign', stage: 'PLANNED', channels: 'Twitter/X', budget: '$25K', duration: '2 weeks', target: 'FTD 300', actual: '-', roi: '-' },
-  { name: 'Telegram Community Infiltration', stage: 'PLANNED', channels: 'Telegram', budget: '$5K', duration: 'Ongoing', target: 'FTD 100/mo', actual: '-', roi: '-' },
-  { name: 'Reddit Guerrilla Marketing', stage: 'PLANNED', channels: 'Reddit', budget: '$3K', duration: 'Ongoing', target: 'FTD 50/mo', actual: '-', roi: '-' },
-  { name: 'Welcome Bonus Launch', stage: 'PLANNED', channels: 'All', budget: '$100K', duration: '2 weeks', target: 'FTD 1000', actual: '-', roi: '-' },
-  { name: 'Rakeback Wars', stage: 'PLANNED', channels: 'Twitter/Telegram', budget: '$20K', duration: '4 weeks', target: 'FTD 400', actual: '-', roi: '-' },
-];
-
-const competitors = [
-  { name: 'Stake', users: '101M visits/mo (Feb 2026)', kyc: 'Optional KYC', feature: 'Originals + VIP + Sportsbook + Drake partnership', weakness: 'Complex UX, Curacao only, 64% direct traffic = brand-dependent', opportunity: 'Simpler UX + stronger licensing', channels: 'Trainwreckstv ($360M deal), xQc ($100M Kick), massive Kick presence. Top markets: Canada 21%, India 7%, Mexico 5%. Global Rank #308.' },
-  { name: 'Gamdom', users: '25.6M visits/mo (Feb 2026)', kyc: 'No KYC', feature: 'Slots + sportsbook + CS2 skins', weakness: 'Owns BetHype/Lootbox (perception). 99% mobile in NZ/AU = bot traffic?', opportunity: 'Independence + transparency angle. Paid search +316% = they are spending.', channels: 'Mid-tier Kick streamers, affiliate deals. Top markets: NZ 41%, AU 12%, Norway 10%. Global Rank #1,570. Avg session 18:30 (highest engagement).' },
-  { name: 'Rainbet', users: '19.2M visits/mo (Feb 2026, +26% MoM)', kyc: 'No KYC', feature: 'Slots + crash + Adin Ross exclusive', weakness: 'Heavily dependent on Adin Ross deal. 86% direct = one creator driving most traffic', opportunity: 'Fastest growing competitor. Outspend on diverse creators.', channels: 'Adin Ross ($100M deal), Kick streamers. Top markets: US 27%, Japan 18%, Canada 9%. Global Rank #2,240.' },
-  { name: 'Shuffle', users: '18.5M visits/mo (Feb 2026)', kyc: 'No KYC', feature: 'Sports + casino + DeFi crossover', weakness: 'New brand. 88% direct = high retention but limited discovery', opportunity: 'Trust-first positioning. Strong in LATAM (Argentina 11%, Brazil 7%).', channels: 'Crypto Twitter influencers, DeFi crossover. Top markets: Norway 17%, Argentina 11%, Brazil 7%. Global Rank #2,362. Avg session 15:42.' },
-  { name: 'Roobet', users: '12.3M visits/mo (Feb 2026)', kyc: 'No KYC', feature: 'Crash games, slots. Best Crypto Casino 2025 (SiGMA award)', weakness: 'US geo-blocked. Traffic declining (was 15M in Dec). Limited sportsbook', opportunity: 'Global access + sportsbook depth. They are vulnerable.', channels: 'Mid-tier streamers, YouTube affiliates. Top markets: Norway 18%, NZ 9%, US 8%. Global Rank #3,721. 87% direct traffic.' },
-  { name: 'BC.Game', users: '11.2M visits/mo (Dec 2025)', kyc: 'No KYC', feature: 'Multi-crypto (100+ coins), provably fair', weakness: 'UI cluttered. Global Rank #7,802 = declining', opportunity: 'Clean UX + trust messaging. Altcoin niche is theirs to lose.', channels: 'Telegram groups, Asian market focus, affiliate network. Global Rank #7,802.' },
-  { name: 'Duelbits', users: '4.4M visits/mo (Feb 2026, +57% MoM)', kyc: 'No KYC', feature: 'Slots + sports + CS2 gambling', weakness: 'Small but growing fast. Canada-heavy (44%).', opportunity: 'Brand lift via creators. Momentum play - watch closely.', channels: 'Kick streamers, Twitter promos, esports. Top markets: Canada 44%, Japan 18%, Sweden 12%. Global Rank #11,205.' },
-  { name: 'Rollbit', users: '1.95M visits/mo (Jan 2026, -16% MoM)', kyc: 'No KYC', feature: 'Trading + casino hybrid, RLB token', weakness: 'Traffic declining hard. Token dependency. Niche audience', opportunity: 'Poach their creators + affiliates as they lose momentum.', channels: 'Twitter influencers, crypto degens. Top markets: Japan 15%, Norway 10%, India 10%. Global Rank #28,146. 90% direct traffic.' },
-  { name: 'Metawin', users: '956K visits/mo (Feb 2026)', kyc: 'No KYC', feature: 'NFT prizes, daily competitions, instant payouts', weakness: 'Tiny compared to others. NFT-dependent niche', opportunity: 'Non-NFT rewards + broader appeal', channels: 'NFT Twitter, Discord communities. Global Rank #44,200. Avg session 14:35.' },
-  { name: 'BetHype', users: 'Est. <500K visits/mo', kyc: 'No KYC', feature: 'Slots + sports (Gamdom-owned)', weakness: 'Very new, owned by Gamdom. No independent brand identity', opportunity: 'Differentiate with bonuses. Poach small streamers switching from Roobet.', channels: 'Smaller streamers. Purchased by Gamdom as growth vehicle.' },
-];
-
-const weeklySprint = [
-  'Launch Kick mid-tier batch (5 streamers)',
-  'Close 3 high-ROI affiliates',
-  'Finalize Telegram Mini App design',
-  'Publish competitor report',
-  'A/B test welcome bonus funnel',
-];
-
-const actionItems = [
-  { item: 'INTEL: $110.4M daily volume across tracked casinos. Roobet leading ($3.2M). Monitor for market share shifts.', owner: 'Brandon', due: '26 Mar' },
-  { item: 'COMPETITIVE: Stake 200% deposit bonus (up to $1K) live. Evaluate matching/beating this offer.', owner: 'Brandon', due: '26 Mar' },
-  { item: 'EVENT: SBC Summit Lisbon — Sept 22-24, 2026. Book early bird? Key networking for partnerships.', owner: 'Brandon', due: 'Plan' },
-  { item: 'MARKET: NYC casino licenses expected to generate $5.6B/yr. Research US market entry angle.', owner: 'Brandon', due: 'Research' },
-  { item: 'Negotiate hybrid deal with NeonDice', owner: 'Brandon', due: 'Wed' },
-  { item: 'Approve Affiliate: MegaBonusList', owner: 'Ops', due: 'Tue' },
-  { item: 'Clipper payout audit', owner: 'Finance', due: 'Fri' },
-  { item: 'Launch Rakeback Promo v2', owner: 'Growth', due: 'Thu' },
-  { item: 'RESEARCH: ProTrade AI Terminal — real-time match analysis + automated betting on mispriced odds (147K views). In-play AI odds analysis, automated mispricing detection, probability models. Could adapt as AI-powered live odds tool for casino sportsbook. Build odds mispricing alert system or AI betting concierge.', owner: 'Brandon', due: 'Research' },
-];
-
-const decisionsLog = [
-  '[26 Mar] Market volume up $15M week-over-week. Growth trend continuing.',
-  '[26 Mar] Stake biggest single deposit: $2.2M. Whale activity concentrated there.',
-  'Increase Kick budget by +15% due to positive ROI.',
-  'Pause CryptoBonusFinder (low conversion).',
-  'Shift TikTok strategy to high-intent CTA clips.',
-  'Adopt hybrid deals for mid-tier streamers as default.',
-];
-
-const quickLinks = [
-  { name: 'Affiliate Dashboard', url: '#'},
-  { name: 'Streamer Tracker Sheet', url: '#'},
-  { name: 'Campaign KPI Report', url: '#'},
-  { name: 'Telegram Admin Panel', url: '#'},
-];
+async function loadData() {
+  try {
+    const res = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Failed to load ${DATA_URL}: ${res.status}`);
+    const data = await res.json();
+    startDate = data.startDate || startDate;
+    lastUpdated = data.lastUpdated || lastUpdated;
+    kpis = data.kpis || [];
+    budgetAllocation = data.budgetAllocation || [];
+    activeCampaigns = data.activeCampaigns || [];
+    activityFeed = data.activityFeed || [];
+    streamers = data.streamers || [];
+    clipPipeline = data.clipPipeline || [];
+    clippers = data.clippers || [];
+    viralClips = data.viralClips || [];
+    clipCalendar = data.clipCalendar || [];
+    affiliates = data.affiliates || [];
+    influencers = data.influencers || [];
+    influencerHistory = data.influencerHistory || [];
+    communityTelegram = data.communityTelegram || [];
+    communityDiscord = data.communityDiscord || [];
+    communityReddit = data.communityReddit || [];
+    communityMetrics = data.communityMetrics || [];
+    referralProgram = data.referralProgram || [];
+    campaigns = data.campaigns || [];
+    competitors = data.competitors || [];
+    weeklySprint = data.weeklySprint || [];
+    actionItems = data.actionItems || [];
+    decisionsLog = data.decisionsLog || [];
+    quickLinks = data.quickLinks || [];
+    updateLastUpdated();
+  } catch (err) {
+    console.error(err);
+    const el = document.getElementById('status-updated');
+    if (el) el.textContent = 'Load failed';
+  }
+}
 
 // RENDER
 function renderKPIs() {
@@ -1026,14 +864,15 @@ async function checkAuth() {
   const hash = await sha256(pass);
   if (hash === ACCESS_HASH || pass === 'xtp2026') {
     localStorage.setItem('xtp-auth', 'true');
-    showApp();
+    await showApp();
   } else {
     document.getElementById('auth-error').style.display = 'block';
   }
 }
-function showApp() {
+async function showApp() {
   document.getElementById('auth-gate').style.display = 'none';
   document.getElementById('main-app').style.display = 'block';
+  await loadData();
   renderKPIs();
   renderBudget();
   renderActiveCampaigns();
@@ -1060,7 +899,11 @@ function showTab(tabName) {
   event.target.classList.add('active');
 }
 
-if (localStorage.getItem('xtp-auth') === 'true') showApp(); else document.getElementById('auth-pass')?.focus();
+if (localStorage.getItem('xtp-auth') === 'true') {
+  showApp().catch(console.error);
+} else {
+  document.getElementById('auth-pass')?.focus();
+}
 </script>
 </body>
 </html>
