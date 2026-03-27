@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-03-27T04:31:48.143Z",
+  "lastUpdated": "2026-03-27T05:20:50.735Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,7 @@
     }
   ],
   "activityFeed": [
+    "📰 2026-03-26 BC.Game appoints Kar Kheng Giam as CEO - 30yr veteran from gaming/tech/consumer sectors, focus on regulated market expansion (Anjouan, Nigeria, Kenya, Mexico, Tanzania licenses)",
     "🛰️ 2026-03-27 CCS Intel: ,746,701.62, 119,769 deposits. #1: Roobet (,259,674.72). Biggest deposit: ,212,000 at Stake.",
     "🛰️ [26 Mar] CCS Daily Intel: $110.4M total volume, 116K deposits. Roobet #1 ($3.2M). Biggest deposit: $2.2M at Stake.",
     "📰 [26 Mar] NYC casinos projected up to $5.6B annual revenue - massive market opening.",
@@ -1113,6 +1114,11 @@
   ],
   "actionItems": [
     {
+      "item": "Research BC.Game's regulated market playbook - licenses, compliance strategy, marketing approach in licensed jurisdictions",
+      "owner": "Brandon",
+      "due": "2026-04-03"
+    },
+    {
       "item": "INTEL: $110.4M daily volume across tracked casinos. Roobet leading ($3.2M). Monitor for market share shifts.",
       "owner": "Brandon",
       "due": "26 Mar"
@@ -1159,6 +1165,7 @@
     }
   ],
   "decisionsLog": [
+    "2026-03-27 Competitor expansion into regulated markets accelerating - BC.Game now licensed in 5+ jurisdictions, positioning for compliance-first growth",
     "[26 Mar] Market volume up $15M week-over-week. Growth trend continuing.",
     "[26 Mar] Stake biggest single deposit: $2.2M. Whale activity concentrated there.",
     "Increase Kick budget by +15% due to positive ROI.",
