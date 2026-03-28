@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-03-28T04:31:15.043Z",
+  "lastUpdated": "2026-03-28T05:20:55.001Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,8 @@
     }
   ],
   "activityFeed": [
+    "📊 2026-03-28 99Bitcoins real-money testing: Top casinos averaging sub-10min BTC withdrawals, Solana/BEP20 under 3min — speed is now baseline expectation",
+    "💡 2026-03-28 Industry shift: No-KYC signup standard but verification triggered on first withdrawal — privacy theater vs actual anonymity",
     "🛰️ 2026-03-28 CCS Intel: ,535,182, 122,978 deposits. #1: Roobet (,822,839). Biggest deposit: ,212,000 at Stake.",
     "📰 2026-03-26 BC.Game appoints Kar Kheng Giam as CEO - 30yr veteran from gaming/tech/consumer sectors, focus on regulated market expansion (Anjouan, Nigeria, Kenya, Mexico, Tanzania licenses)",
     "🛰️ 2026-03-27 CCS Intel: ,746,701.62, 119,769 deposits. #1: Roobet (,259,674.72). Biggest deposit: ,212,000 at Stake.",
@@ -1166,6 +1168,7 @@
     }
   ],
   "decisionsLog": [
+    "2026-03-28 Key insight: Wagering requirements 30-45x now industry norm. Sites advertising 'instant withdrawals' often have stealth KYC triggers. Transparency = competitive advantage.",
     "2026-03-27 Competitor expansion into regulated markets accelerating - BC.Game now licensed in 5+ jurisdictions, positioning for compliance-first growth",
     "[26 Mar] Market volume up $15M week-over-week. Growth trend continuing.",
     "[26 Mar] Stake biggest single deposit: $2.2M. Whale activity concentrated there.",
