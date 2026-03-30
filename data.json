@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-03-30T05:22:20.901Z",
+  "lastUpdated": "2026-03-30T14:34:32.367Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -1125,6 +1125,11 @@
   ],
   "actionItems": [
     {
+      "item": "Build lossback calculator + policy (caps, eligible games, tiers) for VIP offer",
+      "owner": "Brandon",
+      "due": "2026-04-02"
+    },
+    {
       "item": "Review Tanzanite.xyz deposit volume terminal for competitive benchmarking",
       "owner": "Brandon",
       "due": "2026-04-02"
@@ -1191,6 +1196,7 @@
     }
   ],
   "decisionsLog": [
+    "Lossback math: lossback % * net losses. Expected cost = lossback% * (wagered * house edge). 5% lossback trims edge from 3.0% to ~2.85%. Add caps/eligible games.",
     "[Mar 30] Market data confirms Telegram casino bots are the fastest-growing distribution channel in crypto gambling. XTP should prioritize TG bot/mini-app integration.",
     "2026-03-28 Key insight: Wagering requirements 30-45x now industry norm. Sites advertising 'instant withdrawals' often have stealth KYC triggers. Transparency = competitive advantage.",
     "2026-03-27 Competitor expansion into regulated markets accelerating - BC.Game now licensed in 5+ jurisdictions, positioning for compliance-first growth",
