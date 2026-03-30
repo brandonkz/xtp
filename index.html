@@ -150,6 +150,7 @@
 
   <div class="nav">
     <button class="nav-btn active" onclick="showTab('command')">COMMAND CENTER</button>
+    <button class="nav-btn" onclick="showTab('lossback')">LOSSBACK CALC</button>
     <button class="nav-btn" onclick="showTab('streamers')">STREAMER OPS</button>
     <button class="nav-btn" onclick="showTab('clippers')">CLIPPERS</button>
     <button class="nav-btn" onclick="showTab('affiliates')">AFFILIATES</button>
@@ -159,6 +160,110 @@
     <button class="nav-btn" onclick="showTab('competitors')">COMPETITORS</button>
     <button class="nav-btn" onclick="showTab('warroom')">WAR ROOM</button>
     <button class="nav-btn" onclick="showTab('dailyops')">DAILY OPS GUIDE</button>
+  </div>
+
+  <!-- LOSSBACK CALCULATOR -->
+  <div class="tab-content" id="tab-lossback">
+    <div class="grid grid-full">
+      <div class="panel">
+        <div class="panel-title">🧮 LOSSBACK CALCULATOR — VIP OFFER MODELING</div>
+        <div style="color:var(--muted); font-size:11px; margin-bottom:16px;">
+          Calculate the real cost of lossback offers and how they affect your house edge. Use this to build safe VIP tiers.
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px;">
+          <!-- Input Panel -->
+          <div style="background:var(--bg); padding:16px; border-radius:6px; border:1px solid var(--border);">
+            <div style="color:var(--accent); font-size:11px; letter-spacing:1px; margin-bottom:12px;">INPUTS</div>
+            
+            <div style="margin-bottom:12px;">
+              <label style="display:block; color:var(--muted); font-size:10px; margin-bottom:4px;">TOTAL WAGERED ($)</label>
+              <input type="number" id="calc-wagered" value="1000000" oninput="calcLossback()" style="width:100%; background:var(--panel); border:1px solid var(--border); color:var(--text); padding:8px; font-family:inherit; font-size:13px; border-radius:4px;">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="display:block; color:var(--muted); font-size:10px; margin-bottom:4px;">HOUSE EDGE (%)</label>
+              <input type="number" id="calc-edge" value="2.5" step="0.1" oninput="calcLossback()" style="width:100%; background:var(--panel); border:1px solid var(--border); color:var(--text); padding:8px; font-family:inherit; font-size:13px; border-radius:4px;">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="display:block; color:var(--muted); font-size:10px; margin-bottom:4px;">LOSSBACK (%)</label>
+              <input type="number" id="calc-lossback" value="5" step="0.5" oninput="calcLossback()" style="width:100%; background:var(--panel); border:1px solid var(--border); color:var(--text); padding:8px; font-family:inherit; font-size:13px; border-radius:4px;">
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="display:block; color:var(--muted); font-size:10px; margin-bottom:4px;">WEEKLY CAP ($ — optional)</label>
+              <input type="number" id="calc-cap" value="" placeholder="Leave blank for no cap" oninput="calcLossback()" style="width:100%; background:var(--panel); border:1px solid var(--border); color:var(--text); padding:8px; font-family:inherit; font-size:13px; border-radius:4px;">
+            </div>
+          </div>
+
+          <!-- Results Panel -->
+          <div style="background:var(--bg); padding:16px; border-radius:6px; border:1px solid var(--border);">
+            <div style="color:var(--accent); font-size:11px; letter-spacing:1px; margin-bottom:12px;">RESULTS</div>
+            
+            <div style="margin-bottom:10px;">
+              <div style="color:var(--muted); font-size:10px; margin-bottom:2px;">Expected Net Loss</div>
+              <div style="font-size:18px; font-weight:bold; color:var(--green);" id="result-loss">$25,000</div>
+            </div>
+
+            <div style="margin-bottom:10px;">
+              <div style="color:var(--muted); font-size:10px; margin-bottom:2px;">Lossback Payout (uncapped)</div>
+              <div style="font-size:18px; font-weight:bold; color:var(--yellow);" id="result-payout">$1,250</div>
+            </div>
+
+            <div style="margin-bottom:10px;">
+              <div style="color:var(--muted); font-size:10px; margin-bottom:2px;">Lossback Payout (capped)</div>
+              <div style="font-size:18px; font-weight:bold; color:var(--yellow);" id="result-payout-capped">$1,250</div>
+            </div>
+
+            <div style="margin-bottom:10px;">
+              <div style="color:var(--muted); font-size:10px; margin-bottom:2px;">Effective House Edge</div>
+              <div style="font-size:18px; font-weight:bold; color:var(--accent);" id="result-edge">2.375%</div>
+            </div>
+
+            <div style="margin-bottom:10px;">
+              <div style="color:var(--muted); font-size:10px; margin-bottom:2px;">Net Profit (after lossback)</div>
+              <div style="font-size:18px; font-weight:bold; color:var(--green);" id="result-profit">$23,750</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg); padding:16px; border-radius:6px; border:1px solid var(--border); margin-bottom:20px;">
+          <div style="color:var(--accent2); font-size:11px; letter-spacing:1px; margin-bottom:8px;">💡 SAFE POLICY RULES</div>
+          <ul style="color:var(--muted); font-size:11px; line-height:1.6; padding-left:16px;">
+            <li>Use <strong>weekly caps</strong> to protect against whale swings</li>
+            <li>Apply <strong>game weighting</strong> — exclude or reduce lossback % on low-edge games (blackjack, baccarat)</li>
+            <li>Require <strong>minimum wager thresholds</strong> to prevent promo hunters</li>
+            <li>Track <strong>net deposit vs lossback payout ratio</strong> — if a player never deposits but churns lossback, flag for review</li>
+            <li>Lossback % should never exceed your house edge on weighted games</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--bg); padding:16px; border-radius:6px; border:1px solid var(--border);">
+          <div style="color:var(--green); font-size:11px; letter-spacing:1px; margin-bottom:8px;">✅ EXAMPLE VIP TIERS (SAFE)</div>
+          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-size:11px;">
+            <div style="background:var(--panel); padding:12px; border-radius:4px; border:1px solid var(--border);">
+              <div style="color:var(--accent); font-weight:bold; margin-bottom:6px;">Silver VIP</div>
+              <div style="color:var(--muted);">Deposit: $10k+</div>
+              <div style="color:var(--text);">2% lossback</div>
+              <div style="color:var(--text);">Cap: $500/week</div>
+            </div>
+            <div style="background:var(--panel); padding:12px; border-radius:4px; border:1px solid var(--border);">
+              <div style="color:var(--accent2); font-weight:bold; margin-bottom:6px;">Gold VIP</div>
+              <div style="color:var(--muted);">Deposit: $50k+</div>
+              <div style="color:var(--text);">3% lossback</div>
+              <div style="color:var(--text);">Cap: $2,000/week</div>
+            </div>
+            <div style="background:var(--panel); padding:12px; border-radius:4px; border:1px solid var(--border);">
+              <div style="color:var(--yellow); font-weight:bold; margin-bottom:6px;">Platinum VIP</div>
+              <div style="color:var(--muted);">Deposit: $250k+</div>
+              <div style="color:var(--text);">5% lossback</div>
+              <div style="color:var(--text);">Cap: $10,000/week</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- COMMAND CENTER -->
@@ -789,6 +894,25 @@ function renderCampaigns() {
   document.getElementById('campaign-kanban').innerHTML = makeCol('PLANNED', planned) + makeCol('LIVE', live) + makeCol('COMPLETE', complete);
 }
 
+function calcLossback() {
+  const wagered = parseFloat(document.getElementById('calc-wagered').value) || 0;
+  const edge = parseFloat(document.getElementById('calc-edge').value) || 0;
+  const lossback = parseFloat(document.getElementById('calc-lossback').value) || 0;
+  const cap = parseFloat(document.getElementById('calc-cap').value) || 0;
+
+  const expectedLoss = wagered * (edge / 100);
+  const lossbackPayout = expectedLoss * (lossback / 100);
+  const lossbackCapped = cap > 0 ? Math.min(lossbackPayout, cap) : lossbackPayout;
+  const effectiveEdge = edge - (lossback / 100) * edge;
+  const netProfit = expectedLoss - lossbackCapped;
+
+  document.getElementById('result-loss').textContent = '$' + expectedLoss.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('result-payout').textContent = '$' + lossbackPayout.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('result-payout-capped').textContent = '$' + lossbackCapped.toLocaleString('en-US', {maximumFractionDigits: 0});
+  document.getElementById('result-edge').textContent = effectiveEdge.toFixed(3) + '%';
+  document.getElementById('result-profit').textContent = '$' + netProfit.toLocaleString('en-US', {maximumFractionDigits: 0});
+}
+
 function renderCompetitors() {
   document.getElementById('competitor-list').innerHTML = `
     <div class="row header-row" style="grid-template-columns: 0.9fr 0.6fr 0.6fr 1fr 1fr 1.2fr;">
@@ -888,6 +1012,7 @@ async function showApp() {
   renderWarRoom();
   loadNotes();
   updateClock();
+  calcLossback();
   updateDaysSince();
   setInterval(updateClock, 1000);
 }
