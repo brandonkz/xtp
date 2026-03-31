@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-03-31T04:31:26.600Z",
+  "lastUpdated": "2026-03-31T05:20:50.471Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,10 @@
     }
   ],
   "activityFeed": [
+    "📊 [Mar 31] Curacao CGA cracking down on fake licenses (trumpbet.cc exposed Feb 2026). New LOK regime tightening AML/KYC for crypto operators",
+    "📊 [Mar 31] Telegram casino bots exploding: BetPanda, CoinCasino, Lucky Block leading. Lightning Network integration for instant zero-fee payouts becoming standard",
+    "📊 [Mar 31] Rollbit declining: $834M deposits (-35% YoY). Yolo.com surging +262% to $818M. Goated +251%, Whale.io +127% — community-driven models winning",
+    "📊 [Mar 31] Tanzanite data: Yeet #16 globally with $209M deposit vol, avg $759/deposit (highest avg among mid-tier). Stake dominates at $21.5B (+59% YoY)",
     "🛰️ 31 Mar 2026 CCS Intel: $2.1M vol, 3,141 deposits. #1: Roobet ($1.13M). Biggest deposit: $89K at Roobet.",
     "⚠️ [Mar 30] Stake tightening KYC: Level 2 verification now mandatory for withdrawals. Source-of-funds docs required. Creates friction = opportunity for competitors.",
     "📈 [Mar 30] Telegram casino bot ecosystem exploding — 15+ dedicated software providers (KodeDice, Limeup, GammaStack). No-KYC + in-chat gameplay = growth channel.",
@@ -1126,6 +1130,16 @@
   ],
   "actionItems": [
     {
+      "item": "Explore Telegram mini-app/bot as acquisition channel for XTP — Lightning Network casino bots are the fastest-growing segment",
+      "owner": "Brandon",
+      "due": "Apr 14"
+    },
+    {
+      "item": "Analyze Yolo.com's +262% growth playbook — what are they doing right? Potential partnership or strategy to copy",
+      "owner": "Brandon",
+      "due": "Apr 7"
+    },
+    {
       "item": "Build lossback calculator + policy (caps, eligible games, tiers) for VIP offer",
       "owner": "Brandon",
       "due": "2026-04-02"
@@ -1197,6 +1211,7 @@
     }
   ],
   "decisionsLog": [
+    "[Mar 31] Yeet's $759 avg deposit is 3rd highest in top 23 (behind Duel $1910, Yolo $2740) — confirms whale-heavy user base. VIP retention is THE moat",
     "Lossback math: lossback % * net losses. Expected cost = lossback% * (wagered * house edge). 5% lossback trims edge from 3.0% to ~2.85%. Add caps/eligible games.",
     "[Mar 30] Market data confirms Telegram casino bots are the fastest-growing distribution channel in crypto gambling. XTP should prioritize TG bot/mini-app integration.",
     "2026-03-28 Key insight: Wagering requirements 30-45x now industry norm. Sites advertising 'instant withdrawals' often have stealth KYC triggers. Transparency = competitive advantage.",
