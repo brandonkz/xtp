@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-07T05:20:00.000Z",
+  "lastUpdated": "2026-04-08T16:30:23.574Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,8 @@
     }
   ],
   "activityFeed": [
+    "🚨 Apr 8: Telegram casino bots exploding as high-converting channels — competitors using bot-driven funnels to reduce onboarding friction (instant reg → deposit → play in one chat)",
+    "📊 Apr 8: CoinCasino, Lucky Block, JustCasino leading Telegram integration (6K+ games, one-click reg, no ID required) — published 2-5 days ago",
     "📊 Apr 7: Shuffle acquired 20k+ users at $2.89 CPA via on-chain wallet targeting (Addressable.io case study)",
     "🎯 Apr 7: Affiliate marketing = highest ROI channel in 2026 (Smartico industry analysis)",
     "📱 Apr 7: 58% of casino emails opened on mobile — mobile-first critical for search rankings",
@@ -1140,6 +1142,11 @@
   ],
   "actionItems": [
     {
+      "item": "Research Telegram mini-app integration for XTP — analyze conversion rates vs traditional funnel",
+      "owner": "Brandon",
+      "due": "Apr 15"
+    },
+    {
       "item": "Evaluate Telegram mini-app/bot strategy for XTP — competitors treating TG as full casino channel now",
       "owner": "Brandon",
       "due": "2026-04-08"
@@ -1226,6 +1233,7 @@
     }
   ],
   "decisionsLog": [
+    "Apr 8: Telegram casino bot trend is strategic threat + opportunity — traditional funnels losing to conversational UX. Consider XTP Telegram integration for VIP whale acquisition.",
     "Apr 7, 2026: On-chain wallet targeting (Addressable/Blockchain-Ads) is emerging as key differentiator for VIP whale acquisition vs traditional paid ads",
     "[2026-04-01] Shuffle's  token model (utility + burns + VIP integration) is the clearest competitor playbook for native casino tokens — study for XTP tokenomics",
     "[Mar 31] Yeet's $759 avg deposit is 3rd highest in top 23 (behind Duel $1910, Yolo $2740) — confirms whale-heavy user base. VIP retention is THE moat",
