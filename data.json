@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-09T05:20:00.000Z",
+  "lastUpdated": "2026-04-10T05:21:42.905Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,9 @@
     }
   ],
   "activityFeed": [
+    "⚠️ Apr 10: TON (Telegram's token) now standard crypto deposit method alongside BTC/ETH/USDT — instant deposits via @wallet bot gaining traction",
+    "💰 Apr 10: Native token incentive models ($TGC, $LBLOCK, $DICE) becoming customer acquisition moat — whales lock in for cashback + staking rewards",
+    "📱 Apr 10: Telegram casino mini apps exploding as distribution channel — TG.Casino, Lucky Block leading with native token staking models (15-40% yield)",
     "📱 Apr 9: Telegram casino bots exploding - TG.Casino, BetFury, BC.Game leading with instant registration via Telegram profiles (no full account), crypto payments, and viral growth through influencer channels. Lightweight format (dice/crash/slots) perfect for mobile-first users.",
     "💰 Apr 9: Rollbit tokenomics update - Buy & Burn now uses 10% casino, 20% sportsbook, 30% futures revenue for hourly RLB purchases. 90% burned on-chain, 10% to Rollbot stakers. No traditional deposit bonuses (deliberate product decision).",
     "🎯 Apr 9: GambleFi trend - Rollblock positioning as revenue-share play (30% APY staking), no-KYC access vs Rollbit's mature token utility (burns, fee cuts, lottery). BC.Game leads on game count (1000+) but lighter on token economics.",
@@ -1145,6 +1148,16 @@
   ],
   "actionItems": [
     {
+      "item": "Evaluate native token economics — Is $XTP worth building for whale retention? (20-30% cashback tier model)",
+      "owner": "Brandon",
+      "due": "April 2026"
+    },
+    {
+      "item": "Research Telegram bot/mini app development costs and white-label options (TG.Casino, Mega Dice models)",
+      "owner": "Brandon",
+      "due": "This week"
+    },
+    {
       "item": "Research Telegram mini-app casino launch (TG.Casino model) for XTP - instant registration, crypto-only, viral channel distribution",
       "owner": "Brandon",
       "due": "2026-04-15"
@@ -1241,6 +1254,7 @@
     }
   ],
   "decisionsLog": [
+    "Apr 10: Telegram bot integration worth exploring — zero-friction deposit/play/withdraw model appeals to crypto-native whales. Security concern: scam bots rampant, verification critical.",
     "Apr 9: Telegram bots = major 2026 growth vector. Mobile-first, no-KYC, crypto-native format driving new user acquisition. Consider for XTP distribution strategy.",
     "Apr 8: Telegram casino bot trend is strategic threat + opportunity — traditional funnels losing to conversational UX. Consider XTP Telegram integration for VIP whale acquisition.",
     "Apr 7, 2026: On-chain wallet targeting (Addressable/Blockchain-Ads) is emerging as key differentiator for VIP whale acquisition vs traditional paid ads",
