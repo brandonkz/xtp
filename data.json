@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-10T05:21:42.905Z",
+  "lastUpdated": "2026-04-13T05:20:52.774Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,7 @@
     }
   ],
   "activityFeed": [
+    "⚡ Apr 13: Lightning Network integration trending — Stake, Roobet, BC.Game publicly posting sub-second BTC withdrawal times. Speed wars heating up.",
     "⚠️ Apr 10: TON (Telegram's token) now standard crypto deposit method alongside BTC/ETH/USDT — instant deposits via @wallet bot gaining traction",
     "💰 Apr 10: Native token incentive models ($TGC, $LBLOCK, $DICE) becoming customer acquisition moat — whales lock in for cashback + staking rewards",
     "📱 Apr 10: Telegram casino mini apps exploding as distribution channel — TG.Casino, Lucky Block leading with native token staking models (15-40% yield)",
@@ -1148,6 +1149,11 @@
   ],
   "actionItems": [
     {
+      "item": "Research Lightning Network integration costs/feasibility for faster withdrawals",
+      "owner": "Brandon",
+      "due": "2026-04-20"
+    },
+    {
       "item": "Evaluate native token economics — Is $XTP worth building for whale retention? (20-30% cashback tier model)",
       "owner": "Brandon",
       "due": "April 2026"
@@ -1254,6 +1260,7 @@
     }
   ],
   "decisionsLog": [
+    "Apr 13: StakeUS showing 25% MoM deposit growth — US sweepstakes model proving successful. Consider XTP US market positioning strategy.",
     "Apr 10: Telegram bot integration worth exploring — zero-friction deposit/play/withdraw model appeals to crypto-native whales. Security concern: scam bots rampant, verification critical.",
     "Apr 9: Telegram bots = major 2026 growth vector. Mobile-first, no-KYC, crypto-native format driving new user acquisition. Consider for XTP distribution strategy.",
     "Apr 8: Telegram casino bot trend is strategic threat + opportunity — traditional funnels losing to conversational UX. Consider XTP Telegram integration for VIP whale acquisition.",
