@@ -9,6 +9,22 @@
 
 ## 📁 DOCUMENT LIBRARY
 
+### **0. XTP GROWTH OPERATING PLAYBOOK (NEW)**
+**File:** `XTP-GROWTH-OPERATING-PLAYBOOK.md`  
+**Purpose:** Practical operator doc for Yeet growth execution  
+**Length:** Medium-long (designed to actually run off)  
+**Contains:**
+- Core positioning for Yeet (trust-first, VIP migration, safety angle)
+- Top growth plays (tier match, competitor poaching, trust assets, creator pages)
+- 30-day action plan
+- KPI stack
+- Outreach templates
+- Risk checklist
+
+**Use Case:** This is the current working doc. Use it to decide what to build, what to test, and what to prioritize next.
+
+---
+
 ### **1. ONE-PAGER (START HERE)**
 **File:** `BRANDON-CRYPTO-EXPERT-ONEPAGER.md`  
 **Purpose:** Meeting doc for first strategy session  
