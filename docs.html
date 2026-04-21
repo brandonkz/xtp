@@ -56,6 +56,7 @@ function unlock() {
 }
 
 const docs = [
+  { id: 'playbook', label: '⚡ Playbook', file: 'XTP-GROWTH-OPERATING-PLAYBOOK.md' },
   { id: 'onepager', label: '🎯 One-Pager', file: 'BRANDON-CRYPTO-EXPERT-ONEPAGER.md' },
   { id: 'strategy', label: '📊 Strategy', file: 'GROWTH-STRATEGY-2026.md' },
   { id: 'streamers', label: '🎮 Streamers', file: 'STREAMER-DATABASE.md' },
@@ -83,7 +84,9 @@ async function loadDocs() {
     } catch(e) { div.innerHTML = '<p>Failed to load ' + d.file + '</p>'; }
     container.appendChild(div);
   }
-  showDoc('onepager');
+  const requested = (window.location.hash || '').replace('#', '');
+  const defaultDoc = docs.some(d => d.id === requested) ? requested : 'playbook';
+  showDoc(defaultDoc);
 }
 
 function showDoc(id) {
@@ -93,6 +96,7 @@ function showDoc(id) {
   const navLinks = document.querySelectorAll('.nav a');
   const idx = docs.findIndex(d => d.id === id);
   if (navLinks[idx]) navLinks[idx].classList.add('active');
+  window.location.hash = id;
   window.scrollTo(0, 0);
 }
 </script>
