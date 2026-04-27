@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-17T13:59:26.360Z",
+  "lastUpdated": "2026-04-27T06:40:35.924Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🛡️ Apr 27: Compliance pressure is tightening at both ends — Curacao’s CGA has approved only 87 of ~140 direct-license applications so far, while Stake.us moved Illinois users to redeem-only after sweepstakes enforcement.",
+    "🤖 Apr 27: BetHog raised $10M and launched Sentient Studios for AI live dealers; claims its AI blackjack dealer is 10x more popular than the equivalent live table and already supports 12 languages.",
+    "💳 Apr 27: Paysafe + MoonPay launched ‘Pay with Crypto’ for U.S. iGaming — stablecoin/crypto deposits, instant USD conversion, and operator settlement in stablecoins or fiat via one cashier integration.",
+    "⚠️ Apr 27: Belgium’s probe into Eden Hazard’s Stake promotion highlights a new risk: promoters/athletes can be held personally liable when offshore gambling marketing crosses into restricted markets.",
+    "📣 Apr 27: Forbes says Stake’s viral machine runs on industrial clipping — one Adin Ross campaign reportedly drove 430M views from 11K videos posted by 520 clippers, with Clipping Exe scaled to ~23.3K editors.",
     "⚠️ Apr 17: Curacao Gaming Authority enforcing stricter proof-of-reserves on stablecoin operators since March 2026; Malta MGA issued 2 preliminary B2C crypto licenses with attestation requirements",
     "⚡ Apr 17: Layer-2 networks (Arbitrum 40K TPS, Base, Mantle) handling bulk of stablecoin volume — Stake/BC.Game/Rollbit expanded Arbitrum; Shuffle/Metawin moved to Base-first stacks",
     "🏦 Apr 17: Stablecoins now 50%+ of all crypto casino wagers (Chainalysis/Messari Apr 2026) — structural shift driven by volatility protection + regulatory clarity (MiCA, GENIUS Act)",
@@ -1155,6 +1160,16 @@
   ],
   "actionItems": [
     {
+      "item": "Create a creator/compliance checklist for ambassador and influencer deals: geo restrictions, licensing claims, disclosure copy, restricted-market exclusions.",
+      "owner": "Brandon",
+      "due": "2026-05-01"
+    },
+    {
+      "item": "Draft an XTP clipper/UGC bounty pilot (creator tiers, payout model, anti-spam rules, attribution dashboard) to test low-CPM short-form distribution.",
+      "owner": "Brandon",
+      "due": "2026-05-02"
+    },
+    {
       "item": "Research Lightning Network integration costs/feasibility for faster withdrawals",
       "owner": "Brandon",
       "due": "2026-04-20"
@@ -1266,6 +1281,7 @@
     }
   ],
   "decisionsLog": [
+    "Apr 27: XTP should prioritize a cheap repeatable UGC distribution engine, transparent stablecoin cashier UX, and compliance-safe creator marketing over simply increasing bonuses.",
     "Apr 13: StakeUS showing 25% MoM deposit growth — US sweepstakes model proving successful. Consider XTP US market positioning strategy.",
     "Apr 10: Telegram bot integration worth exploring — zero-friction deposit/play/withdraw model appeals to crypto-native whales. Security concern: scam bots rampant, verification critical.",
     "Apr 9: Telegram bots = major 2026 growth vector. Mobile-first, no-KYC, crypto-native format driving new user acquisition. Consider for XTP distribution strategy.",
