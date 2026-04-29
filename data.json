@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-27T06:40:35.924Z",
+  "lastUpdated": "2026-04-29T05:24:30.285Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🚨 Apr 29: Roobet is catching fresh public heat over alleged minor access via VPN in r/gambling — KYC timing and geo controls are becoming reputational battlegrounds.",
+    "💸 Apr 29: Fresh Reddit chatter says quick withdrawals, cashout consistency, and cashback/rakeback beat giant signup bonuses. Trust UX is still the conversion lever.",
+    "🌏 Apr 29: New Zealand passed its online casino framework with a 15-license cap, Dec. 1 market launch, and penalties up to NZ$5M — grey-market room keeps shrinking.",
+    "📱 Apr 29: TG.Casino is pushing Telegram-native retention harder: 25% weekly cashback plus ETH profit-share for 5,000+ $TGC stakers. Loyalty is getting financialized inside chat.",
+    "⚠️ Apr 29: Luck.io shut down after reportedly spending up to $500K/month on influencers in 2025 — hard reminder that hype-heavy growth without durable trust/reserves is brittle.",
     "🛡️ Apr 27: Compliance pressure is tightening at both ends — Curacao’s CGA has approved only 87 of ~140 direct-license applications so far, while Stake.us moved Illinois users to redeem-only after sweepstakes enforcement.",
     "🤖 Apr 27: BetHog raised $10M and launched Sentient Studios for AI live dealers; claims its AI blackjack dealer is 10x more popular than the equivalent live table and already supports 12 languages.",
     "💳 Apr 27: Paysafe + MoonPay launched ‘Pay with Crypto’ for U.S. iGaming — stablecoin/crypto deposits, instant USD conversion, and operator settlement in stablecoins or fiat via one cashier integration.",
@@ -1160,6 +1165,16 @@
   ],
   "actionItems": [
     {
+      "item": "Spec a Telegram-lite VIP funnel: instant onboarding, concierge handoff, cashback reminders, and wallet-linked status without sketchy tokenomics.",
+      "owner": "Brandon",
+      "due": "2026-05-06"
+    },
+    {
+      "item": "Draft a public withdrawal-proof / no-surprises KYC page: payout SLA, verification triggers, and sample cashout proofs for VIP prospects.",
+      "owner": "Brandon",
+      "due": "2026-05-03"
+    },
+    {
       "item": "Create a creator/compliance checklist for ambassador and influencer deals: geo restrictions, licensing claims, disclosure copy, restricted-market exclusions.",
       "owner": "Brandon",
       "due": "2026-05-01"
@@ -1281,6 +1296,7 @@
     }
   ],
   "decisionsLog": [
+    "Apr 29: XTP should lean into operational trust — withdrawal proof, cashback clarity, and geo-safe onboarding — instead of trying to win with expensive influencer burn.",
     "Apr 27: XTP should prioritize a cheap repeatable UGC distribution engine, transparent stablecoin cashier UX, and compliance-safe creator marketing over simply increasing bonuses.",
     "Apr 13: StakeUS showing 25% MoM deposit growth — US sweepstakes model proving successful. Consider XTP US market positioning strategy.",
     "Apr 10: Telegram bot integration worth exploring — zero-friction deposit/play/withdraw model appeals to crypto-native whales. Security concern: scam bots rampant, verification critical.",
