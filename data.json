@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-04-29T05:24:30.285Z",
+  "lastUpdated": "2026-05-01T05:25:52.142Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🧾 May 1: BC.GAME published gray-market safety guidance telling users to scrutinize withdrawal terms, support response times, and bonus traps — even gray-market brands are leaning into trust education.",
+    "⏱️ Apr 30: New KYC funnel data says 31% of first document submissions get rejected and operators think removing KYC could lift conversion ~30% — verification speed is now a core growth lever.",
+    "⚠️ May 1: Fresh r/Stake spam is openly offering Level 2 verified Stake accounts for VPN users in restricted markets — geo/KYC loopholes are now being resold as a growth side-channel.",
+    "🎮 May 1: BC.GAME signed CS2 rifler Senzu on loan from The MongolZ — crypto casinos are still buying distribution through esports ecosystems, not just gambling creators.",
+    "🛡️ May 1: Stake expanded built-in provably-fair verification across 1,200+ slots on Stake.com/Stake.us — transparency is becoming a product feature, not just marketing copy.",
     "🚨 Apr 29: Roobet is catching fresh public heat over alleged minor access via VPN in r/gambling — KYC timing and geo controls are becoming reputational battlegrounds.",
     "💸 Apr 29: Fresh Reddit chatter says quick withdrawals, cashout consistency, and cashback/rakeback beat giant signup bonuses. Trust UX is still the conversion lever.",
     "🌏 Apr 29: New Zealand passed its online casino framework with a 15-license cap, Dec. 1 market launch, and penalties up to NZ$5M — grey-market room keeps shrinking.",
@@ -1165,6 +1170,16 @@
   ],
   "actionItems": [
     {
+      "item": "Threat-model VPN + verified-account abuse: device fingerprinting, geo-mismatch rules, and withdrawal-step rechecks for suspicious accounts.",
+      "owner": "Brandon",
+      "due": "2026-05-07"
+    },
+    {
+      "item": "Design a staged KYC/onboarding flow for XTP: instant doc guidance, real-time status, and VIP escalation before withdrawal friction kills first deposits.",
+      "owner": "Brandon",
+      "due": "2026-05-05"
+    },
+    {
       "item": "Spec a Telegram-lite VIP funnel: instant onboarding, concierge handoff, cashback reminders, and wallet-linked status without sketchy tokenomics.",
       "owner": "Brandon",
       "due": "2026-05-06"
@@ -1296,6 +1311,7 @@
     }
   ],
   "decisionsLog": [
+    "May 1: XTP should treat trust UX as growth infrastructure — fast verification, public fairness proof, and hard-to-abuse geo controls now matter more than louder bonus spend.",
     "Apr 29: XTP should lean into operational trust — withdrawal proof, cashback clarity, and geo-safe onboarding — instead of trying to win with expensive influencer burn.",
     "Apr 27: XTP should prioritize a cheap repeatable UGC distribution engine, transparent stablecoin cashier UX, and compliance-safe creator marketing over simply increasing bonuses.",
     "Apr 13: StakeUS showing 25% MoM deposit growth — US sweepstakes model proving successful. Consider XTP US market positioning strategy.",
