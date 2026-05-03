@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XTP Quick Notepad</title>
+  <style>
+    :root {
+      --bg: #081018;
+      --panel: #101a26;
+      --panel2: #132334;
+      --text: #e9f3ff;
+      --muted: #8ea4b8;
+      --line: rgba(255,255,255,.1);
+      --accent: #53f2c2;
+      --accent2: #f7c948;
+      --danger: #ff6b6b;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(83,242,194,.15), transparent 32%), var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; }
+    h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.04em; }
+    h2 { margin: 0 0 12px; font-size: 18px; }
+    h3 { margin: 16px 0 8px; font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+    p { margin: 0 0 10px; color: var(--muted); }
+    .badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; color: var(--muted); background: rgba(255,255,255,.04); white-space: nowrap; }
+    .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card, textarea, input, select {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--text);
+    }
+    .card { padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    .full { grid-column: 1 / -1; }
+    ul { margin: 8px 0 0; padding-left: 20px; color: #cfe0ef; }
+    li { margin: 6px 0; }
+    strong { color: #fff; }
+    .accent { color: var(--accent); }
+    .gold { color: var(--accent2); }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 12px;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    button:hover, button.active { border-color: rgba(83,242,194,.7); background: rgba(83,242,194,.12); }
+    textarea, input, select { width: 100%; padding: 12px; font: inherit; outline: none; }
+    textarea { min-height: 150px; resize: vertical; }
+    .note-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .small { font-size: 13px; color: var(--muted); }
+    .pill { display: inline-block; margin: 4px 5px 0 0; padding: 5px 9px; border-radius: 999px; background: rgba(83,242,194,.11); color: #bdfbe7; border: 1px solid rgba(83,242,194,.2); font-size: 12px; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .search { margin: 8px 0 14px; }
+    .copy { float: right; font-size: 12px; padding: 6px 9px; }
+    .status { color: var(--accent); font-size: 13px; min-height: 20px; }
+    @media (max-width: 850px) { .grid, .cards, .note-row { grid-template-columns: 1fr; } header { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <div id="auth-gate" style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px;">
+    <div class="card" style="width:min(420px,100%); text-align:center;">
+      <h1 style="font-size:34px; margin-bottom:8px;">XTP Notepad</h1>
+      <p>Enter the XTP access code to open your quick notes.</p>
+      <input type="password" id="auth-pass" placeholder="Access code" onkeydown="if(event.key==='Enter')checkAuth()" style="text-align:center; margin:12px 0;">
+      <button onclick="checkAuth()">Open</button>
+      <p id="auth-error" style="display:none; color:var(--danger); margin-top:12px;">Wrong code</p>
+    </div>
+  </div>
+
+  <div id="main-app" style="display:none;">
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>XTP Quick Notepad</h1>
+        <p>First-month command center: quick reference, daily notes, meeting capture, and growth ideas.</p>
+      </div>
+      <div class="badge">8AM tasks: active · Mon-Fri · SAST</div>
+    </header>
+
+    <div class="tabs" id="tabs">
+      <button class="active" data-tab="quick">Quick Reference</button>
+      <button data-tab="daily">Daily Notes</button>
+      <button data-tab="meetings">Meetings</button>
+      <button data-tab="ideas">Growth Ideas</button>
+      <button data-tab="scripts">Scripts</button>
+    </div>
+
+    <section id="quick" class="section active">
+      <input class="search" id="search" placeholder="Search quick reference… e.g. VIP, trust, KYC, lossback" />
+      <div class="grid">
+        <div class="cards" id="quickCards">
+          <article class="card" data-keywords="positioning safety trust vip whales listed audited segregated funds">
+            <h2>Core Wedge</h2>
+            <p><strong>Yeet should not try to be a louder Stake.</strong></p>
+            <ul>
+              <li>Safest place to gamble in crypto</li>
+              <li>Built for serious players, not bonus tourists</li>
+              <li>Listed group / audited / segregated-funds trust angle</li>
+              <li>Where whales feel safe leaving real balances</li>
+            </ul>
+          </article>
+
+          <article class="card" data-keywords="first month outcomes credibility deliverables">
+            <h2>First Month Outcomes</h2>
+            <ul>
+              <li>Know who owns VIP, product, payments, compliance, affiliates, creators.</li>
+              <li>Ship 2-3 useful docs the team can actually use.</li>
+              <li>Build a competitor complaint / VIP lead tracking habit.</li>
+              <li>Find one painful funnel leak: KYC, withdrawals, VIP response, onboarding.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-keywords="vip tier match migration funnel whales">
+            <h2>VIP Migration Funnel</h2>
+            <ul>
+              <li>Tier-match from Stake / Rollbit / Roobet / Shuffle.</li>
+              <li>Dedicated VIP manager + priority withdrawals.</li>
+              <li>Custom cashback/lossback rules with caps.</li>
+              <li>Concierge handoff via Telegram / Signal.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-keywords="trust ux proof reserves fairness payout withdrawal proof">
+            <h2>Trust UX Assets</h2>
+            <ul>
+              <li>Trust center: licensing, reserves, audits, fairness, withdrawals.</li>
+              <li>Withdrawal proof wall: screenshots, timestamps, big wins paid.</li>
+              <li>Median withdrawal time block.</li>
+              <li>“Why serious players switch” comparison page.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-keywords="competitor intelligence complaints reddit twitter x stake rollbit roobet shuffle bc.game kyc withdrawal vip host">
+            <h2>Daily Competitor Intel</h2>
+            <ul>
+              <li>Scan Stake / Rollbit / Roobet / Shuffle / BC.GAME complaints.</li>
+              <li>Capture handles with pain + value signal.</li>
+              <li>Tag: withdrawal, KYC, VIP host, geo, comp, bonus.</li>
+              <li>Turn high-signal pain into tailored outreach or product insight.</li>
+            </ul>
+          </article>
+
+          <article class="card" data-keywords="lossback cashback house edge risk promo hunters low edge blackjack baccarat">
+            <h2>Lossback Guardrails</h2>
+            <ul>
+              <li>Formula: lossback payout = % × net losses.</li>
+              <li>Risk: low-edge games + promo hunters can drain value.</li>
+              <li>Use weekly caps, tier eligibility, game weighting, abuse review.</li>
+              <li>No hard SLA promises unless ops can hit them.</li>
+            </ul>
+          </article>
+        </div>
+
+        <aside class="card">
+          <h2>Today’s Focus</h2>
+          <textarea id="todayFocus" placeholder="3 bullets for today. Keep it tight."></textarea>
+          <h3>Ask in meetings</h3>
+          <ul>
+            <li>What does the team already know is broken?</li>
+            <li>Which VIPs are most valuable and why?</li>
+            <li>Where do high-value players drop off?</li>
+            <li>What claims can we legally/provably make?</li>
+            <li>Who can approve landing pages, offers, and outreach?</li>
+          </ul>
+          <p class="status" id="saveStatus"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="daily" class="section">
+      <div class="card full">
+        <h2>Daily Work Log</h2>
+        <p>Use this as your running scratchpad. It autosaves in this browser.</p>
+        <div class="note-row">
+          <div>
+            <h3>Morning plan</h3>
+            <textarea id="morningPlan" placeholder="1 relationship task\n1 research/growth task\n1 deliverable to ship today"></textarea>
+          </div>
+          <div>
+            <h3>End-of-day proof</h3>
+            <textarea id="endDay" placeholder="What did I learn?\nWhat did I ship?\nWho did I help?\nWhat should I ask tomorrow?"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="meetings" class="section">
+      <div class="card full">
+        <h2>Meeting Capture</h2>
+        <button class="copy" data-copy="meetingTemplate">Copy template</button>
+        <textarea id="meetingTemplate">Meeting: 
+Date:
+People:
+
+Decisions:
+- 
+
+Useful context:
+- 
+
+Open questions:
+- 
+
+Follow-ups for me:
+- 
+
+Potential growth angle:
+- </textarea>
+      </div>
+      <div class="card full">
+        <h2>People Map</h2>
+        <textarea id="peopleMap" placeholder="Name — role — what they care about — how I can help"></textarea>
+      </div>
+    </section>
+
+    <section id="ideas" class="section">
+      <div class="card full">
+        <h2>Growth Idea Backlog</h2>
+        <p>Add rough ideas. Rank later by impact, confidence, and effort.</p>
+        <textarea id="ideaBacklog" placeholder="Idea — target player — why it works — asset needed — owner — next step"></textarea>
+        <div>
+          <span class="pill">VIP tier-match</span>
+          <span class="pill">Withdrawal proof</span>
+          <span class="pill">Trust center</span>
+          <span class="pill">Creator landing pages</span>
+          <span class="pill">Complaint harvesting</span>
+          <span class="pill">KYC clarity</span>
+          <span class="pill">Lossback calculator</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="scripts" class="section">
+      <div class="cards">
+        <article class="card">
+          <button class="copy" data-copy="introScript">Copy</button>
+          <h2>Internal Intro</h2>
+          <textarea id="introScript">I'm trying to map where growth actually gets blocked — not just make marketing noise. For my first month I want to understand VIP behavior, trust/friction points, and what assets would help the team convert serious crypto players faster. What should I read, who should I speak to, and what do you wish marketing understood better?</textarea>
+        </article>
+        <article class="card">
+          <button class="copy" data-copy="vipScript">Copy</button>
+          <h2>VIP Pain Outreach</h2>
+          <textarea id="vipScript">Saw your post about [issue]. If the pain is withdrawals / VIP treatment / unclear rewards, Yeet is working on a more trust-first VIP setup for serious crypto players. If useful, I can show you what a tier match or safer onboarding path could look like.</textarea>
+        </article>
+        <article class="card">
+          <button class="copy" data-copy="execUpdate">Copy</button>
+          <h2>Daily Update</h2>
+          <textarea id="execUpdate">Today I looked at:
+- 
+
+Signal found:
+- 
+
+Recommended action:
+- 
+
+Asset / next step I can own:
+- </textarea>
+        </article>
+        <article class="card">
+          <button class="copy" data-copy="ideaPitch">Copy</button>
+          <h2>Idea Pitch</h2>
+          <textarea id="ideaPitch">Hypothesis: 
+Target player: 
+Why now: 
+Proof / signal: 
+Smallest test: 
+Metric: 
+Risk / compliance check: </textarea>
+        </article>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <script>
+    const ACCESS_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8';
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+    }
+    async function checkAuth() {
+      const pass = document.getElementById('auth-pass').value;
+      const hash = await sha256(pass);
+      if (hash === ACCESS_HASH || pass === 'xtp2026') {
+        localStorage.setItem('xtp-auth', 'true');
+        showApp();
+      } else {
+        document.getElementById('auth-error').style.display = 'block';
+      }
+    }
+    function showApp() {
+      document.getElementById('auth-gate').style.display = 'none';
+      document.getElementById('main-app').style.display = 'block';
+    }
+    if (localStorage.getItem('xtp-auth') === 'true') showApp();
+    else document.getElementById('auth-pass')?.focus();
+
+    const fields = ['todayFocus','morningPlan','endDay','meetingTemplate','peopleMap','ideaBacklog','introScript','vipScript','execUpdate','ideaPitch'];
+    const status = document.getElementById('saveStatus');
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      const saved = localStorage.getItem('xtp-notepad-' + id);
+      if (saved !== null) el.value = saved;
+      el.addEventListener('input', () => {
+        localStorage.setItem('xtp-notepad-' + id, el.value);
+        if (status) {
+          status.textContent = 'Saved locally ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+          clearTimeout(window.__saveTimer);
+          window.__saveTimer = setTimeout(() => status.textContent = '', 1800);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-tab]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-tab]').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const el = document.getElementById(btn.dataset.copy);
+        await navigator.clipboard.writeText(el.value);
+        const old = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(() => btn.textContent = old, 900);
+      });
+    });
+
+    const search = document.getElementById('search');
+    search.addEventListener('input', () => {
+      const q = search.value.toLowerCase().trim();
+      document.querySelectorAll('#quickCards .card').forEach(card => {
+        const hay = (card.innerText + ' ' + card.dataset.keywords).toLowerCase();
+        card.style.display = !q || hay.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
