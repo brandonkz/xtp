@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-01T05:25:52.142Z",
+  "lastUpdated": "2026-05-04T05:22:18.547Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,10 @@
     }
   ],
   "activityFeed": [
+    "🇮🇳 [May 4] India demand signal surfacing on r/Stake — users openly requesting geo access. Untapped market, no major operator has unlocked India yet.",
+    "🌏 [May 4] Singapore/HK regulators cracking down on prediction markets ($64B volume, +200% YoY). Crypto casino regulatory pressure building across Asia.",
+    "📊 [May 4] Ontario iGaming sets all-time record: CAD $9.59B wagers in March. Revenue per active player up 19% even as player count dips. Casino = 87% of market.",
+    "📰 [May 4] Rollbit withdrawal complaints active on Reddit — users stuck in 'pending/just wait' loop, support unresponsive. Trust gap opening.",
     "🧾 May 1: BC.GAME published gray-market safety guidance telling users to scrutinize withdrawal terms, support response times, and bonus traps — even gray-market brands are leaning into trust education.",
     "⏱️ Apr 30: New KYC funnel data says 31% of first document submissions get rejected and operators think removing KYC could lift conversion ~30% — verification speed is now a core growth lever.",
     "⚠️ May 1: Fresh r/Stake spam is openly offering Level 2 verified Stake accounts for VPN users in restricted markets — geo/KYC loopholes are now being resold as a growth side-channel.",
@@ -1170,6 +1174,11 @@
   ],
   "actionItems": [
     {
+      "item": "Research India crypto casino market: UPI/P2P payment rails, KYC options, VPN demand size",
+      "owner": "Brandon",
+      "due": "May 11"
+    },
+    {
       "item": "Threat-model VPN + verified-account abuse: device fingerprinting, geo-mismatch rules, and withdrawal-step rechecks for suspicious accounts.",
       "owner": "Brandon",
       "due": "2026-05-07"
@@ -1311,6 +1320,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 4] Rollbit withdrawal friction is live reputation risk — XTP should build verifiable payout proof (speed + timestamps) as direct counter-positioning asset",
     "May 1: XTP should treat trust UX as growth infrastructure — fast verification, public fairness proof, and hard-to-abuse geo controls now matter more than louder bonus spend.",
     "Apr 29: XTP should lean into operational trust — withdrawal proof, cashback clarity, and geo-safe onboarding — instead of trying to win with expensive influencer burn.",
     "Apr 27: XTP should prioritize a cheap repeatable UGC distribution engine, transparent stablecoin cashier UX, and compliance-safe creator marketing over simply increasing bonuses.",
