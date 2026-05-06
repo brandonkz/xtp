@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTP — Institutional-Grade Crypto Casino</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --panel: #111827;
+    --panel-light: #1e293b;
+    --border: #334155;
+    --accent: #22d3ee;
+    --green: #10b981;
+    --gold: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --dim: #64748b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0a0e17;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-text .name {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: var(--accent);
+  }
+
+  .logo-text .tagline {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .header-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .header-nav a:hover {
+    color: var(--accent);
+  }
+
+  .trust-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--green);
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 1px;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    padding: 80px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+  }
+
+  .hero .trust-line {
+    font-size: 14px;
+    color: var(--green);
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0e17;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background: #1db8d4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  /* TRUST PROOF SECTION */
+  .trust-proof {
+    background: var(--panel);
+    padding: 60px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-proof h2 {
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 48px;
+    text-transform: uppercase;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .trust-card {
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .trust-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.2);
+  }
+
+  .trust-card .icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .trust-card .value {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-family: 'SF Mono', monospace;
+  }
+
+  .trust-card .label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .trust-card .detail {
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .trust-card .status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  .status-verified {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--green);
+    border: 1px solid var(--green);
+  }
+
+  .status-live {
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  /* LIVE METRICS BANNER */
+  .live-metrics {
+    background: #0f172a;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric .value {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--green);
+    font-family: 'SF Mono', monospace;
+  }
+
+  .metric .label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .metric .live-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-left: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* WHY TRUST SECTION */
+  .why-trust {
+    background: var(--bg);
+    padding: 60px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why-trust h2 {
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 48px;
+    text-transform: uppercase;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .feature {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    transition: all 0.3s;
+  }
+
+  .feature:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .feature .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .feature h3 {
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .feature p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .feature .proof-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
+  }
+
+  .feature .proof-link:hover {
+    border-bottom-style: solid;
+  }
+
+  /* WITHDRAWAL PROOF WALL */
+  .withdrawal-proof {
+    background: var(--panel);
+    padding: 60px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .withdrawal-proof h2 {
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .withdrawal-proof .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .withdrawal-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .withdrawal-item {
+    display: grid;
+    grid-template-columns: 1fr 150px 120px 100px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .withdrawal-item:hover {
+    background: rgba(34, 211, 238, 0.05);
+  }
+
+  .withdrawal-item:last-child {
+    border-bottom: none;
+  }
+
+  .withdrawal-item .user {
+    color: var(--text);
+    font-family: 'SF Mono', monospace;
+  }
+
+  .withdrawal-item .amount {
+    color: var(--green);
+    font-weight: bold;
+    font-family: 'SF Mono', monospace;
+  }
+
+  .withdrawal-item .time {
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .withdrawal-item .verify {
+    text-align: right;
+  }
+
+  .withdrawal-item .verify a {
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .withdrawal-item .verify a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #0f172a;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .footer-badge {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 1px;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .trust-grid { grid-template-columns: 1fr; }
+    .live-metrics { flex-direction: column; gap: 20px; }
+    .hero h1 { font-size: 32px; }
+    .withdrawal-item { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">🔒</div>
+    <div class="logo-text">
+      <div class="name">XTP</div>
+      <div class="tagline">Institutional-Grade Crypto Casino</div>
+    </div>
+  </div>
+  <div class="header-nav">
+    <a href="#games">Games</a>
+    <a href="#vip">VIP</a>
+    <a href="/trust">Trust Dashboard</a>
+    <a href="#about">About</a>
+    <div class="trust-badge">
+      ✅ Audited & Licensed
+    </div>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+  <h1>The Safest Place to Gamble in Crypto</h1>
+  <div class="subtitle">
+    Segregated funds. Instant withdrawals. Provably fair. Built for serious players.
+  </div>
+  <div class="trust-line">
+    <span>🏛️ Listed Group</span>
+    <span>|</span>
+    <span>✅ Third-Party Audited</span>
+    <span>|</span>
+    <span>⚡ Median Withdrawal: 42 Seconds</span>
+  </div>
+  <div class="cta-buttons">
+    <a href="#play" class="btn btn-primary">Start Playing</a>
+    <a href="/trust" class="btn btn-secondary">View Trust Dashboard</a>
+  </div>
+</div>
+
+<!-- LIVE METRICS BANNER -->
+<div class="live-metrics">
+  <div class="metric">
+    <div class="value">
+      135.7%
+      <span class="live-indicator"></span>
+    </div>
+    <div class="label">Reserve Ratio (Live)</div>
+  </div>
+  <div class="metric">
+    <div class="value">
+      42s
+      <span class="live-indicator"></span>
+    </div>
+    <div class="label">Median Withdrawal</div>
+  </div>
+  <div class="metric">
+    <div class="value">
+      99.8%
+      <span class="live-indicator"></span>
+    </div>
+    <div class="label">Uptime (30d)</div>
+  </div>
+  <div class="metric">
+    <div class="value">
+      100%
+      <span class="live-indicator"></span>
+    </div>
+    <div class="label">Provably Fair</div>
+  </div>
+</div>
+
+<!-- TRUST PROOF SECTION -->
+<div class="trust-proof">
+  <h2>🔒 Trust Proof</h2>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="icon">💰</div>
+      <div class="value">$24.7M</div>
+      <div class="label">Total Reserves</div>
+      <div class="detail">Player Liabilities: $18.2M</div>
+      <span class="status status-verified">✅ On-Chain Verified</span>
+    </div>
+
+    <div class="trust-card">
+      <div class="icon">⚡</div>
+      <div class="value">42s</div>
+      <div class="label">Median Withdrawal</div>
+      <div class="detail">Last 100 withdrawals</div>
+      <span class="status status-live">🔴 LIVE</span>
+    </div>
+
+    <div class="trust-card">
+      <div class="icon">🏛️</div>
+      <div class="value">Listed</div>
+      <div class="label">Public Company</div>
+      <div class="detail">Audited financials</div>
+      <span class="status status-verified">✅ Verified</span>
+    </div>
+
+    <div class="trust-card">
+      <div class="icon">🛡️</div>
+      <div class="value">100%</div>
+      <div class="label">Segregated Funds</div>
+      <div class="detail">Your crypto stays yours</div>
+      <span class="status status-verified">✅ Verified</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHY TRUST XTP -->
+<div class="why-trust">
+  <h2>Why Serious Players Choose XTP</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <div class="icon">🏦</div>
+      <h3>Segregated Cold Storage</h3>
+      <p>Your funds are held separately from house bankroll in multi-sig cold wallets. Not a hot wallet. Not a custodial risk.</p>
+      <a href="/trust#reserves" class="proof-link">View On-Chain Proof →</a>
+    </div>
+
+    <div class="feature">
+      <div class="icon">⚡</div>
+      <h3>Instant Withdrawals</h3>
+      <p>Median withdrawal time: 42 seconds. No 24-hour holds. No surprise KYC delays. Withdraw anytime, receive immediately.</p>
+      <a href="/trust#withdrawals" class="proof-link">See Live Stats →</a>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🔍</div>
+      <h3>Provably Fair (Always Visible)</h3>
+      <p>Every bet is verifiable on-chain. Verify button on every game—not buried in footer. Public RTP by game.</p>
+      <a href="/trust#fairness" class="proof-link">Verify Any Bet →</a>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📊</div>
+      <h3>Third-Party Audited</h3>
+      <p>eCOGRA certified. GLI audited. Public audit reports updated quarterly. Not self-reported.</p>
+      <a href="/trust#audits" class="proof-link">View Audit Reports →</a>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🏛️</div>
+      <h3>Listed Group</h3>
+      <p>Publicly traded parent company. Audited financials. Regulatory oversight. Institutional accountability.</p>
+      <a href="/trust#about" class="proof-link">Corporate Info →</a>
+    </div>
+
+    <div class="feature">
+      <div class="icon">👤</div>
+      <h3>VIP-First Service</h3>
+      <p>Dedicated account managers for whales. Custom lossback. Priority support. Tier-match from competitors.</p>
+      <a href="/vip" class="proof-link">Join VIP Program →</a>
+    </div>
+  </div>
+</div>
+
+<!-- WITHDRAWAL PROOF WALL -->
+<div class="withdrawal-proof">
+  <h2>⚡ Recent Withdrawals</h2>
+  <div class="subtitle">Live proof — updated every 10 minutes</div>
+  <div class="withdrawal-list">
+    <div class="withdrawal-item">
+      <div class="user">User_7x8f***</div>
+      <div class="amount">$47,200</div>
+      <div class="time">38 seconds</div>
+      <div class="verify"><a href="#">Verify →</a></div>
+    </div>
+    <div class="withdrawal-item">
+      <div class="user">Whale_3k9***</div>
+      <div class="amount">$125,000</div>
+      <div class="time">54 seconds</div>
+      <div class="verify"><a href="#">Verify →</a></div>
+    </div>
+    <div class="withdrawal-item">
+      <div class="user">User_m4q2***</div>
+      <div class="amount">$8,900</div>
+      <div class="time">29 seconds</div>
+      <div class="verify"><a href="#">Verify →</a></div>
+    </div>
+    <div class="withdrawal-item">
+      <div class="user">VIP_9xt5***</div>
+      <div class="amount">$62,150</div>
+      <div class="time">41 seconds</div>
+      <div class="verify"><a href="#">Verify →</a></div>
+    </div>
+    <div class="withdrawal-item">
+      <div class="user">User_b7k1***</div>
+      <div class="amount">$15,300</div>
+      <div class="time">33 seconds</div>
+      <div class="verify"><a href="#">Verify →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-links">
+    <a href="/trust">Trust Dashboard</a>
+    <a href="/vip">VIP Program</a>
+    <a href="/provably-fair">Provably Fair</a>
+    <a href="/responsible-gaming">Responsible Gaming</a>
+    <a href="/about">About XTP</a>
+    <a href="/support">Support</a>
+  </div>
+  <div class="footer-badges">
+    <div class="footer-badge">✅ eCOGRA Certified</div>
+    <div class="footer-badge">✅ GLI Audited</div>
+    <div class="footer-badge">✅ Curacao Licensed</div>
+    <div class="footer-badge">✅ Listed Group</div>
+  </div>
+  <div class="footer-legal">
+    XTP is operated by [Company Name], a publicly listed gaming company.<br>
+    Licensed and regulated by the Government of Curacao (License #XXXXX).<br>
+    Third-party audits by eCOGRA and Gaming Laboratories International (GLI).<br>
+    © 2026 XTP. All rights reserved. Play responsibly. 18+
+  </div>
+</div>
+
+<script>
+// Live metrics update simulation
+function updateLiveMetrics() {
+  // In production, fetch from API
+  console.log('Updating live metrics...');
+}
+
+setInterval(updateLiveMetrics, 10000); // Update every 10 seconds
+</script>
+
+</body>
+</html>

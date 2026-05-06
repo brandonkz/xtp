@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust Dashboard — XTP</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --panel: #111827;
+    --panel-light: #1e293b;
+    --border: #334155;
+    --accent: #22d3ee;
+    --green: #10b981;
+    --gold: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --dim: #64748b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* HEADER (same as homepage) */
+  .header {
+    background: linear-gradient(90deg, #0f172a 0%, #1e1b4b 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 40px; height: 40px; background: var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; color: #0a0e17; }
+  .logo-text { display: flex; flex-direction: column; }
+  .logo-text .name { font-size: 24px; font-weight: bold; letter-spacing: 4px; color: var(--accent); }
+  .logo-text .tagline { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+  .header-nav { display: flex; gap: 32px; align-items: center; }
+  .header-nav a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+  .header-nav a:hover, .header-nav a.active { color: var(--accent); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    padding: 60px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    color: var(--accent);
+  }
+
+  .page-header .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section {
+    margin-bottom: 80px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .section-header .icon {
+    font-size: 32px;
+  }
+
+  .section-header .text h2 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .section-header .text p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* RESERVE PROOF CARD */
+  .reserve-card {
+    background: var(--panel);
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reserve-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--accent));
+  }
+
+  .reserve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .reserve-metric {
+    text-align: center;
+  }
+
+  .reserve-metric .value {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--green);
+    font-family: 'SF Mono', monospace;
+  }
+
+  .reserve-metric .label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  .reserve-chart {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .reserve-chart h4 {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .reserve-bar {
+    background: var(--panel-light);
+    height: 40px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reserve-bar-fill {
+    background: linear-gradient(90deg, var(--green), var(--accent));
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    font-weight: bold;
+    color: #0a0e17;
+    transition: width 1s ease;
+  }
+
+  .reserve-addresses {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .address-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .address-card .chain {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .address-card .address {
+    font-size: 13px;
+    color: var(--text);
+    font-family: 'SF Mono', monospace;
+    word-break: break-all;
+    margin-bottom: 12px;
+  }
+
+  .address-card .balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .address-card .balance .amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--green);
+  }
+
+  .address-card .balance .verify {
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .address-card .balance .verify:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* WITHDRAWAL STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .stat-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .stat-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .stat-card .value {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--accent);
+    font-family: 'SF Mono', monospace;
+    margin-bottom: 8px;
+  }
+
+  .stat-card .label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* WITHDRAWAL CHART */
+  .chart-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 24px;
+  }
+
+  .chart-card h4 {
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 200px;
+  }
+
+  .chart-bar {
+    flex: 1;
+    background: rgba(34, 211, 238, 0.2);
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .chart-bar:hover {
+    background: rgba(34, 211, 238, 0.4);
+  }
+
+  .chart-bar .bar-label {
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .chart-bar .bar-value {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* AUDIT SECTION */
+  .audit-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .audit-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  .audit-card:hover {
+    border-color: var(--accent);
+  }
+
+  .audit-card .info h4 {
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .audit-card .info p {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .audit-card .actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .audit-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--green);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--green);
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .audit-link {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .audit-link:hover {
+    background: rgba(34, 211, 238, 0.1);
+  }
+
+  /* LICENSE SECTION */
+  .license-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .license-detail {
+    margin-bottom: 16px;
+  }
+
+  .license-detail .label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .license-detail .value {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: bold;
+  }
+
+  /* PROVABLY FAIR */
+  .fair-demo {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px;
+  }
+
+  .fair-demo h4 {
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .fair-input {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    color: var(--text);
+    font-family: 'SF Mono', monospace;
+    font-size: 13px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .fair-input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .btn {
+    background: var(--accent);
+    color: #0a0e17;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn:hover {
+    background: #1db8d4;
+    transform: translateY(-2px);
+  }
+
+  .fair-result {
+    background: var(--bg);
+    border: 1px solid var(--green);
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 16px;
+    display: none;
+  }
+
+  .fair-result.show {
+    display: block;
+  }
+
+  .fair-result .result-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .fair-result .result-value {
+    font-size: 14px;
+    color: var(--green);
+    font-family: 'SF Mono', monospace;
+    word-break: break-all;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .reserve-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .license-card { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .reserve-addresses { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">🔒</div>
+    <div class="logo-text">
+      <div class="name">XTP</div>
+      <div class="tagline">Institutional-Grade Crypto Casino</div>
+    </div>
+  </div>
+  <div class="header-nav">
+    <a href="/">Home</a>
+    <a href="#games">Games</a>
+    <a href="#vip">VIP</a>
+    <a href="/trust" class="active">Trust Dashboard</a>
+    <a href="#about">About</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>🔒 Trust Dashboard</h1>
+  <div class="subtitle">
+    Live proof of reserves, withdrawals, audits, and fairness — updated every 10 minutes
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- SECTION 1: PROOF OF RESERVES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">💰</div>
+      <div class="text">
+        <h2>Proof of Reserves</h2>
+        <p>Live on-chain verification of player funds</p>
+      </div>
+    </div>
+
+    <div class="reserve-card">
+      <div class="reserve-grid">
+        <div class="reserve-metric">
+          <div class="value">$24.7M</div>
+          <div class="label">Total Reserves</div>
+        </div>
+        <div class="reserve-metric">
+          <div class="value">$18.2M</div>
+          <div class="label">Player Liabilities</div>
+        </div>
+        <div class="reserve-metric">
+          <div class="value">135.7%</div>
+          <div class="label">Reserve Ratio</div>
+        </div>
+      </div>
+
+      <div class="reserve-chart">
+        <h4>Reserve Coverage</h4>
+        <div class="reserve-bar">
+          <div class="reserve-bar-fill" style="width: 73.7%;">
+            Player Funds (73.7%)
+          </div>
+        </div>
+      </div>
+
+      <div class="reserve-addresses">
+        <div class="address-card">
+          <div class="chain">Ethereum Mainnet</div>
+          <div class="address">0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb</div>
+          <div class="balance">
+            <div class="amount">$12.4M</div>
+            <a href="#" class="verify">Verify on Etherscan →</a>
+          </div>
+        </div>
+        <div class="address-card">
+          <div class="chain">Bitcoin</div>
+          <div class="address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+          <div class="balance">
+            <div class="amount">$8.1M</div>
+            <a href="#" class="verify">Verify on Blockchain.com →</a>
+          </div>
+        </div>
+        <div class="address-card">
+          <div class="chain">Solana</div>
+          <div class="address">7fUAJdStEuGbc3sM84cKRL6yYaaSstyLSU4ve5oovLS7</div>
+          <div class="balance">
+            <div class="amount">$3.2M</div>
+            <a href="#" class="verify">Verify on Solscan →</a>
+          </div>
+        </div>
+        <div class="address-card">
+          <div class="chain">USDC (Multi-Chain)</div>
+          <div class="address">0x8Ba1f109551bD432803012645Ac136ddd64DBA72</div>
+          <div class="balance">
+            <div class="amount">$1.0M</div>
+            <a href="#" class="verify">Verify on Etherscan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: WITHDRAWAL STATS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">⚡</div>
+      <div class="text">
+        <h2>Withdrawal Performance</h2>
+        <p>Live withdrawal speed and success rate</p>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="value">42s</div>
+        <div class="label">Median Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">99.9%</div>
+        <div class="label">Success Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">24/7</div>
+        <div class="label">Instant Approval</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">1,247</div>
+        <div class="label">Last 24h</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h4>Median Withdrawal Time (Last 7 Days)</h4>
+      <div class="chart-bars">
+        <div class="chart-bar" style="height: 85%;">
+          <div class="bar-value">38s</div>
+          <div class="bar-label">Mon</div>
+        </div>
+        <div class="chart-bar" style="height: 90%;">
+          <div class="bar-value">41s</div>
+          <div class="bar-label">Tue</div>
+        </div>
+        <div class="chart-bar" style="height: 80%;">
+          <div class="bar-value">36s</div>
+          <div class="bar-label">Wed</div>
+        </div>
+        <div class="chart-bar" style="height: 95%;">
+          <div class="bar-value">43s</div>
+          <div class="bar-label">Thu</div>
+        </div>
+        <div class="chart-bar" style="height: 88%;">
+          <div class="bar-value">40s</div>
+          <div class="bar-label">Fri</div>
+        </div>
+        <div class="chart-bar" style="height: 92%;">
+          <div class="bar-value">42s</div>
+          <div class="bar-label">Sat</div>
+        </div>
+        <div class="chart-bar" style="height: 87%;">
+          <div class="bar-value">39s</div>
+          <div class="bar-label">Sun</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: AUDITS & CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">📊</div>
+      <div class="text">
+        <h2>Third-Party Audits</h2>
+        <p>Independent verification and certification</p>
+      </div>
+    </div>
+
+    <div class="audit-list">
+      <div class="audit-card">
+        <div class="info">
+          <h4>eCOGRA Certified</h4>
+          <p>Fair gaming and player protection certification — Last audit: Q1 2026</p>
+        </div>
+        <div class="actions">
+          <div class="audit-badge">✅ Certified</div>
+          <a href="#" class="audit-link">View Report →</a>
+        </div>
+      </div>
+
+      <div class="audit-card">
+        <div class="info">
+          <h4>GLI Audited</h4>
+          <p>Gaming Laboratories International RNG and payout verification — Last audit: March 2026</p>
+        </div>
+        <div class="actions">
+          <div class="audit-badge">✅ Audited</div>
+          <a href="#" class="audit-link">View Report →</a>
+        </div>
+      </div>
+
+      <div class="audit-card">
+        <div class="info">
+          <h4>Smart Contract Audit</h4>
+          <p>Third-party security audit of on-chain smart contracts — CertiK, February 2026</p>
+        </div>
+        <div class="actions">
+          <div class="audit-badge">✅ Verified</div>
+          <a href="#" class="audit-link">View Report →</a>
+        </div>
+      </div>
+
+      <div class="audit-card">
+        <div class="info">
+          <h4>Financial Audit</h4>
+          <p>Annual financial audit by [Big 4 Accounting Firm] — FY 2025</p>
+        </div>
+        <div class="actions">
+          <div class="audit-badge">✅ Audited</div>
+          <a href="#" class="audit-link">View Report →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: LICENSE INFO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">🏛️</div>
+      <div class="text">
+        <h2>Licensing & Regulation</h2>
+        <p>Our regulatory oversight and corporate structure</p>
+      </div>
+    </div>
+
+    <div class="license-card">
+      <div>
+        <div class="license-detail">
+          <div class="label">Jurisdiction</div>
+          <div class="value">Government of Curacao</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">License Number</div>
+          <div class="value">#XXXXX-XXXXX</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">License Holder</div>
+          <div class="value">[Company Legal Name]</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">Issue Date</div>
+          <div class="value">January 15, 2024</div>
+        </div>
+      </div>
+      <div>
+        <div class="license-detail">
+          <div class="label">Parent Company</div>
+          <div class="value">[Parent Company Name]</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">Listed Exchange</div>
+          <div class="value">[Stock Exchange] ([Ticker Symbol])</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">Regulatory Contact</div>
+          <div class="value">compliance@xtp.casino</div>
+        </div>
+        <div class="license-detail">
+          <div class="label">Player Protection</div>
+          <div class="value">Self-Exclusion, Limits, Reality Checks</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PROVABLY FAIR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">🔍</div>
+      <div class="text">
+        <h2>Provably Fair Verification</h2>
+        <p>Verify any bet on-chain</p>
+      </div>
+    </div>
+
+    <div class="fair-demo">
+      <h4>Verify a Bet</h4>
+      <input type="text" class="fair-input" placeholder="Enter bet ID or transaction hash" id="betInput">
+      <button class="btn" onclick="verifyBet()">Verify Bet</button>
+      
+      <div class="fair-result" id="fairResult">
+        <div class="result-label">Server Seed (Hashed):</div>
+        <div class="result-value">3f8c9d7e2a1b6c5d4e8f7a9b2c1d0e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d</div>
+        
+        <div class="result-label" style="margin-top: 12px;">Client Seed:</div>
+        <div class="result-value">user_seed_12345_timestamp_1234567890</div>
+        
+        <div class="result-label" style="margin-top: 12px;">Result:</div>
+        <div class="result-value">✅ Verified Fair — Result matches on-chain hash</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function verifyBet() {
+  const input = document.getElementById('betInput').value;
+  const result = document.getElementById('fairResult');
+  
+  if (input) {
+    // In production, call API to verify bet
+    result.classList.add('show');
+  } else {
+    alert('Please enter a bet ID');
+  }
+}
+
+// Live updates simulation
+function updateLiveMetrics() {
+  console.log('Updating trust dashboard metrics...');
+  // In production, fetch from API and update DOM
+}
+
+setInterval(updateLiveMetrics, 10000); // Every 10 seconds
+</script>
+
+</body>
+</html>
