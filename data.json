@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-04T05:22:18.547Z",
+  "lastUpdated": "2026-05-06T05:22:25.368Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "⚠️ [2026-05-06] Rollbit withdrawal freeze pattern STILL active 48h+ after May 4 report. Reputation deterioration accelerating. Rollbit migration LP remains high-priority build.",
+    "🛠️ [2026-05-06] OddsFinder.app launched free arbitrage/value betting tool (free til May 18) — cross-posted to r/Stake + r/stakeus. XTP opportunity: appear as the home casino for serious money in arb/value communities.",
+    "💡 [2026-05-06] COPY INSIGHT: Reddit players say cashback language reminds them of losses (\"$1k cashback = I lost $5k\"). Framing VIP value as rakeback/win-share outperforms cashback messaging for whale retention.",
+    "📊 [2026-05-06] Rollbit running $25K Daily Race via referral codes as primary acquisition mechanic — trust collapsing in parallel. 'Race + guaranteed withdrawal' counter-positioning available for XTP.",
+    "🎰 [2026-05-06] INTEGRITY ALERT: Video circulating on r/gambling alleging Evolution Gaming roulette magnetic manipulation — affects Stake/Rollbit/BC.Game. First-mover content window open for XTP provably fair positioning.",
     "🇮🇳 [May 4] India demand signal surfacing on r/Stake — users openly requesting geo access. Untapped market, no major operator has unlocked India yet.",
     "🌏 [May 4] Singapore/HK regulators cracking down on prediction markets ($64B volume, +200% YoY). Crypto casino regulatory pressure building across Asia.",
     "📊 [May 4] Ontario iGaming sets all-time record: CAD $9.59B wagers in March. Revenue per active player up 19% even as player count dips. Casino = 87% of market.",
@@ -1174,6 +1179,11 @@
   ],
   "actionItems": [
     {
+      "item": "Publish 'Is Evolution Gaming rigged? Here's how to verify' — SEO content targeting search spike from r/gambling integrity video. Live within 48h.",
+      "owner": "Brandon",
+      "due": "2026-05-08"
+    },
+    {
       "item": "Research India crypto casino market: UPI/P2P payment rails, KYC options, VPN demand size",
       "owner": "Brandon",
       "due": "May 11"
@@ -1320,6 +1330,7 @@
     }
   ],
   "decisionsLog": [
+    "[2026-05-06] COPY DECISION: Stop using 'cashback' language in VIP/retention comms. Rebrand to 'rakeback', 'player share', or 'win rewards'. Reddit data confirms cashback = loss reminder for high-volume players.",
     "[May 4] Rollbit withdrawal friction is live reputation risk — XTP should build verifiable payout proof (speed + timestamps) as direct counter-positioning asset",
     "May 1: XTP should treat trust UX as growth infrastructure — fast verification, public fairness proof, and hard-to-abuse geo controls now matter more than louder bonus spend.",
     "Apr 29: XTP should lean into operational trust — withdrawal proof, cashback clarity, and geo-safe onboarding — instead of trying to win with expensive influencer burn.",
