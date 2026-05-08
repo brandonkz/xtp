@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-06T05:22:25.368Z",
+  "lastUpdated": "2026-05-08T05:21:07.407Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,10 @@
     }
   ],
   "activityFeed": [
+    "🏢 [May 8] Stake partners with BetBlocker for responsible gambling tools. Industry shifting: compliance/RG features becoming table stakes as regulatory pressure grows.",
+    "📱 [May 8] Telegram casino mini-apps going mainstream — CoinCasino, Lucky Block, JustCasino.io leading. Major outlets (Cryptonews, GamblingInsider, Coinspeaker) publishing best Telegram casino guides. SEO opportunity live.",
+    "⚖️ [May 8] Curacao LOK reform: master license system officially dead in 2026. Operators must transition to direct B2C licensing. Wave of consolidation incoming — compliance = trust signal opportunity.",
+    "📰 [May 8] Roobet launches prediction markets (May 6) — first major crypto casino to fully integrate the format. Single wallet spans casino, sportsbook + predictions. Direct Roobet competitor move to capture Polymarket audience.",
     "⚠️ [2026-05-06] Rollbit withdrawal freeze pattern STILL active 48h+ after May 4 report. Reputation deterioration accelerating. Rollbit migration LP remains high-priority build.",
     "🛠️ [2026-05-06] OddsFinder.app launched free arbitrage/value betting tool (free til May 18) — cross-posted to r/Stake + r/stakeus. XTP opportunity: appear as the home casino for serious money in arb/value communities.",
     "💡 [2026-05-06] COPY INSIGHT: Reddit players say cashback language reminds them of losses (\"$1k cashback = I lost $5k\"). Framing VIP value as rakeback/win-share outperforms cashback messaging for whale retention.",
@@ -1179,6 +1183,11 @@
   ],
   "actionItems": [
     {
+      "item": "Evaluate prediction markets integration — Roobet validated format, Stake/BC.Game will follow within 6 months. Get ahead of it.",
+      "owner": "Brandon",
+      "due": "May 2026"
+    },
+    {
       "item": "Publish 'Is Evolution Gaming rigged? Here's how to verify' — SEO content targeting search spike from r/gambling integrity video. Live within 48h.",
       "owner": "Brandon",
       "due": "2026-05-08"
@@ -1330,6 +1339,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 8] Curacao LOK compliance is now a genuine marketing differentiator — operators completing direct B2C licensing first can use it as a trust signal. Worth fast-tracking if not already in motion.",
     "[2026-05-06] COPY DECISION: Stop using 'cashback' language in VIP/retention comms. Rebrand to 'rakeback', 'player share', or 'win rewards'. Reddit data confirms cashback = loss reminder for high-volume players.",
     "[May 4] Rollbit withdrawal friction is live reputation risk — XTP should build verifiable payout proof (speed + timestamps) as direct counter-positioning asset",
     "May 1: XTP should treat trust UX as growth infrastructure — fast verification, public fairness proof, and hard-to-abuse geo controls now matter more than louder bonus spend.",
