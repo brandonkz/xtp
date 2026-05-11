@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-08T05:21:07.407Z",
+  "lastUpdated": "2026-05-11T05:20:55.392Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "💡 [May 11] Industry consensus: no-wagering free spins becoming new standard (Angliabet leads); VIP programs + instant crypto withdrawals are top differentiators in player acquisition.",
+    "🤝 [May 11] Silverspin hiring Senior Affiliate Manager focused on crypto KOLs, Telegram influencers & Web3 media — signals big affiliate spend ramping in the sector.",
+    "⚖️ [May 11] Curacao master-license era officially dead — LOK reform requires every operator to hold their own direct B2C license. Higher compliance bar raises costs for new entrants.",
+    "🎰 [May 11] Telegram casino mini-apps surging: Jetton Casino (TON blockchain) goes live as Telegram mini-app; JustCasino.io, CoinCasino & BetPanda named top Telegram casinos of 2026.",
+    "📰 [May 11] Roobet launches prediction markets — first major crypto casino to integrate format. Players use existing balances across casino + sportsbook + predictions in one wallet.",
     "🏢 [May 8] Stake partners with BetBlocker for responsible gambling tools. Industry shifting: compliance/RG features becoming table stakes as regulatory pressure grows.",
     "📱 [May 8] Telegram casino mini-apps going mainstream — CoinCasino, Lucky Block, JustCasino.io leading. Major outlets (Cryptonews, GamblingInsider, Coinspeaker) publishing best Telegram casino guides. SEO opportunity live.",
     "⚖️ [May 8] Curacao LOK reform: master license system officially dead in 2026. Operators must transition to direct B2C licensing. Wave of consolidation incoming — compliance = trust signal opportunity.",
@@ -1183,6 +1188,16 @@
   ],
   "actionItems": [
     {
+      "item": "Explore Telegram mini-app listing for XTP — Jetton Casino model shows TON-based mini-apps gaining traction; assess effort vs acquisition upside",
+      "owner": "Brandon",
+      "due": "May 20"
+    },
+    {
+      "item": "Evaluate adding a prediction markets angle to XTP/Yeet — Roobet just proved there's appetite; could be a VIP whale hook (bet on events using casino balance)",
+      "owner": "Brandon",
+      "due": "May 16"
+    },
+    {
       "item": "Evaluate prediction markets integration — Roobet validated format, Stake/BC.Game will follow within 6 months. Get ahead of it.",
       "owner": "Brandon",
       "due": "May 2026"
@@ -1339,6 +1354,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 11] Curacao LOK reform is a moat opportunity — compliant operators (incl. XTP if licensed) gain trust signal vs. unlicensed competition; worth monitoring for positioning angle in content/SEO",
     "[May 8] Curacao LOK compliance is now a genuine marketing differentiator — operators completing direct B2C licensing first can use it as a trust signal. Worth fast-tracking if not already in motion.",
     "[2026-05-06] COPY DECISION: Stop using 'cashback' language in VIP/retention comms. Rebrand to 'rakeback', 'player share', or 'win rewards'. Reddit data confirms cashback = loss reminder for high-volume players.",
     "[May 4] Rollbit withdrawal friction is live reputation risk — XTP should build verifiable payout proof (speed + timestamps) as direct counter-positioning asset",
