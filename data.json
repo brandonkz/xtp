@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-11T05:20:55.392Z",
+  "lastUpdated": "2026-05-15T08:41:02.644Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "📱 [May 15] Telegram casino ecosystem maturing: JustCasino, CoinCasino, BetPanda leading with 10k+ games via bot/mini app",
+    "🔮 [May 15] Token-backed casino model now default for new 2026 launches — 30-day retention rivals live-service apps per GameIndustry.com",
+    "🎲 [May 15] Roobet × Snoop Dogg: new branded roulette room live — celebrity product integrations replacing logo deals",
+    "💳 [May 15] Paysafe launches Pay with Crypto for US iGaming/DFS — regulated crypto payments going mainstream",
+    "📰 [May 15] Roobet launches prediction markets — first major crypto casino to integrate the format (live at roobet.com/predictions)",
     "💡 [May 11] Industry consensus: no-wagering free spins becoming new standard (Angliabet leads); VIP programs + instant crypto withdrawals are top differentiators in player acquisition.",
     "🤝 [May 11] Silverspin hiring Senior Affiliate Manager focused on crypto KOLs, Telegram influencers & Web3 media — signals big affiliate spend ramping in the sector.",
     "⚖️ [May 11] Curacao master-license era officially dead — LOK reform requires every operator to hold their own direct B2C license. Higher compliance bar raises costs for new entrants.",
@@ -1188,6 +1193,16 @@
   ],
   "actionItems": [
     {
+      "item": "Monitor iGaming NEXT Malta Crypto Focus event (May 26) for regulatory/partnership signals relevant to XTP licensing",
+      "owner": "Brandon",
+      "due": "May 26"
+    },
+    {
+      "item": "Evaluate adding prediction markets to XTP roadmap — Roobet just proved the format works in crypto casino context",
+      "owner": "Brandon",
+      "due": "May 22"
+    },
+    {
       "item": "Explore Telegram mini-app listing for XTP — Jetton Casino model shows TON-based mini-apps gaining traction; assess effort vs acquisition upside",
       "owner": "Brandon",
       "due": "May 20"
@@ -1354,6 +1369,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 15] Token-backed retention mechanics are the 2026 standard — on-chain staking positions retain players through losing sessions; XTP tokenomics design should prioritize this over simple rakeback",
     "[May 11] Curacao LOK reform is a moat opportunity — compliant operators (incl. XTP if licensed) gain trust signal vs. unlicensed competition; worth monitoring for positioning angle in content/SEO",
     "[May 8] Curacao LOK compliance is now a genuine marketing differentiator — operators completing direct B2C licensing first can use it as a trust signal. Worth fast-tracking if not already in motion.",
     "[2026-05-06] COPY DECISION: Stop using 'cashback' language in VIP/retention comms. Rebrand to 'rakeback', 'player share', or 'win rewards'. Reddit data confirms cashback = loss reminder for high-volume players.",
