@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-15T08:41:02.644Z",
+  "lastUpdated": "2026-05-18T05:21:27.386Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "📱 [May 2026] Telegram casino mini apps now table stakes — no-KYC instant play via bot is standard player expectation, not differentiator",
+    "🪙 [May 2026] Token-backed operator model (Rollbit RLB + Shuffle) under industry microscope — every new crypto casino launch is studying it",
+    "🎯 [May 2026] Shuffle deepening sponsorship across sports broadcasts, podcasts & underground music communities — being called '2026 marquee brand' by digital newsrooms",
+    "🎰 [May 2026] Roobet launches Snoop Dogg-branded dedicated roulette room — celebrity game rooms emerging as retention/acquisition lever",
+    "📰 [May 14] Paysafe launches regulated 'Pay with Crypto' for US iGaming/DFS operators — mainstream incumbents now on crypto payment rails",
     "📱 [May 15] Telegram casino ecosystem maturing: JustCasino, CoinCasino, BetPanda leading with 10k+ games via bot/mini app",
     "🔮 [May 15] Token-backed casino model now default for new 2026 launches — 30-day retention rivals live-service apps per GameIndustry.com",
     "🎲 [May 15] Roobet × Snoop Dogg: new branded roulette room live — celebrity product integrations replacing logo deals",
@@ -1193,6 +1198,11 @@
   ],
   "actionItems": [
     {
+      "item": "Evaluate token-backed loyalty model (Rollbit RLB / Shuffle) — assess if XTP needs a casino token for VIP retention and revenue share",
+      "owner": "Brandon",
+      "due": "June 2026"
+    },
+    {
       "item": "Monitor iGaming NEXT Malta Crypto Focus event (May 26) for regulatory/partnership signals relevant to XTP licensing",
       "owner": "Brandon",
       "due": "May 26"
@@ -1369,6 +1379,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 18 2026] Telegram mini-app casino UX is now table stakes in 2026 — no-KYC + instant bot access is baseline player expectation, not competitive edge",
     "[May 15] Token-backed retention mechanics are the 2026 standard — on-chain staking positions retain players through losing sessions; XTP tokenomics design should prioritize this over simple rakeback",
     "[May 11] Curacao LOK reform is a moat opportunity — compliant operators (incl. XTP if licensed) gain trust signal vs. unlicensed competition; worth monitoring for positioning angle in content/SEO",
     "[May 8] Curacao LOK compliance is now a genuine marketing differentiator — operators completing direct B2C licensing first can use it as a trust signal. Worth fast-tracking if not already in motion.",
