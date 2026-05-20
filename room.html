@@ -157,7 +157,7 @@
       font-size: clamp(58px, 11vw, 154px);
       line-height: 0.78;
       font-weight: 1000;
-      letter-spacing: -0.045em;
+      letter-spacing: 0;
       text-transform: uppercase;
       text-shadow: 5px 5px 0 var(--line);
     }
@@ -183,9 +183,9 @@
 
     .actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 12px;
-      max-width: 560px;
+      max-width: 280px;
     }
 
     .button {
@@ -219,7 +219,14 @@
       position: relative;
       min-width: 0;
       overflow: hidden;
-      background: var(--paper);
+      min-height: 620px;
+      background:
+        linear-gradient(90deg, rgba(17,17,17,0.08) 0 2px, transparent 2px 42px),
+        linear-gradient(0deg, rgba(17,17,17,0.08) 0 2px, transparent 2px 42px),
+        var(--paper);
+      display: grid;
+      place-items: center;
+      padding: clamp(18px, 3vw, 34px) clamp(18px, 3vw, 34px) 150px;
     }
 
     .art-panel:before {
@@ -237,14 +244,102 @@
       box-shadow: 4px 4px 0 var(--line);
     }
 
-    .poster-img {
-      width: 100%;
-      height: 100%;
-      min-height: 620px;
-      object-fit: cover;
-      object-position: center;
-      filter: contrast(1.1) saturate(1.1);
-      display: block;
+    .casino-machine {
+      position: relative;
+      width: min(360px, 86%);
+      aspect-ratio: 0.72;
+      border: 5px solid var(--line);
+      background: var(--blue);
+      box-shadow: 12px 12px 0 var(--line);
+      transform: rotate(1deg);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+    }
+
+    .casino-machine:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.32;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      background:
+        repeating-radial-gradient(circle at 0 0, rgba(244,234,215,0.95) 0 1px, transparent 1px 5px);
+    }
+
+    .machine-sign {
+      position: relative;
+      z-index: 1;
+      border-bottom: 5px solid var(--line);
+      background: var(--orange);
+      padding: 16px 14px 13px;
+      color: var(--ink);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 0.82;
+      font-weight: 1000;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0 var(--paper-2);
+    }
+
+    .machine-face {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      padding: 24px;
+    }
+
+    .slot-window {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 5px solid var(--line);
+      background: var(--paper-2);
+      box-shadow: inset 0 0 0 8px rgba(240, 90, 34, 0.2);
+    }
+
+    .slot-icon {
+      min-height: 100px;
+      display: grid;
+      place-items: center;
+      border-right: 4px solid var(--line);
+      color: var(--orange);
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .slot-icon:last-child { border-right: 0; }
+
+    .chip-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .chip {
+      aspect-ratio: 1;
+      border: 4px solid var(--line);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, var(--paper-2) 0 31%, transparent 32%),
+        conic-gradient(var(--orange) 0 12%, var(--paper-2) 12% 24%, var(--orange) 24% 36%, var(--paper-2) 36% 48%, var(--orange) 48% 60%, var(--paper-2) 60% 72%, var(--orange) 72% 84%, var(--paper-2) 84% 100%);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .machine-payline {
+      position: relative;
+      z-index: 1;
+      border-top: 5px solid var(--line);
+      background: var(--paper-2);
+      padding: 13px 16px;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 1000;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .slot-strip {
@@ -337,7 +432,7 @@
       font-size: clamp(22px, 2.5vw, 36px);
       line-height: 0.86;
       font-weight: 1000;
-      letter-spacing: -0.04em;
+      letter-spacing: 0;
       text-transform: uppercase;
       overflow-wrap: anywhere;
     }
@@ -369,7 +464,7 @@
       font-size: clamp(34px, 6vw, 80px);
       line-height: 0.86;
       font-weight: 1000;
-      letter-spacing: -0.045em;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
@@ -453,7 +548,7 @@
         border-bottom: 4px solid var(--line);
       }
 
-      .poster-img {
+      .art-panel {
         min-height: 520px;
       }
 
@@ -519,8 +614,8 @@
         grid-template-columns: 1fr;
       }
 
-      .poster-img {
-        min-height: 430px;
+      .art-panel {
+        min-height: 500px;
       }
 
       .spin-note {
@@ -564,7 +659,7 @@
     <article class="poster">
       <header class="masthead">
         <div class="logo">X</div>
-        <div class="ticker">The XTP Room / The casino for everyone else</div>
+        <div class="ticker">XTP Room / Casino for everyone else</div>
         <div class="stamp">18+ / Play for fun / Stop when it stops being fun</div>
       </header>
 
@@ -578,12 +673,26 @@
 
         <div class="actions">
           <a class="button" href="https://xtp.com/" rel="noopener">Enter XTP</a>
-          <a class="button alt" href="https://t.me/xtpcasinoofficial/" rel="noopener">Join The Chat</a>
         </div>
       </section>
 
-      <section class="art-panel" aria-label="XTP poster artwork">
-        <img class="poster-img" src="assets/xtp-room-poster.jpg" alt="Cobalt blue halftone poster artwork for The XTP Room">
+      <section class="art-panel" aria-label="XTP casino room artwork">
+        <div class="casino-machine" aria-hidden="true">
+          <div class="machine-sign">Joe's Lucky Room</div>
+          <div class="machine-face">
+            <div class="slot-window">
+              <span class="slot-icon">7</span>
+              <span class="slot-icon">X</span>
+              <span class="slot-icon">$</span>
+            </div>
+            <div class="chip-row">
+              <span class="chip"></span>
+              <span class="chip"></span>
+              <span class="chip"></span>
+            </div>
+          </div>
+          <div class="machine-payline">After work. Big sweat. Pull up.</div>
+        </div>
         <div class="spin-note">Pull the lever</div>
         <button class="slot-strip" type="button" id="lever" aria-label="Pull the XTP room lever">
           <span class="reel"><span id="reel-one">Work</span></span>
@@ -596,64 +705,32 @@
         <a class="tile" href="https://xtp.com/" rel="noopener">
           <span class="tile-number">01 / MAIN ROOM</span>
           <div>
-            <h2>Play XTP</h2>
-            <p>Main room. Games, sports, rewards, and the button your mate already pressed.</p>
-          </div>
-        </a>
-
-        <a class="tile" href="https://xtp.com/universal/account/deposit" rel="noopener">
-          <span class="tile-number">02 / CASHIER</span>
-          <div>
-            <h2>Deposit</h2>
-            <p>Load up. Play smart. The group chat is not financial advice.</p>
+            <h2>Enter XTP</h2>
+            <p>Main room. Games, sports, and the button your mate already pressed.</p>
           </div>
         </a>
 
         <a class="tile" href="https://xtp.com/game/103928/mega-money-wheel-vip-bronze" rel="noopener">
-          <span class="tile-number">03 / SPIN</span>
+          <span class="tile-number">02 / SPIN</span>
           <div>
             <h2>Mega Wheel</h2>
-            <p>Regular players. Irregular outcomes. One spin from group-chat noise.</p>
+            <p>One spin from group-chat noise. Regular players welcome.</p>
           </div>
         </a>
 
         <a class="tile" href="https://xtp.com/promotions" rel="noopener">
-          <span class="tile-number">04 / REWARDS</span>
+          <span class="tile-number">03 / REWARDS</span>
           <div>
             <h2>Cashback</h2>
-            <p>Because everyone deserves a second chance. Check what is live today.</p>
-          </div>
-        </a>
-
-        <a class="tile" href="https://xtp.com/promotions" rel="noopener">
-          <span class="tile-number">05 / HIGH SCORE</span>
-          <div>
-            <h2>Leaderboard</h2>
-            <p>Get noticed without needing a yacht parked outside the lobby.</p>
+            <p>Bad run? Check what is live before you call it a night.</p>
           </div>
         </a>
 
         <a class="tile" href="https://t.me/xtpcasinoofficial/" rel="noopener">
-          <span class="tile-number">06 / MATES</span>
+          <span class="tile-number">04 / MATES</span>
           <div>
-            <h2>Telegram</h2>
+            <h2>The Chat</h2>
             <p>Picks, spins, bad beats, and someone saying one more.</p>
-          </div>
-        </a>
-
-        <a class="tile" href="https://discord.gg/2QjsZJcAsG" rel="noopener">
-          <span class="tile-number">07 / CHAT</span>
-          <div>
-            <h2>Discord</h2>
-            <p>Pull up a chair when the room gets loud.</p>
-          </div>
-        </a>
-
-        <a class="tile" href="https://xtp.com/faq" rel="noopener">
-          <span class="tile-number">08 / PROOF</span>
-          <div>
-            <h2>Why XTP?</h2>
-            <p>Big games. Real rewards. No whale status required.</p>
           </div>
         </a>
       </section>
