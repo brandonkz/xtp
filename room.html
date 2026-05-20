@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The XTP Room | The Casino For Everyone Else</title>
+  <meta name="description" content="Hard day at work? Your mates are already in the XTP room. Casino, sports, cashback, rewards, and group-chat energy.">
+  <meta property="og:title" content="The XTP Room">
+  <meta property="og:description" content="XTP: the casino for everyone else. Pull up a chair. The room is open.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#7b1d15">
+  <style>
+    :root {
+      --felt: #124331;
+      --felt-dark: #08251c;
+      --red: #8f241b;
+      --red-dark: #4b120f;
+      --cream: #f5ddb3;
+      --paper: #fff1ce;
+      --gold: #f2b84b;
+      --gold-dark: #a4641e;
+      --green: #2bb673;
+      --ink: #2a1510;
+      --muted: #8a684b;
+      --shadow: rgba(23, 8, 3, 0.48);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(242, 184, 75, 0.16), transparent 28rem),
+        linear-gradient(135deg, #2a0f0c 0%, #541610 42%, #112f25 100%);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0;
+      background:
+        linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+      background-size: 42px 42px;
+      background-position: 0 0, 0 21px, 21px -21px, -21px 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .stage {
+      width: calc(100% - 28px);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 0 30px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-family: Arial, sans-serif;
+      color: rgba(255, 241, 206, 0.82);
+      font-size: 13px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      background: var(--red-dark);
+      box-shadow: 0 4px 0 rgba(0,0,0,0.24);
+    }
+
+    .age-note {
+      padding: 8px 10px;
+      border: 1px solid rgba(245, 221, 179, 0.28);
+      border-radius: 999px;
+      background: rgba(8, 37, 28, 0.42);
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      border: 4px solid #3b160f;
+      border-radius: 8px;
+      background:
+        linear-gradient(rgba(18,67,49,0.88), rgba(8,37,28,0.93)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 70px),
+        radial-gradient(circle at 50% 0%, rgba(242,184,75,0.22), transparent 34rem);
+      box-shadow: 0 22px 60px var(--shadow), inset 0 0 0 8px rgba(255,241,206,0.08);
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(242,184,75,0.18), transparent 7rem),
+        radial-gradient(circle at 88% 22%, rgba(43,182,115,0.16), transparent 8rem);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(310px, 0.96fr);
+      gap: 24px;
+      align-items: center;
+      min-height: 500px;
+      padding: 32px;
+    }
+
+    .hero-inner > * {
+      min-width: 0;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(242,184,75,0.58);
+      border-radius: 999px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(44px, 7.4vw, 92px);
+      line-height: 0.88;
+      text-transform: uppercase;
+      text-wrap: balance;
+      text-shadow: 0 6px 0 rgba(0,0,0,0.24);
+    }
+
+    .subhead {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: rgba(255, 241, 206, 0.9);
+      font-family: Arial, sans-serif;
+      font-size: clamp(17px, 2.2vw, 23px);
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 18px;
+      border: 2px solid #351006;
+      border-radius: 6px;
+      color: #2b1305;
+      background: linear-gradient(#ffe197, var(--gold));
+      box-shadow: 0 5px 0 #5c2409;
+      font-family: Arial, sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 140ms ease, box-shadow 140ms ease;
+    }
+
+    .button:hover, .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 #5c2409;
+      outline: none;
+    }
+
+    .button.secondary {
+      color: var(--paper);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(245,221,179,0.32);
+      box-shadow: 0 5px 0 rgba(0,0,0,0.25);
+    }
+
+    .machine {
+      position: relative;
+      width: min(100%, 410px);
+      justify-self: end;
+      min-width: 0;
+      max-width: 100%;
+      padding: 18px;
+      border: 5px solid #351006;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #b43122, #651812);
+      box-shadow: 0 18px 0 #2a1009, 0 28px 46px rgba(0,0,0,0.36);
+    }
+
+    .machine-title {
+      margin-bottom: 12px;
+      color: var(--gold);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .reels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      padding: 12px;
+      border: 4px solid #2a1009;
+      border-radius: 8px;
+      background: #23100b;
+    }
+
+    .reel {
+      display: grid;
+      place-items: center;
+      min-height: 94px;
+      border: 2px solid #6d3b18;
+      border-radius: 6px;
+      color: var(--ink);
+      background: linear-gradient(#fff8dc, #f7c86d);
+      font-family: Arial, sans-serif;
+      font-size: clamp(13px, 2vw, 18px);
+      font-weight: 1000;
+      text-align: center;
+      text-transform: uppercase;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .machine.pulled .reel span {
+      animation: flip 520ms ease 2;
+    }
+
+    @keyframes flip {
+      0% { transform: translateY(-105%); opacity: 0; }
+      45% { opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .lever {
+      width: 100%;
+      margin-top: 14px;
+      border: 2px solid #2a1009;
+      border-radius: 6px;
+      color: var(--paper);
+      background: linear-gradient(#1b5942, #0f3327);
+      box-shadow: 0 5px 0 #1d0c07;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      min-height: 52px;
+      cursor: pointer;
+    }
+
+    .machine-note {
+      margin: 14px 0 0;
+      color: rgba(255, 241, 206, 0.82);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.35;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 172px;
+      padding: 16px;
+      border: 3px solid #341008;
+      border-radius: 8px;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.28), transparent 45%),
+        var(--paper);
+      box-shadow: 0 8px 0 #3b160f, 0 18px 28px rgba(0,0,0,0.22);
+      transform: translateY(0);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .tile:hover, .tile:focus-visible {
+      transform: translateY(-4px) rotate(-0.4deg);
+      box-shadow: 0 12px 0 #3b160f, 0 22px 32px rgba(0,0,0,0.28);
+      outline: none;
+    }
+
+    .tile:nth-child(2n) { background-color: #f8d994; }
+    .tile:nth-child(3n) { background-color: #f1bf7f; }
+
+    .tile-icon {
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .tile h2 {
+      margin: 16px 0 7px;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .tile p {
+      margin: 0;
+      color: #5c3a27;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.32;
+    }
+
+    .tile-chip {
+      align-self: flex-start;
+      margin-top: 14px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      color: var(--paper);
+      background: #1f5b43;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .copy-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .poster {
+      min-height: 198px;
+      padding: 22px;
+      border: 3px solid #341008;
+      border-radius: 8px;
+      background:
+        linear-gradient(120deg, rgba(143,36,27,0.98), rgba(79,23,18,0.98)),
+        repeating-linear-gradient(0deg, transparent 0 16px, rgba(245,221,179,0.05) 16px 17px);
+      box-shadow: 0 10px 0 #2a1009;
+    }
+
+    .poster strong {
+      display: block;
+      max-width: 620px;
+      color: var(--cream);
+      font-size: clamp(30px, 4.6vw, 52px);
+      line-height: 0.96;
+      text-transform: uppercase;
+      text-shadow: 0 4px 0 rgba(0,0,0,0.24);
+    }
+
+    .poster p {
+      max-width: 540px;
+      margin: 18px 0 0;
+      color: rgba(255, 241, 206, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .rules {
+      padding: 18px;
+      border: 3px solid #341008;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 10px 0 #2a1009;
+    }
+
+    .rules h2 {
+      margin: 0 0 12px;
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    .rules ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: Arial, sans-serif;
+      color: #523522;
+      line-height: 1.35;
+    }
+
+    .rules li:before {
+      content: "◆";
+      margin-right: 8px;
+      color: var(--red);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 18px 0 0;
+      color: rgba(255, 241, 206, 0.74);
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .revealed .links .tile {
+      animation: deal 360ms ease both;
+    }
+
+    .revealed .links .tile:nth-child(2) { animation-delay: 40ms; }
+    .revealed .links .tile:nth-child(3) { animation-delay: 80ms; }
+    .revealed .links .tile:nth-child(4) { animation-delay: 120ms; }
+    .revealed .links .tile:nth-child(5) { animation-delay: 160ms; }
+    .revealed .links .tile:nth-child(6) { animation-delay: 200ms; }
+    .revealed .links .tile:nth-child(7) { animation-delay: 240ms; }
+    .revealed .links .tile:nth-child(8) { animation-delay: 280ms; }
+
+    @keyframes deal {
+      from { opacity: 0; transform: translateY(28px) rotate(1deg); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 26px;
+      }
+      .machine { justify-self: stretch; width: 100%; }
+      .links { grid-template-columns: repeat(2, 1fr); }
+      .copy-band { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .stage { width: calc(100% - 18px); padding-top: 10px; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .age-note { white-space: normal; }
+      .hero { min-height: auto; }
+      .hero-inner { min-height: auto; padding: 16px; }
+      .reels { gap: 5px; padding: 8px; }
+      .reel { min-height: 76px; font-size: 13px; }
+      .machine { padding: 12px; }
+      .links { grid-template-columns: 1fr; }
+      .tile { min-height: 160px; }
+      .poster { min-height: 190px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage revealed">
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-mark">X</span>
+        <span>The XTP Room</span>
+      </div>
+      <div class="age-note">18+ only. Play for fun. Stop when it stops being fun.</div>
+    </div>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <div>
+          <span class="kicker">The casino for everyone else</span>
+          <h1 id="page-title">Hard day at work?</h1>
+          <p class="subhead">Your mates are already in the XTP room. Casino, sports, cashback, rewards, and just enough group-chat chaos to make a small win feel massive.</p>
+          <div class="cta-row">
+            <a class="button" href="https://xtp.com/" rel="noopener">Enter XTP</a>
+            <a class="button secondary" href="https://t.me/xtpcasinoofficial/" rel="noopener">Join Telegram</a>
+          </div>
+        </div>
+
+        <div class="machine" id="machine" aria-label="XTP slot machine">
+          <div class="machine-title">Pull the lever</div>
+          <div class="reels" aria-live="polite">
+            <div class="reel"><span id="reel-one">Work</span></div>
+            <div class="reel"><span id="reel-two">Mates</span></div>
+            <div class="reel"><span id="reel-three">Spins</span></div>
+          </div>
+          <button class="lever" type="button" id="lever">Open The Room</button>
+          <p class="machine-note" id="machine-note">Pull up a chair. Spin something stupid. Keep it sensible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="links" aria-label="Important XTP links">
+      <a class="tile" href="https://xtp.com/" rel="noopener">
+        <span class="tile-icon">▣</span>
+        <div>
+          <h2>Play XTP</h2>
+          <p>Main room. Games, sports, rewards, and the button your mate already pressed.</p>
+        </div>
+        <span class="tile-chip">Enter</span>
+      </a>
+
+      <a class="tile" href="https://xtp.com/universal/account/deposit" rel="noopener">
+        <span class="tile-icon">◇</span>
+        <div>
+          <h2>Deposit</h2>
+          <p>Load up, play smart, and remember the group chat is not financial advice.</p>
+        </div>
+        <span class="tile-chip">Cashier</span>
+      </a>
+
+      <a class="tile" href="https://xtp.com/game/103928/mega-money-wheel-vip-bronze" rel="noopener">
+        <span class="tile-icon">◎</span>
+        <div>
+          <h2>Mega Wheel</h2>
+          <p>Spin your way into the group chat. Regular players, irregular outcomes.</p>
+        </div>
+        <span class="tile-chip">Spin</span>
+      </a>
+
+      <a class="tile" href="https://xtp.com/promotions" rel="noopener">
+        <span class="tile-icon">↺</span>
+        <div>
+          <h2>Cashback</h2>
+          <p>Because everyone deserves a second chance. Check what is live today.</p>
+        </div>
+        <span class="tile-chip">Rewards</span>
+      </a>
+
+      <a class="tile" href="https://xtp.com/promotions" rel="noopener">
+        <span class="tile-icon">★</span>
+        <div>
+          <h2>Leaderboard</h2>
+          <p>High-score energy without needing a yacht. Get noticed.</p>
+        </div>
+        <span class="tile-chip">Scores</span>
+      </a>
+
+      <a class="tile" href="https://t.me/xtpcasinoofficial/" rel="noopener">
+        <span class="tile-icon">☏</span>
+        <div>
+          <h2>Telegram</h2>
+          <p>The group chat door. Picks, spins, bad beats, and someone saying one more.</p>
+        </div>
+        <span class="tile-chip">Mates</span>
+      </a>
+
+      <a class="tile" href="https://discord.gg/2QjsZJcAsG" rel="noopener">
+        <span class="tile-icon">♣</span>
+        <div>
+          <h2>Discord</h2>
+          <p>Pull up a chair when the room gets loud.</p>
+        </div>
+        <span class="tile-chip">Chat</span>
+      </a>
+
+      <a class="tile" href="https://xtp.com/faq" rel="noopener">
+        <span class="tile-icon">✓</span>
+        <div>
+          <h2>Why XTP?</h2>
+          <p>Big games. Real rewards. No whale status required.</p>
+        </div>
+        <span class="tile-chip">Proof</span>
+      </a>
+    </section>
+
+    <section class="copy-band" aria-label="XTP brand notes">
+      <div class="poster">
+        <strong>Clocked out? Clock into XTP.</strong>
+        <p>The room is open for the players who have work in the morning, mates in the chat, and just enough optimism for one more spin.</p>
+      </div>
+
+      <div class="rules">
+        <h2>House Rules</h2>
+        <ul>
+          <li>Pay your bills first.</li>
+          <li>Never chase a bad beat.</li>
+          <li>Small wins still count.</li>
+          <li>You do not need to be a whale to matter here.</li>
+          <li>If it stops being fun, step away.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>XTP: the casino for everyone else.</span>
+      <span>The XTP room is open.</span>
+    </footer>
+  </main>
+
+  <script>
+    const lever = document.getElementById('lever');
+    const machine = document.getElementById('machine');
+    const note = document.getElementById('machine-note');
+    const reels = [
+      document.getElementById('reel-one'),
+      document.getElementById('reel-two'),
+      document.getElementById('reel-three')
+    ];
+
+    const spins = [
+      ['Work', 'Mates', 'Spins'],
+      ['Payday', 'Cashback', 'XTP'],
+      ['Friday', 'Mega', 'Wheel'],
+      ['Group', 'Chat', 'Wins'],
+      ['The', 'Room', 'Open']
+    ];
+
+    let spinIndex = 0;
+
+    lever.addEventListener('click', () => {
+      spinIndex = (spinIndex + 1) % spins.length;
+      machine.classList.remove('pulled');
+      void machine.offsetWidth;
+      machine.classList.add('pulled');
+      reels.forEach((reel, index) => {
+        reel.textContent = spins[spinIndex][index];
+      });
+      note.textContent = spinIndex === spins.length - 1
+        ? 'The XTP room is open.'
+        : 'One more pull. Your mate would.';
+    });
+  </script>
+</body>
+</html>
