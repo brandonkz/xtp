@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-22T05:23:54.454Z",
+  "lastUpdated": "2026-05-25T05:22:03.643Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "💰 [May 25] Affiliate market 2026: hybrid CPA+RevShare dominant, CPA up to €500/player in Tier-1 geos. Sub-affiliate networks growing. VIP affiliate managers on private deal terms.",
+    "🛡️ [May 25] Stake adds BetBlocker responsible gambling partnership. Industry trend: provably fair + compliance layering is now the trust signal that converts players.",
+    "🏆 [May 25] Rakebit Whale tier launches: uncapped 25% daily cashback + 25% rakeback, zero wagering. Direct competitive threat to XTP high-value acquisition.",
+    "📱 [May 25] Telegram Mini Apps now TON-only for real-money flows. Telegram 1B+ MAU; casino bot-mini-app hybrids proliferating but must migrate to TON or face de-platforming.",
+    "📰 [May 25] Curacao gaming license reform complete — direct CGA B2C license now mandatory; sub-license era ended Jan 2025. All crypto casinos must reapply with full UBO + AML/KYC compliance.",
     "🔐 [2026-05-22] Curacao's next reform step is cyber compliance — proposed CGA rules would require CIS Controls IG1 for both B2C operators and B2B suppliers",
     "📲 [2026-05-22] Telegram casino UX has hardened into a product standard — in-chat wallet/deposit/withdrawal flows and fast cashout promises are now table stakes",
     "🌎 [2026-05-22] Stake launched Stake.mx ahead of the World Cup — using regulated market entry + event timing as its LatAm growth playbook",
@@ -1207,6 +1212,16 @@
   ],
   "actionItems": [
     {
+      "item": "Audit XTP whale VIP program vs Rakebit uncapped cashback — find one dimension to win on",
+      "owner": "Brandon",
+      "due": "This week"
+    },
+    {
+      "item": "Verify Yeet.com Curacao license is direct CGA B2C (not legacy sub-license) — deadline pressure building",
+      "owner": "Brandon",
+      "due": "ASAP"
+    },
+    {
       "item": "Tear down BC.Game, Stake Mexico, and Shuffle World Cup promo mechanics into one reusable XTP event-marketing playbook",
       "owner": "Brandon",
       "due": "2026-05-27"
@@ -1403,6 +1418,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 25] Any Telegram acquisition channel for XTP must use TON blockchain — Telegram's policy is now firm on this",
     "[2026-05-22] Sports-calendar execution is now growth infrastructure in crypto casino — the edge is coordinated event promo systems, not one-off bonus banners",
     "[2026-05-20] Token loyalty model (Shuffle-style SHFL) is the 2026 VIP retention playbook — consider on-chain loyalty mechanic for Yeet whale acquisition strategy",
     "[May 18 2026] Telegram mini-app casino UX is now table stakes in 2026 — no-KYC + instant bot access is baseline player expectation, not competitive edge",
