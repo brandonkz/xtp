@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-27T05:21:47.321Z",
+  "lastUpdated": "2026-05-29T05:21:31.572Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🔬 [May 29] BC.Game pushing integrated sportsbook+casino UX for 2026 football season — unified crypto experience play",
+    "⚖️ [May 29] Curacao master license era officially over — sub-license operators now face real compliance obligations. Direct B2C licenses now premium trust signal",
+    "⚽ [May 29] FIFA World Cup 2026 (Jun 11) is driving massive crypto casino marketing push — 104 matches vs 64 in Qatar. All operators going hard on World Cup content",
+    "🆕 [May 29] Legendz.io launched via Cubeia Nano in <12 weeks — fast white-label stack enables wave of new entrants",
+    "📰 [May 29] Stake.com expanding into Mexico ahead of FIFA World Cup 2026 — North America market push",
     "📱 [May 27] JetTon leading Telegram/TON casino category — no-download, minimal signup friction, 425% welcome bonus",
     "🔐 [May 27] Soulbound Tokens (SBTs) emerging as privacy-first KYC for crypto casinos. Curacao April 2026 explicitly permits blockchain identity attestation",
     "🆕 [May 27] ZunaBet launched in 2026 — 11,294 games, 63 providers, dragon loyalty (20% rakeback). Positioning vs Stake directly",
@@ -1217,6 +1222,16 @@
   ],
   "actionItems": [
     {
+      "item": "Research Curacao license checker tool — with master license era ending, players need to verify operator legitimacy. Trust differentiator for XTP",
+      "owner": "Brandon",
+      "due": "Jun 7"
+    },
+    {
+      "item": "World Cup content push — 5 weeks before Jun 11 start, launch SEO pages + social for crypto betting World Cup angle",
+      "owner": "Brandon",
+      "due": "Jun 1"
+    },
+    {
       "item": "Research Telegram Mini App feasibility — JetTon winning this channel unchallenged. Decision needed: build or skip?",
       "owner": "Brandon",
       "due": "Jun 15, 2026"
@@ -1433,6 +1448,7 @@
     }
   ],
   "decisionsLog": [
+    "[May 29] FIFA World Cup 2026 (104 matches, North America) is a once-in-cycle acquisition window for crypto casino traffic — every week of delay costs rankings. World Cup content should be priority #1 this week.",
     "[May 27] Curacao CGA reform + SBT KYC trend = compliance moat opportunity. Platforms that nail privacy-first KYC early will have licensing advantage. Monitor closely.",
     "[May 25] Any Telegram acquisition channel for XTP must use TON blockchain — Telegram's policy is now firm on this",
     "[2026-05-22] Sports-calendar execution is now growth infrastructure in crypto casino — the edge is coordinated event promo systems, not one-off bonus banners",
