@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-05-29T05:21:31.572Z",
+  "lastUpdated": "2026-06-01T05:21:50.568Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🏛️ [Jun 1] Crypto wagers now ~30% of all online gambling globally. Regulatory tightening = tailwind for licensed operators — unlicensed competitors losing access to EU, US, AU markets.",
+    "🎯 [Jun 1] BC.Game named HLTV Operator of Month May 2026 for mobile UX + Esports Hub. Rollbit running $25K Daily Race + NFT avatar/tokenized loyalty push.",
+    "📱 [Jun 1] Telegram casino mini apps via TON blockchain dominating 2026 acquisition — instant gameplay in-chat, Telegram Wallet integration, minimal KYC. Major growth channel.",
+    "🇺🇸 [Jun 1] California crypto gambling ban now in effect (Jan 2026). NY/NJ enforcing similar. FinCEN proposing BSA reporting requirements for crypto gambling platforms.",
+    "📰 [Jun 1] MiCA enforcement reshaping EU crypto casino market — dozens of unlicensed operators geo-blocking EU users, Malta/Estonia tightening licensing. B global crypto gambling market by 2028.",
     "🔬 [May 29] BC.Game pushing integrated sportsbook+casino UX for 2026 football season — unified crypto experience play",
     "⚖️ [May 29] Curacao master license era officially over — sub-license operators now face real compliance obligations. Direct B2C licenses now premium trust signal",
     "⚽ [May 29] FIFA World Cup 2026 (Jun 11) is driving massive crypto casino marketing push — 104 matches vs 64 in Qatar. All operators going hard on World Cup content",
@@ -1222,6 +1227,16 @@
   ],
   "actionItems": [
     {
+      "item": "Leverage MiCA/regulatory crackdown in marketing — unlicensed competitors retreating from EU/US/AU, whale players seeking new compliant homes. XTP licensing = key differentiator",
+      "owner": "Brandon",
+      "due": "June 2026"
+    },
+    {
+      "item": "Evaluate Telegram mini app / bot for XTP user acquisition — TON blockchain + Telegram Wallet integration is the #1 competitor acquisition channel in 2026",
+      "owner": "Brandon",
+      "due": "June 2026"
+    },
+    {
       "item": "Research Curacao license checker tool — with master license era ending, players need to verify operator legitimacy. Trust differentiator for XTP",
       "owner": "Brandon",
       "due": "Jun 7"
@@ -1448,6 +1463,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 1] INSIGHT: Regulatory crackdown (MiCA EU, California ban, ACMA AU blocking 400+ domains in Q1 2026) is clearing the field of unlicensed operators. Licensed platforms like XTP should aggressively market compliance credentials to capture displaced whales.",
     "[May 29] FIFA World Cup 2026 (104 matches, North America) is a once-in-cycle acquisition window for crypto casino traffic — every week of delay costs rankings. World Cup content should be priority #1 this week.",
     "[May 27] Curacao CGA reform + SBT KYC trend = compliance moat opportunity. Platforms that nail privacy-first KYC early will have licensing advantage. Monitor closely.",
     "[May 25] Any Telegram acquisition channel for XTP must use TON blockchain — Telegram's policy is now firm on this",
