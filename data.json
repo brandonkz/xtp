@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-01T05:21:50.568Z",
+  "lastUpdated": "2026-06-03T05:21:49.483Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🎯 [Jun 3] Affiliate CPA deals hitting ~€500/player at top programs; Hybrid CPA+RevShare now standard. Affiliate fraud monitoring tightening industry-wide.",
+    "🐋 [Jun 3] Rakebit Casino gaining whale traction with uncapped rakeback at top VIP tier — benchmark for Yeet VIP positioning.",
+    "📱 [Jun 3] Telegram mini-app casinos surging — TON native deposits via @wallet bot. True mini-app UIs (not browser redirects) winning the distribution race.",
+    "⚖️ [Jun 3] Curaçao master license era officially over — CGA now requires direct licensing, local substance & cybersecurity compliance. Consolidation incoming.",
+    "📰 [Jun 3] Stake.com adds Greenland & Mexico in H1 2026 — now licensed in 8+ markets. Regulated expansion accelerating.",
     "🏛️ [Jun 1] Crypto wagers now ~30% of all online gambling globally. Regulatory tightening = tailwind for licensed operators — unlicensed competitors losing access to EU, US, AU markets.",
     "🎯 [Jun 1] BC.Game named HLTV Operator of Month May 2026 for mobile UX + Esports Hub. Rollbit running $25K Daily Race + NFT avatar/tokenized loyalty push.",
     "📱 [Jun 1] Telegram casino mini apps via TON blockchain dominating 2026 acquisition — instant gameplay in-chat, Telegram Wallet integration, minimal KYC. Major growth channel.",
@@ -1227,6 +1232,16 @@
   ],
   "actionItems": [
     {
+      "item": "Audit Yeet VIP rakeback vs Rakebit Whale tier — consider adding explicit uncapped rakeback messaging to whale acquisition funnel",
+      "owner": "Brandon",
+      "due": "Jun 2026"
+    },
+    {
+      "item": "Evaluate Yeet Telegram mini-app — build true in-app casino UX (not browser redirect) to capture Telegram distribution wave",
+      "owner": "Brandon",
+      "due": "Jun 2026"
+    },
+    {
       "item": "Leverage MiCA/regulatory crackdown in marketing — unlicensed competitors retreating from EU/US/AU, whale players seeking new compliant homes. XTP licensing = key differentiator",
       "owner": "Brandon",
       "due": "June 2026"
@@ -1463,6 +1478,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 3] Curaçao reform = consolidation event. Smaller unlicensed operators will exit or get acquired — potential acquisition targets for Yeet in H2 2026.",
     "[Jun 1] INSIGHT: Regulatory crackdown (MiCA EU, California ban, ACMA AU blocking 400+ domains in Q1 2026) is clearing the field of unlicensed operators. Licensed platforms like XTP should aggressively market compliance credentials to capture displaced whales.",
     "[May 29] FIFA World Cup 2026 (104 matches, North America) is a once-in-cycle acquisition window for crypto casino traffic — every week of delay costs rankings. World Cup content should be priority #1 this week.",
     "[May 27] Curacao CGA reform + SBT KYC trend = compliance moat opportunity. Platforms that nail privacy-first KYC early will have licensing advantage. Monitor closely.",
