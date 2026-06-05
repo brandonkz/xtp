@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-03T05:21:49.483Z",
+  "lastUpdated": "2026-06-05T05:21:44.435Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🏆 [Jun 5] Shuffle positioning as no-withdrawal-limits high-roller alternative to Roobet; Bluff secured funding Feb 2026 — watch these two",
+    "🤖 [Jun 5] AI personalization going mainstream in crypto casinos — personalized dashboards, offer targeting, and retention automation now production-grade",
+    "📱 [Jun 5] Telegram casino segment maturing: LuckyRollers, BetPanda, CoinCasino leading; mini apps becoming mainstream with major media coverage",
+    "⚖️ [Jun 5] Curaçao LOK reform now in full effect — master/sub-license era over, real compliance required, hundreds of shadow operators forced out",
+    "📰 [Jun 5] Rollbit running Jackpot June: daily $1K X/Twitter coupon drops + $10K World Cup prize pool — full sports calendar push",
     "🎯 [Jun 3] Affiliate CPA deals hitting ~€500/player at top programs; Hybrid CPA+RevShare now standard. Affiliate fraud monitoring tightening industry-wide.",
     "🐋 [Jun 3] Rakebit Casino gaining whale traction with uncapped rakeback at top VIP tier — benchmark for Yeet VIP positioning.",
     "📱 [Jun 3] Telegram mini-app casinos surging — TON native deposits via @wallet bot. True mini-app UIs (not browser redirects) winning the distribution race.",
@@ -1232,6 +1237,16 @@
   ],
   "actionItems": [
     {
+      "item": "Publish 'Best Telegram Casinos' roundup article — emerging SEO niche with strong CPC, underserved, major outlets just started covering it",
+      "owner": "Brandon",
+      "due": "Jun 15"
+    },
+    {
+      "item": "Launch World Cup promo on Yeet — every major competitor (Rollbit, Stake, BC.Game) is running sports promos NOW. Window closes in days.",
+      "owner": "Brandon",
+      "due": "Jun 8"
+    },
+    {
       "item": "Audit Yeet VIP rakeback vs Rakebit Whale tier — consider adding explicit uncapped rakeback messaging to whale acquisition funnel",
       "owner": "Brandon",
       "due": "Jun 2026"
@@ -1478,6 +1493,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 5] Curaçao LOK reform = trust content opportunity. Position Yeet as compliant/transparent vs shadow operators being flushed out. Create licensing explainer for players.",
     "[Jun 3] Curaçao reform = consolidation event. Smaller unlicensed operators will exit or get acquired — potential acquisition targets for Yeet in H2 2026.",
     "[Jun 1] INSIGHT: Regulatory crackdown (MiCA EU, California ban, ACMA AU blocking 400+ domains in Q1 2026) is clearing the field of unlicensed operators. Licensed platforms like XTP should aggressively market compliance credentials to capture displaced whales.",
     "[May 29] FIFA World Cup 2026 (104 matches, North America) is a once-in-cycle acquisition window for crypto casino traffic — every week of delay costs rankings. World Cup content should be priority #1 this week.",
