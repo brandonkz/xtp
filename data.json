@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-05T05:21:44.435Z",
+  "lastUpdated": "2026-06-08T05:22:24.863Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🇺🇸 [Jun 8] US expansion: 7 states now license real-money online gambling as of Jun 2026 — crypto rails used to route around interstate restrictions.",
+    "🎯 [Jun 8] VIP retention shift: recurring cashback + token rewards replacing one-time welcome bonuses. Rakeback on ALL bet types (not slots-only) is the new whale standard.",
+    "📱 [Jun 8] Telegram casino mini apps (TON blockchain) fastest-growing acquisition channel — CoinCasino leading. Whales in crypto TG groups = high-LTV targets without leaving app.",
+    "🪙 [Jun 8] Token-backed operator model is 2026's industry template — Shuffle SHFL at $0.31, 28% supply to players. Every new launch opens with token design before welcome offers.",
+    "📰 [Jun 8] Curacao LOK reform: master license era dead — operators now need direct CGA B2C/B2B licenses with UBO + AML disclosure. Hundreds of crypto casinos scrambling.",
     "🏆 [Jun 5] Shuffle positioning as no-withdrawal-limits high-roller alternative to Roobet; Bluff secured funding Feb 2026 — watch these two",
     "🤖 [Jun 5] AI personalization going mainstream in crypto casinos — personalized dashboards, offer targeting, and retention automation now production-grade",
     "📱 [Jun 5] Telegram casino segment maturing: LuckyRollers, BetPanda, CoinCasino leading; mini apps becoming mainstream with major media coverage",
@@ -1237,6 +1242,16 @@
   ],
   "actionItems": [
     {
+      "item": "Check Yeet Curacao license status vs new LOK requirements — full compliance = marketing differentiator while competitors scramble",
+      "owner": "Brandon",
+      "due": "ASAP"
+    },
+    {
+      "item": "Evaluate Yeet/XTP token model (SHFL case study): token as rakeback + loyalty + retention = reduced churn + on-chain player value",
+      "owner": "Brandon",
+      "due": "Jun 2026"
+    },
+    {
       "item": "Publish 'Best Telegram Casinos' roundup article — emerging SEO niche with strong CPC, underserved, major outlets just started covering it",
       "owner": "Brandon",
       "due": "Jun 15"
@@ -1493,6 +1508,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 8] Token economy model (Shuffle/Rollbit-style) confirmed as 2026 industry standard — XTP must take a position: adopt, partner, or explicitly counter-position",
     "[Jun 5] Curaçao LOK reform = trust content opportunity. Position Yeet as compliant/transparent vs shadow operators being flushed out. Create licensing explainer for players.",
     "[Jun 3] Curaçao reform = consolidation event. Smaller unlicensed operators will exit or get acquired — potential acquisition targets for Yeet in H2 2026.",
     "[Jun 1] INSIGHT: Regulatory crackdown (MiCA EU, California ban, ACMA AU blocking 400+ domains in Q1 2026) is clearing the field of unlicensed operators. Licensed platforms like XTP should aggressively market compliance credentials to capture displaced whales.",
