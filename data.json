@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-08T05:22:24.863Z",
+  "lastUpdated": "2026-06-12T05:21:08.174Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🏆 Jun 12: Stake named HLTV June Operator of the Month — retains CS2/esports dominance with dedicated mobile app. Rollbit confirmed Evolution+Pragmatic live dealer (~30 titles) but still gaps vs Stake/BC.Game coverage.",
+    "🤖 Jun 12: AI personalization becoming table stakes — crypto casinos deploying dashboards combining player activity + crypto portfolio insights. AI fraud detection + responsible gaming tools standard at ICE 2026.",
+    "📱 Jun 12: Telegram casino mini apps gaining traction — TON wallet integration enables instant in-app crypto deposits/withdrawals. Zero friction onboarding is a real acquisition advantage over traditional web casinos.",
+    "⚖️ Jun 12: Curacao CGA compliance deadline set — all B2C license holders must have updated T&Cs on CGA portal by Oct 8, 2026. New B2B/B2C-only structure replacing master/sub-license. Shadow operators being forced out.",
+    "📰 Jun 12: FairGambling.com launched (Jun 5) — transparency/analytics platform tracking $45B+ crypto casino volume in real-time, offers 30% rakeback across 40+ operators incl. Stake, Roobet, Shuffle. New affiliate competitor worth monitoring.",
     "🇺🇸 [Jun 8] US expansion: 7 states now license real-money online gambling as of Jun 2026 — crypto rails used to route around interstate restrictions.",
     "🎯 [Jun 8] VIP retention shift: recurring cashback + token rewards replacing one-time welcome bonuses. Rakeback on ALL bet types (not slots-only) is the new whale standard.",
     "📱 [Jun 8] Telegram casino mini apps (TON blockchain) fastest-growing acquisition channel — CoinCasino leading. Whales in crypto TG groups = high-LTV targets without leaving app.",
@@ -1242,6 +1247,16 @@
   ],
   "actionItems": [
     {
+      "item": "Review CGA Oct 8 T&C compliance deadline — ensure any Curacao-licensed operator partnerships are compliant before deadline",
+      "owner": "Brandon",
+      "due": "Jul 15, 2026"
+    },
+    {
+      "item": "Investigate Telegram Mini App casino integration — TON wallet frictionless onboarding could be XTP VIP acquisition channel",
+      "owner": "Brandon",
+      "due": "Jun 20, 2026"
+    },
+    {
       "item": "Check Yeet Curacao license status vs new LOK requirements — full compliance = marketing differentiator while competitors scramble",
       "owner": "Brandon",
       "due": "ASAP"
@@ -1508,6 +1523,7 @@
     }
   ],
   "decisionsLog": [
+    "Jun 12: FairGambling.com validates on-chain analytics as differentiator — XTP should consider data transparency angle in VIP pitch to counter pure bonus-matching competitors",
     "[Jun 8] Token economy model (Shuffle/Rollbit-style) confirmed as 2026 industry standard — XTP must take a position: adopt, partner, or explicitly counter-position",
     "[Jun 5] Curaçao LOK reform = trust content opportunity. Position Yeet as compliant/transparent vs shadow operators being flushed out. Create licensing explainer for players.",
     "[Jun 3] Curaçao reform = consolidation event. Smaller unlicensed operators will exit or get acquired — potential acquisition targets for Yeet in H2 2026.",
