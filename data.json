@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-12T05:21:08.174Z",
+  "lastUpdated": "2026-06-15T05:25:29.267Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "📱 Jun 15: Telegram casino UX is maturing beyond novelty — full in-app play/deposit/withdraw flows are winning, but fake-bot impersonation is now a real trust friction.",
+    "🎰 Jun 15: Rollbit still has a product edge via early-access studio drops (Hacksaw OpenRGS, Peter & Sons, Bullshark, NowNow) — exclusive content remains a retention moat.",
+    "🎟️ Jun 15: Roobet's current front-end offer stack centers on $100K weekly raffle/cash drops — always-on prize cadence is still a core conversion/retention play.",
+    "⚽ Jun 15: BC.GAME's football-season promo now blends sportsbook activity + loyalty: 1.5x points on football bets and raffle paths to 2026 final tickets.",
+    "🪙 Jun 15: BC.GAME pushed tokenized retention harder — $BC broke above $0.01 as BC Engine expanded with BETBY/Croco/BC Originals feeding rewards for stakers.",
     "🏆 Jun 12: Stake named HLTV June Operator of the Month — retains CS2/esports dominance with dedicated mobile app. Rollbit confirmed Evolution+Pragmatic live dealer (~30 titles) but still gaps vs Stake/BC.Game coverage.",
     "🤖 Jun 12: AI personalization becoming table stakes — crypto casinos deploying dashboards combining player activity + crypto portfolio insights. AI fraud detection + responsible gaming tools standard at ICE 2026.",
     "📱 Jun 12: Telegram casino mini apps gaining traction — TON wallet integration enables instant in-app crypto deposits/withdrawals. Zero friction onboarding is a real acquisition advantage over traditional web casinos.",
@@ -1247,6 +1252,16 @@
   ],
   "actionItems": [
     {
+      "item": "Spec a Telegram trust funnel: official-bot verification, anti-impersonation UX, and fast in-app VIP onboarding.",
+      "owner": "Brandon",
+      "due": "2026-06-22"
+    },
+    {
+      "item": "Design an XTP World Cup reward loop: ongoing points multiplier + experiential prize layer, not just a signup bonus.",
+      "owner": "Brandon",
+      "due": "2026-06-18"
+    },
+    {
       "item": "Review CGA Oct 8 T&C compliance deadline — ensure any Curacao-licensed operator partnerships are compliant before deadline",
       "owner": "Brandon",
       "due": "Jul 15, 2026"
@@ -1523,6 +1538,7 @@
     }
   ],
   "decisionsLog": [
+    "Jun 15: Competitors are converging on always-on rewards + event-driven prize moments + trust signaling. XTP should package those as one VIP growth system.",
     "Jun 12: FairGambling.com validates on-chain analytics as differentiator — XTP should consider data transparency angle in VIP pitch to counter pure bonus-matching competitors",
     "[Jun 8] Token economy model (Shuffle/Rollbit-style) confirmed as 2026 industry standard — XTP must take a position: adopt, partner, or explicitly counter-position",
     "[Jun 5] Curaçao LOK reform = trust content opportunity. Position Yeet as compliant/transparent vs shadow operators being flushed out. Create licensing explainer for players.",
