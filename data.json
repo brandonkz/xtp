@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-15T05:25:29.267Z",
+  "lastUpdated": "2026-06-17T05:25:23.561Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "⚖️ Jun 17: Mystake’s network went dark for ~20h after suppliers pulled slots — compliance pressure is now hitting operator inventory, not just licenses.",
+    "📊 Jun 17: Spindex launched independent live analytics across 12+ crypto casinos and 700+ games — payout/fairness visibility is becoming public infrastructure.",
+    "🏛️ Jun 17: Stake branding landed on the UFC White House event octagon — mainstream prestige sponsorship remains a serious competitive moat.",
+    "🧠 Jun 17: 21.com launched under ex-BetVictor CEO Michael Carlton with AI-first crypto-casino positioning and a top-three ambition in each target market.",
+    "🔮 Jun 17: BC.GAME launched a Polymarket-powered Prediction Center — sportsbook, casino and prediction markets are merging into one product loop.",
     "📱 Jun 15: Telegram casino UX is maturing beyond novelty — full in-app play/deposit/withdraw flows are winning, but fake-bot impersonation is now a real trust friction.",
     "🎰 Jun 15: Rollbit still has a product edge via early-access studio drops (Hacksaw OpenRGS, Peter & Sons, Bullshark, NowNow) — exclusive content remains a retention moat.",
     "🎟️ Jun 15: Roobet's current front-end offer stack centers on $100K weekly raffle/cash drops — always-on prize cadence is still a core conversion/retention play.",
@@ -1252,6 +1257,16 @@
   ],
   "actionItems": [
     {
+      "item": "Design an XTP trust dashboard with visible payout proof, fairness metrics, and anti-scam onboarding cues.",
+      "owner": "Brandon",
+      "due": "2026-06-23"
+    },
+    {
+      "item": "Prototype an XTP prediction layer for World Cup + crypto narratives so users can move from sportsbook interest into event/price predictions without leaving the ecosystem.",
+      "owner": "Brandon",
+      "due": "2026-06-20"
+    },
+    {
       "item": "Spec a Telegram trust funnel: official-bot verification, anti-impersonation UX, and fast in-app VIP onboarding.",
       "owner": "Brandon",
       "due": "2026-06-22"
@@ -1538,6 +1553,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 17] XTP should position around convergence + trust: prediction markets, sportsbook and casino in one loop, with stronger transparency than grey-market competitors.",
     "Jun 15: Competitors are converging on always-on rewards + event-driven prize moments + trust signaling. XTP should package those as one VIP growth system.",
     "Jun 12: FairGambling.com validates on-chain analytics as differentiator — XTP should consider data transparency angle in VIP pitch to counter pure bonus-matching competitors",
     "[Jun 8] Token economy model (Shuffle/Rollbit-style) confirmed as 2026 industry standard — XTP must take a position: adopt, partner, or explicitly counter-position",
