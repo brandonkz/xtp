@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-19T05:23:06.201Z",
+  "lastUpdated": "2026-06-24T05:24:11.340Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🤖 Jun 24: SCCG is pushing AI betting analytics into operator and affiliate distribution — smarter prediction tooling is moving closer to the front end.",
+    "⚖️ Jun 24: Curaçao trust language is shifting toward direct OGL license verification, meaning visible licensing proof is becoming a conversion asset.",
+    "📱 Jun 24: Telegram casinos are now being judged on full in-chat deposit/play/withdraw UX — mini-app flow has moved from novelty to expected funnel.",
+    "🎰 Jun 24: Roobet appears to have added Endorphina content, reinforcing that fresh game supply is still a retention lever for mature crypto-native brands.",
+    "📰 Jun 24: Stake is reportedly preparing a Mexico launch ahead of the 2026 World Cup — signal that LATAM localization is now worth direct market-entry spend.",
     "⚖️ Jun 19: MGA’s June 17 AMLA notice points to tighter ongoing monitoring expectations — crypto-gambling growth is getting more surveillance-heavy, not less.",
     "📱 Jun 19: Telegram casino UX has gone mainstream — top operators now market full in-chat signup, deposit, play, and withdrawal flows as the default experience.",
     "🎯 Jun 19: Rollbit’s k World Cup tournament rewards winning combo bets via Turnover x Odds — gamified sportsbook behavior is still a live edge.",
@@ -1262,6 +1267,16 @@
   ],
   "actionItems": [
     {
+      "item": "Draft an XTP LATAM trust wedge: Mexico-ready sportsbook messaging, direct license-proof UX, and creator/affiliate hooks for mobile-first traffic.",
+      "owner": "Brandon",
+      "due": "2026-06-28"
+    },
+    {
+      "item": "Prototype an XTP Telegram-first funnel with bot verification, wallet connect, and in-chat deposit/play/withdraw benchmarks.",
+      "owner": "Brandon",
+      "due": "2026-06-27"
+    },
+    {
       "item": "Scope an XTP Telegram-native funnel with visible compliance/trust rails: pre-deposit jurisdiction warning, payout proof, and simple escalation flow.",
       "owner": "Brandon",
       "due": "2026-06-26"
@@ -1568,6 +1583,7 @@
     }
   ],
   "decisionsLog": [
+    "Jun 24: XTP should treat Telegram-native UX plus visible trust proof as the wedge to test next, instead of copying generic bonus-led casino homepages.",
     "Jun 19: XTP should not compete as another bonus casino; the opening is Telegram-native speed plus visibly stronger trust/compliance UX, wrapped around event-led promotions.",
     "[Jun 17] XTP should position around convergence + trust: prediction markets, sportsbook and casino in one loop, with stronger transparency than grey-market competitors.",
     "Jun 15: Competitors are converging on always-on rewards + event-driven prize moments + trust signaling. XTP should package those as one VIP growth system.",
