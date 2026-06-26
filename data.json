@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-24T05:24:11.340Z",
+  "lastUpdated": "2026-06-26T05:24:55.907Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🎰 Jun 26: Roobet appears to be adding Endorphina content, reinforcing that incumbents still market fresh game supply as momentum.",
+    "🎯 Jun 26: Fresh player chatter suggests Stake, Shuffle, Rainbet, and peers are perceived as having the same core game inventory, pushing differentiation toward trust, speed, and rewards.",
+    "📱 Jun 26: Telegram casino coverage now treats in-chat sign-up, deposit, play, and withdraw as baseline UX, not a novelty feature.",
+    "⚖️ Jun 26: Curacao's new crypto rules now require wallet screening, mixer bans, segregated wallets, and stablecoin-first controls, with full compliance due by June 2027.",
+    "📰 Jun 26: DappRadar live rankings show Stake still dominating crypto-casino volume with $19.97M 24h deposits and 34.4k active wallets; Roobet, Shuffle, and Rainbet form the next tier while Yeet remains far smaller.",
     "🤖 Jun 24: SCCG is pushing AI betting analytics into operator and affiliate distribution — smarter prediction tooling is moving closer to the front end.",
     "⚖️ Jun 24: Curaçao trust language is shifting toward direct OGL license verification, meaning visible licensing proof is becoming a conversion asset.",
     "📱 Jun 24: Telegram casinos are now being judged on full in-chat deposit/play/withdraw UX — mini-app flow has moved from novelty to expected funnel.",
@@ -1267,6 +1272,16 @@
   ],
   "actionItems": [
     {
+      "item": "Prototype a Telegram-native onboarding concept with wallet-risk language that fits the new Curacao compliance climate.",
+      "owner": "Brandon",
+      "due": "2026-06-30"
+    },
+    {
+      "item": "Benchmark XTP against Stake, Roobet, and Shuffle on first-session flow, payout proof, and trust surfaces instead of raw game count.",
+      "owner": "Brandon",
+      "due": "2026-06-27"
+    },
+    {
       "item": "Draft an XTP LATAM trust wedge: Mexico-ready sportsbook messaging, direct license-proof UX, and creator/affiliate hooks for mobile-first traffic.",
       "owner": "Brandon",
       "due": "2026-06-28"
@@ -1583,6 +1598,7 @@
     }
   ],
   "decisionsLog": [
+    "Jun 26: XTP should position around Telegram-native speed, cash-out trust, and visible compliance hygiene instead of generic largest-game-library claims.",
     "Jun 24: XTP should treat Telegram-native UX plus visible trust proof as the wedge to test next, instead of copying generic bonus-led casino homepages.",
     "Jun 19: XTP should not compete as another bonus casino; the opening is Telegram-native speed plus visibly stronger trust/compliance UX, wrapped around event-led promotions.",
     "[Jun 17] XTP should position around convergence + trust: prediction markets, sportsbook and casino in one loop, with stronger transparency than grey-market competitors.",
