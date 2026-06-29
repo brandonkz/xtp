@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-26T05:24:55.907Z",
+  "lastUpdated": "2026-06-29T05:25:00.200Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "🪙 Jun 29: Current market coverage keeps framing Stake, BC.Game, Rollbit, and Shuffle around tokenized VIP, staking, and rewards mechanics rather than plain bonus-copy.",
+    "📲 Jun 29: Telegram casinos are now being marketed as a standard category with one-click signup, in-app play, and crypto payouts, signaling that chat-native onboarding is becoming baseline.",
+    "🏆 Jun 29: Stake.us launched a World Cup-timed World KO poker series with $1M+ guaranteed prizes, reinforcing event-led retention as a core growth play.",
+    "⚽ Jun 29: Winna became an official regional sponsor of Argentina's national football team, showing crypto-casino brands are still buying mainstream sports legitimacy ahead of the World Cup.",
+    "📰 Jun 29: DappRadar live rankings show Stake still dominating on-chain casino volume at $19.97M 24h deposits and 34.4k active wallets; Roobet and Shuffle remain the nearest branded challengers while Yeet sits far behind at $301.97k.",
     "🎰 Jun 26: Roobet appears to be adding Endorphina content, reinforcing that incumbents still market fresh game supply as momentum.",
     "🎯 Jun 26: Fresh player chatter suggests Stake, Shuffle, Rainbet, and peers are perceived as having the same core game inventory, pushing differentiation toward trust, speed, and rewards.",
     "📱 Jun 26: Telegram casino coverage now treats in-chat sign-up, deposit, play, and withdraw as baseline UX, not a novelty feature.",
@@ -1272,6 +1277,16 @@
   ],
   "actionItems": [
     {
+      "item": "Draft an XTP rewards concept that borrows crypto-style status mechanics like staking tiers, token-gated perks, or visible progression without overcomplicating the funnel.",
+      "owner": "Brandon",
+      "due": "2026-07-03"
+    },
+    {
+      "item": "Audit whether XTP can hijack major sports/cultural moments with lighter-weight tournament or leaderboard campaigns instead of expensive sponsorship buys.",
+      "owner": "Brandon",
+      "due": "2026-07-02"
+    },
+    {
       "item": "Prototype a Telegram-native onboarding concept with wallet-risk language that fits the new Curacao compliance climate.",
       "owner": "Brandon",
       "due": "2026-06-30"
@@ -1598,6 +1613,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jun 29] XTP should prioritize Telegram-native onboarding + event-led campaigns + visible cash-out trust, not generic game-count positioning.",
     "Jun 26: XTP should position around Telegram-native speed, cash-out trust, and visible compliance hygiene instead of generic largest-game-library claims.",
     "Jun 24: XTP should treat Telegram-native UX plus visible trust proof as the wedge to test next, instead of copying generic bonus-led casino homepages.",
     "Jun 19: XTP should not compete as another bonus casino; the opening is Telegram-native speed plus visibly stronger trust/compliance UX, wrapped around event-led promotions.",
