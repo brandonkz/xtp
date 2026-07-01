@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-06-29T05:25:00.200Z",
+  "lastUpdated": "2026-07-01T05:23:30.323Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,10 @@
     }
   ],
   "activityFeed": [
+    "📰 Jul 1: 21.com launched as a combined crypto casino and sportsbook, positioning around speed, clarity, and low-friction crypto betting instead of generic game-count copy.",
+    "📣 Jul 1: Rollbit is still using social-led promo distribution during the World Cup cycle, including daily X follower coupon drops and recurring community events to blend acquisition with retention.",
+    "📲 Jul 1: Telegram casinos are now being treated across gambling media as a standard category built on bots, mini apps, one-tap onboarding, and crypto payouts.",
+    "⚖️ Jul 1: Maine's online casino rollout keeps moving toward first launches, reinforcing that licensed-market trust expectations are rising even while crypto brands still win on speed.",
     "🪙 Jun 29: Current market coverage keeps framing Stake, BC.Game, Rollbit, and Shuffle around tokenized VIP, staking, and rewards mechanics rather than plain bonus-copy.",
     "📲 Jun 29: Telegram casinos are now being marketed as a standard category with one-click signup, in-app play, and crypto payouts, signaling that chat-native onboarding is becoming baseline.",
     "🏆 Jun 29: Stake.us launched a World Cup-timed World KO poker series with $1M+ guaranteed prizes, reinforcing event-led retention as a core growth play.",
@@ -1277,6 +1281,16 @@
   ],
   "actionItems": [
     {
+      "item": "Design a creator-distributed promo mechanic for XTP modeled on social coupon drops and event-timed challenges rather than expensive sponsorships.",
+      "owner": "Brandon",
+      "due": "2026-07-05"
+    },
+    {
+      "item": "Draft an XTP Telegram mini-app flow that gets a user from click to first bet in under 60 seconds, with trust copy designed for crypto-first traffic.",
+      "owner": "Brandon",
+      "due": "2026-07-04"
+    },
+    {
       "item": "Draft an XTP rewards concept that borrows crypto-style status mechanics like staking tiers, token-gated perks, or visible progression without overcomplicating the funnel.",
       "owner": "Brandon",
       "due": "2026-07-03"
@@ -1613,6 +1627,7 @@
     }
   ],
   "decisionsLog": [
+    "[Jul 1] XTP should double down on chat-native onboarding + social-code distribution + visible payout trust, not broader casino-shelf messaging.",
     "[Jun 29] XTP should prioritize Telegram-native onboarding + event-led campaigns + visible cash-out trust, not generic game-count positioning.",
     "Jun 26: XTP should position around Telegram-native speed, cash-out trust, and visible compliance hygiene instead of generic largest-game-library claims.",
     "Jun 24: XTP should treat Telegram-native UX plus visible trust proof as the wedge to test next, instead of copying generic bonus-led casino homepages.",
