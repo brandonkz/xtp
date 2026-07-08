@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-07-03T05:22:00.947Z",
+  "lastUpdated": "2026-07-08T05:25:19.160Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "📲 Jul 8: Telegram casinos are now being covered as a mainstream category built around one-click onboarding, in-app play, and crypto payouts.",
+    "📣 Jul 8: Fresh signals point to Roobet using creator distribution again, with Lacy tied to a new gambling-stream partnership push.",
+    "🎮 Jul 8: Rollbit’s Week 48 Discord schedule shows daily free events and cash prizes running all week — community habit loops are still core retention infrastructure.",
+    "🧠 Jul 8: Vegangster added Citron for on-chain payments plus live rival-casino/player analytics — wallet intelligence is moving into retention tooling.",
+    "📰 Jul 8: Kerma Games entered crypto casino via Dustbit, with first rollout built around celebrity-linked title Snoop Olympus — branded content is still a live acquisition lever.",
     "📱 Jul 3: Mobile-first casino platform development + cloud gaming accelerating — operators targeting crypto audiences prioritizing blockchain-ready game dev as core growth strategy",
     "📰 Jul 3: Anjouan licensing emerging as Curaçao alternative for crypto-first operators wanting lighter offshore regulation with a real legal wrapper",
     "🤖 Jul 3: AI-driven personalization (adaptive gameplay, dynamic difficulty, real-time bonusing) shifting from edge to table stakes — majors investing now, will be standard by end of 2026",
@@ -1286,6 +1291,16 @@
   ],
   "actionItems": [
     {
+      "item": "Review whether XTP needs a Citron-style wallet-intel layer for VIP winback before competitors normalize real-time off-platform alerts.",
+      "owner": "Brandon",
+      "due": "2026-07-15"
+    },
+    {
+      "item": "Spec an XTP Telegram-native acquisition funnel: landing flow, waitlist hook, and first-deposit mechanic.",
+      "owner": "Brandon",
+      "due": "2026-07-12"
+    },
+    {
       "item": "Audit XTP crypto compliance posture against new CGA rulebook — no mixer deposits, wallet screening in place? Get ahead of Jun 2027 deadline while competitors scramble",
       "owner": "Brandon",
       "due": "Jul 2026"
@@ -1637,6 +1652,7 @@
     }
   ],
   "decisionsLog": [
+    "Jul 8: Growth edge is shifting from static bonus offers toward distribution + data loops: creators, community habit loops, Telegram onboarding, and wallet-level retention intelligence.",
     "[Jul 3] CGA crypto crackdown is an XTP trust opportunity — operators that visibly comply early (no mixers, wallet screening, transparent policies) will have SEO + credibility edge over late movers",
     "[Jul 1] XTP should double down on chat-native onboarding + social-code distribution + visible payout trust, not broader casino-shelf messaging.",
     "[Jun 29] XTP should prioritize Telegram-native onboarding + event-led campaigns + visible cash-out trust, not generic game-count positioning.",
