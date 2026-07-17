@@ -1,6 +1,6 @@
 {
   "startDate": "2026-03-15",
-  "lastUpdated": "2026-07-15T05:24:24.204Z",
+  "lastUpdated": "2026-07-17T05:23:47.169Z",
   "kpis": [
     {
       "label": "Total Reach",
@@ -83,6 +83,11 @@
     }
   ],
   "activityFeed": [
+    "⚖️ Jul 17: UK opened an 8-week consultation to ban unlicensed gambling sponsorships; physical ads could become a criminal offense from Aug 2027, directly threatening Stake’s new Everton sleeve deal.",
+    "📰 Jul 17: Stake is now the clearest live example of sponsorship-regulatory risk in crypto casino growth, with UK ministers explicitly citing VPN access and money-laundering concerns around offshore operators.",
+    "🏝️ Jul 17: Curaçao’s Gaming Authority issued new wind-down rules: revoked or rejected operators must stop gambling activity immediately, document closure plans, and can be pursued with foreign authorities over unpaid player claims.",
+    "💸 Jul 17: Fresh iGaming analysis says payment speed is becoming the main retention battleground; instant deposits/withdrawals are now a core product moat, not just a payments feature.",
+    "📲 Jul 17: Telegram casino coverage is getting more specific: mini-app leaders are winning on username-only signup, sub-5-minute crypto withdrawals, and provably fair originals rather than generic bonus copy.",
     "🇳🇴 Jul 15: Norway's tighter deposit limits are pushing users offshore, with crypto increasingly used as a workaround and operators localizing for Norway.",
     "⚖️ Jul 15: Gibraltar's standalone prediction-market framework permits digital assets/stablecoins for accounts, collateral, settlement, and withdrawals under AML oversight.",
     "📱 Jul 15: Setanta Bet launched GR8_TECH's sportsbook iFrame — media-to-betting funnels now bundle AI recommendations, CRM, and mobile-first personalization.",
@@ -1296,6 +1301,16 @@
   ],
   "actionItems": [
     {
+      "item": "Audit XTP’s sponsorship and creator-distribution plans against UK-style unlicensed-ad restrictions before more sports-facing spend.",
+      "owner": "Brandon",
+      "due": "2026-07-22"
+    },
+    {
+      "item": "Prioritize instant-withdrawal + chat-native UX benchmarks against Telegram-first competitors (LuckyRollers, BetPanda, CoinCasino, BC.Game).",
+      "owner": "Brandon",
+      "due": "2026-07-24"
+    },
+    {
       "item": "Prioritize originals/crash/plinko positioning against slot-heavy competitor messaging in XTP acquisition copy.",
       "owner": "Brandon",
       "due": "2026-07-22"
@@ -1667,6 +1682,7 @@
     }
   ],
   "decisionsLog": [
+    "Jul 17: Compete on speed + chat-native conversion, but keep brand growth away from sponsorship surfaces most exposed to UK-style offshore gambling crackdowns.",
     "Jul 15: Messaging surfaces plus first-party intent capture should be watched as a near-term XTP growth wedge.",
     "Jul 8: Growth edge is shifting from static bonus offers toward distribution + data loops: creators, community habit loops, Telegram onboarding, and wallet-level retention intelligence.",
     "[Jul 3] CGA crypto crackdown is an XTP trust opportunity — operators that visibly comply early (no mixers, wallet screening, transparent policies) will have SEO + credibility edge over late movers",
